@@ -1,0 +1,303 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════════════
+   NEXAGENT DESIGN SYSTEM — CSS CUSTOM PROPERTIES
+   Canonical color token layer. All components should reference these
+   variables via Tailwind utility classes (nx-bg, nx-teal, etc.)
+   never raw hex literals.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Core Background & Surface ────────────────────────────────────── */
+  --nx-bg:           #F7F7F5;  /* Warm off-white — page background */
+  --nx-surface:      #FFFFFF;  /* Pure white — elevated surfaces, cards */
+  --nx-surface-alt:  #F0EFEA;  /* Slightly warm — footer, code blocks */
+
+  /* ── Text ─────────────────────────────────────────────────────────── */
+  --nx-text:           #17191A;  /* Primary graphite — headings, body */
+  --nx-text-2:         #2E3133;  /* Slightly lighter graphite */
+  --nx-text-secondary: #57595B;  /* Secondary — supporting copy */
+  --nx-text-muted:     #84888A;  /* Muted — captions, metadata, placeholder */
+
+  /* ── Brand Accents ────────────────────────────────────────────────── */
+  --nx-teal:       #3D9D99;  /* NexAgent primary teal */
+  --nx-teal-light: rgba(61, 157, 153, 0.10);  /* Teal tint — badges, highlights */
+  --nx-champagne:  #D7CBB8;  /* Warm metallic accent */
+  --nx-silver:     #BDC9C7;  /* Cool metallic — borders, dividers */
+
+  /* ── Borders ──────────────────────────────────────────────────────── */
+  --nx-border:        rgba(23, 25, 26, 0.10);  /* Subtle default border */
+  --nx-border-strong: rgba(23, 25, 26, 0.25);  /* Active/hover border */
+
+  /* ── Semantic Status ──────────────────────────────────────────────── */
+  --nx-error:   #B91C1C;
+  --nx-success: #15803D;
+  --nx-warning: #B45309;
+
+  /* ── Motion ───────────────────────────────────────────────────────── */
+  --motion-fast:     150ms;
+  --motion-standard: 250ms;
+  --motion-slow:     400ms;
+  --easing-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --easing-emphasis: cubic-bezier(0.16, 1, 0.3, 1);
+  --easing-enter:    cubic-bezier(0.0, 0.0, 0.2, 1);
+  --easing-exit:     cubic-bezier(0.4, 0.0, 1, 1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BASE RESETS & DEFAULTS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--nx-bg);
+    color: var(--nx-text);
+  }
+
+  body {
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Remove default margin-collapse issues around main */
+  main > :first-child { margin-top: 0 !important; }
+  main > :last-child  { margin-bottom: 0 !important; }
+
+  /* Consistent box-sizing */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FOCUS SYSTEM
+   Consistent accessible focus ring across all interactive elements.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:focus-visible {
+  outline: 2px solid var(--nx-teal) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
+}
+
+/* Remove outline from non-keyboard focus (mouse clicks) */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   REDUCED MOTION SYSTEM
+   Surgical suppression — decorative motion is disabled, but layout
+   transitions and content visibility are preserved.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Kill decorative animations */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Preserve layout transitions that affect readability */
+  .nx-layout-transition {
+    transition-duration: 0.15s !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SCROLLBAR SYSTEM
+   Thin, branded, consistent across webkit browsers.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nx-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nx-silver);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nx-text-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SELECTION COLORS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+::selection {
+  background-color: rgba(61, 157, 153, 0.18);
+  color: var(--nx-text);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ICON SYSTEM — Material Symbols Outlined
+   Single icon library. Do not import additional icon sets.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+  vertical-align: middle;
+  /* Prevent icon from being selected */
+  user-select: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TECHNICAL GRID BACKGROUND
+   Subtle dot-grid used sparingly on hero sections only.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.tech-grid {
+  background-image: radial-gradient(var(--nx-silver) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LINK SYSTEM
+   Standardized link behavior. Avoid inventing new link styles per-page.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Inline editorial links — used within body copy */
+.nx-link-inline {
+  color: var(--nx-teal);
+  text-decoration: underline;
+  text-decoration-color: rgba(61, 157, 153, 0.4);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--motion-standard) var(--easing-standard);
+}
+.nx-link-inline:hover {
+  text-decoration-color: var(--nx-teal);
+}
+
+/* Navigation links — no underline by default */
+.nx-link-nav {
+  color: var(--nx-text-secondary);
+  text-decoration: none;
+  transition: color var(--motion-fast) var(--easing-standard);
+}
+.nx-link-nav:hover {
+  color: var(--nx-text);
+}
+
+/* Footer links */
+.nx-link-footer {
+  color: var(--nx-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color var(--motion-fast) var(--easing-standard);
+}
+.nx-link-footer:hover {
+  color: var(--nx-text);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PROSE / LONG-FORM READING
+   Applied to insight articles and content deep-dives.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.nx-prose {
+  max-width: 68ch;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--nx-text-secondary);
+}
+
+.nx-prose h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--nx-text);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.nx-prose h3 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--nx-text);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.nx-prose p {
+  margin-bottom: 1.25rem;
+}
+
+.nx-prose ul, .nx-prose ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.nx-prose li {
+  margin-bottom: 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   UTILITY CLASSES
+   Intentional one-off utilities that shouldn't live in components.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Visually hidden but accessible to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: fixed;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Prevent layout shift from scrollbar appearing */
+.nx-stable-gutter {
+  scrollbar-gutter: stable;
+}

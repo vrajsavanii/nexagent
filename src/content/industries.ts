@@ -1,0 +1,208 @@
+import { IndustryItem } from './types';
+
+export const industries: IndustryItem[] = [
+  {
+    id: 'ind-healthcare',
+    slug: 'healthcare',
+    name: 'Healthcare & Clinical Life Sciences',
+    overview: 'NexAgent engineers sovereign clinical AI infrastructure and ambient documentation runtimes for hospital networks, surgical centers, and diagnostic groups. All architectures are engineered with zero-data-egress guarantees, local FHIR standard interoperability, and strict HIPAA enclaves.',
+    operationalChallenges: [
+      'Clinicians spend 2–3 hours per clinical shift updating electronic health records, resulting in severe burnout and reduced patient face-time.',
+      'Prior authorization and insurance claims verification take days, leading to treatment delays and high denial rates.',
+      'Siloed patient health records across regional healthcare networks prevent holistic diagnostic reviews.',
+      'Public cloud APIs create severe patient privacy and data compliance liabilities.',
+    ],
+    automationOpportunities: [
+      'Ambient acoustic clinical note generation during doctor-patient encounters.',
+      'Automated prior authorization packet synthesis with clinical guideline citations.',
+      'Real-time lab result triage and abnormal value alerting to attending physicians.',
+      'Bi-directional FHIR clinical chart updates into Epic and Cerner systems.',
+    ],
+    aiOpportunities: [
+      'Multi-modal diagnostic report cross-referencing against clinical history.',
+      'Specialized medical ontology translation (SNOMED-CT, ICD-10-CM, LOINC).',
+      'Clinical trial protocol matching against anonymized patient demographics.',
+    ],
+    exampleWorkflows: [
+      {
+        title: 'Ambient Doctor-Patient Consultation',
+        flow: 'Spoken dialogue -> Ambient noise gating -> Clinical entity parser -> FHIR-compliant SOAP note -> Physician one-click signature -> Direct EHR sync.',
+        outcome: 'Reduces clinician documentation burden by up to 70% while improving billing code accuracy.',
+      },
+      {
+        title: 'Automated Prior Authorization Adjudication',
+        flow: 'Physician treatment order -> Clinical chart extraction -> Insurer rule engine evaluation -> Automated dossier submission -> Real-time approval tracking.',
+        outcome: 'Compresses prior authorization cycle from 5 business days to under 4 hours.',
+      },
+    ],
+    technologyApplications: [
+      'Sovereign on-premise Model-010 inference runtimes with hardware-encrypted enclaves.',
+      'Distributed sub-180ms voice transcription and acoustic separation models.',
+      'Cryptographically attested audit logs for regulatory medical record preservation.',
+    ],
+    solutions: ['documentation-automation', 'business-automation'],
+    relatedCaseStudies: ['autonomous-claims-orchestration'],
+    relatedInsights: ['sovereign-cloud-gpu-enclaves', 'autonomous-operating-systems-enterprise'],
+    status: 'PUBLISHED',
+    readiness: 'ACTIVE',
+    ctaText: 'Explore Healthcare Architecture',
+    seo: {
+      title: 'Healthcare AI Architecture & Ambient Clinical Automation | NexAgent Industries',
+      description: 'Sovereign healthcare AI systems: ambient clinical documentation, automated prior authorization, and FHIR-compliant EHR integration.',
+      canonicalUrl: 'https://nexagent.group/industries/healthcare',
+    },
+  },
+  {
+    id: 'ind-hospitality',
+    slug: 'hospitality',
+    name: 'Hospitality & Luxury Guest Experience',
+    overview: 'NexAgent develops high-concurrency reservation meshes and ultra-low latency voice concierge systems for global luxury hotel brands, resort portfolios, and premium aviation operators. The system unifies property management systems (PMS) with natural conversational turn-taking.',
+    operationalChallenges: [
+      'Peak seasonal call volumes overwhelm call centers, leading to 25%+ abandoned calls and lost reservation revenues.',
+      'High seasonal staff turnover results in inconsistent guest service standards and training costs.',
+      'Legacy PMS platforms are disconnected from food & beverage, spa, and transportation reservation engines.',
+      'Guests expect instantaneous 24/7 multilingual room service and concierge assistance.',
+    ],
+    automationOpportunities: [
+      'Sub-180ms conversational voice agents handling direct phone room bookings.',
+      'Instant in-room voice concierge answering property questions, requesting amenities, and booking spa appointments.',
+      'Automated folio reconciliation and payment processing across multiple property outlets.',
+      'Dynamic VIP guest preference logging and room environment personalization.',
+    ],
+    aiOpportunities: [
+      'Real-time multilingual voice translation across 40+ languages with zero accent distortion.',
+      'Conversational room upselling and personalized package recommendations during booking calls.',
+      'Sentiment-aware guest escalation routing to on-duty general managers.',
+    ],
+    exampleWorkflows: [
+      {
+        title: 'Voice Reservation & Real-Time Booking',
+        flow: 'Guest telephone call -> WebRTC edge ingress -> Sub-180ms voice runtime -> PMS room availability query -> Payment card tokenization -> SMS/Email confirmation.',
+        outcome: 'Zero wait times during peak booking surges, capturing 100% of direct reservation inquiries.',
+      },
+      {
+        title: 'Ambient Guest Concierge & Amenity Request',
+        flow: 'In-room request -> Acoustic noise cancellation -> Intent classification -> Housekeeping ticket dispatch -> Automated delivery notification.',
+        outcome: 'Sub-60 second ticket dispatch directly to mobile housekeeping staff.',
+      },
+    ],
+    technologyApplications: [
+      'Edge WebRTC media mesh with global points of presence for zero-jitter voice.',
+      'Model-010 reasoning engine querying PMS inventory and dynamic pricing tables.',
+      'Two-phase commit transaction manager booking rooms with zero double-allocation risk.',
+    ],
+    solutions: ['sales-automation', 'business-automation'],
+    relatedCaseStudies: ['distributed-guest-voice-mesh'],
+    relatedInsights: ['sub-200ms-voice-ai-pipeline'],
+    status: 'PUBLISHED',
+    readiness: 'ACTIVE',
+    ctaText: 'Explore Hospitality Voice Mesh',
+    seo: {
+      title: 'Hospitality Voice AI & Autonomous Guest Operations | NexAgent Industries',
+      description: 'Conversational voice reservation systems, sub-180ms concierge agents, and PMS-integrated autonomous hotel operations.',
+      canonicalUrl: 'https://nexagent.group/industries/hospitality',
+    },
+  },
+  {
+    id: 'ind-b2b-sales',
+    slug: 'b2b-sales',
+    name: 'B2B Enterprise Commerce & Professional Services',
+    overview: 'NexAgent engineers autonomous revenue platforms and workflow pipelines for B2B enterprises, consulting partnerships, and complex technology vendors. Systems coordinate target account enrichment, meeting synthesis, and multi-system contract reconciliation.',
+    operationalChallenges: [
+      'Complex enterprise sales cycles involve 6–10 stakeholders with disparate technical and commercial requirements.',
+      'Account executives lose valuable momentum spending hours researching prospects and updating Salesforce fields.',
+      'Handoffs between Sales, Solutions Engineering, and Customer Success lose critical implementation context.',
+      'Contract redlining and legal security questionnaire completion bottleneck quarterly deal closures.',
+    ],
+    automationOpportunities: [
+      'Autonomous prospect dossier compilation before every scheduled executive call.',
+      'Real-time meeting intelligence with automated CRM opportunity stage updates.',
+      'Instant security questionnaire (SOC 2, ISO 27001) drafting using verified company knowledge bases.',
+      'Automated technical proof-of-value environment provisioning for enterprise buyers.',
+    ],
+    aiOpportunities: [
+      'Deep organizational relationship mapping identifying executive champions.',
+      'Conversational proposal generation tailored to buyer compliance and latency criteria.',
+      'Predictive pipeline risk scoring based on stakeholder engagement frequencies.',
+    ],
+    exampleWorkflows: [
+      {
+        title: 'Post-Call Revenue Synchronization',
+        flow: 'Executive call concludes -> Audio transcript ingestion -> Objection & action item parsing -> CRM field update -> Custom technical proposal drafted -> Executive review.',
+        outcome: 'Reduces post-call administrative overhead to under 3 minutes while keeping pipeline data 100% accurate.',
+      },
+      {
+        title: 'Automated Vendor Security Review Adjudication',
+        flow: '200-question enterprise questionnaire received -> Semantic question indexing -> Approved security vector retrieval -> Formatted document compilation -> CISO review.',
+        outcome: 'Compresses security review turnarounds from 2 weeks to 24 hours.',
+      },
+    ],
+    technologyApplications: [
+      'Model-010 sparse mixture-of-experts model for high-precision technical text parsing.',
+      'Event-mesh connector synchronizing Salesforce, Slack, Gong, and Google Workspace.',
+      'Cryptographic verification verifying proposal pricing tiers against authorized rate sheets.',
+    ],
+    solutions: ['sales-automation', 'crm-systems', 'business-automation'],
+    relatedCaseStudies: ['global-treasury-reconciliation'],
+    relatedInsights: ['deterministic-agent-consensus-patterns', 'autonomous-operating-systems-enterprise'],
+    status: 'PUBLISHED',
+    readiness: 'ACTIVE',
+    ctaText: 'Transform B2B Operations',
+    seo: {
+      title: 'B2B Enterprise Commerce & Sales Operations AI | NexAgent Industries',
+      description: 'Autonomous revenue engines, meeting intelligence, and CRM state reconciliation for high-value B2B enterprise sales organizations.',
+      canonicalUrl: 'https://nexagent.group/industries/b2b-sales',
+    },
+  },
+  {
+    id: 'ind-financial-services',
+    slug: 'financial-services',
+    name: 'Financial Services & Capital Markets',
+    overview: 'NexAgent builds sub-second ledger reconciliation, automated regulatory compliance, and private data enclaves for institutional asset managers, private banks, and fintech clearing rails. Engineered with microsecond event queues and air-gapped security.',
+    operationalChallenges: [
+      'Manual multi-currency reconciliation across disparate custodians and liquidity providers causes costly settlement delays.',
+      'Ever-shifting international compliance and AML regulations require continuous transaction surveillance.',
+      'Financial institutions cannot risk exposing proprietary quantitative models or customer account balances to public LLMs.',
+      'Legacy COBOL core banking systems are difficult to integrate with modern customer-facing digital applications.',
+    ],
+    automationOpportunities: [
+      'Autonomous exception detection and transaction resolution across international settlement feeds.',
+      'Continuous anti-money laundering (AML) pattern recognition and suspicious activity report (SAR) generation.',
+      'Automated client onboarding, corporate KYC validation, and beneficial ownership verification.',
+      'Real-time cash position and liquidity aggregation across distributed global accounts.',
+    ],
+    aiOpportunities: [
+      'High-throughput parsing of unstructured financial agreements and ISDA master contracts.',
+      'Algorithmic anomaly detection in high-frequency trading and transaction volumes.',
+      'Contextual executive portfolio analysis and macroeconomic scenario modeling.',
+    ],
+    exampleWorkflows: [
+      {
+        title: 'Autonomous Multi-Custodian Treasury Reconciliation',
+        flow: 'Daily Swift/FIX settlement messages -> Event stream parsing -> Ledger matching engine -> Discrepancy isolation -> Automated adjustment booking.',
+        outcome: 'Achieves 99.4% straight-through processing without human intervention.',
+      },
+      {
+        title: 'Institutional Corporate KYC & Beneficial Ownership Check',
+        flow: 'Corporate incorporation filing -> Document OCR & registry query -> Beneficial ownership chain traversal -> Sanction list match -> Compliance dossier.',
+        outcome: 'Reduces institutional onboarding cycle from 3 weeks to 48 hours.',
+      },
+    ],
+    technologyApplications: [
+      'Bare-metal sovereign GPU enclaves guaranteeing zero memory exposure to external processes.',
+      'High-throughput gRPC event mesh processing up to 100,000 transaction events per second.',
+      'Two-phase commit database connectors enforcing ACID compliance on all accounting movements.',
+    ],
+    solutions: ['business-automation', 'crm-systems'],
+    relatedCaseStudies: ['global-treasury-reconciliation'],
+    relatedInsights: ['sovereign-cloud-gpu-enclaves', 'deterministic-agent-consensus-patterns'],
+    status: 'PUBLISHED',
+    readiness: 'ACTIVE',
+    ctaText: 'Examine Financial Systems',
+    seo: {
+      title: 'Financial Services AI & Ledger Reconciliation | NexAgent Industries',
+      description: 'Sub-second treasury reconciliation, automated AML surveillance, and private sovereign computing for institutional financial infrastructure.',
+      canonicalUrl: 'https://nexagent.group/industries/financial-services',
+    },
+  },
+];
