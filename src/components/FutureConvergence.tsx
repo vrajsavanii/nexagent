@@ -44,9 +44,28 @@ export default function FutureConvergence() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left System Convergence Stack */}
             <div className="lg:col-span-4 space-y-4 order-2 lg:order-1">
-              <span className="font-mono text-[10px] text-white/50 uppercase tracking-wider block">
-                SYNTHESIS ARCHITECTURE
-              </span>
+              <div className="flex items-center gap-3 pb-2 border-b border-white/10">
+                <div className="relative h-11 w-11 flex-shrink-0 flex items-center justify-center">
+                  <NexAgentCore3D
+                    frameless={true}
+                    darkBackground={true}
+                    transparent={true}
+                    showOrbit={false}
+                    showHud={false}
+                    isStatic={true}
+                    systemState="CONVERGENCE"
+                    className="w-full h-full"
+                  />
+                </div>
+                <div>
+                  <span className="font-mono text-[10px] text-[#3D9D99] uppercase tracking-wider block font-semibold">
+                    SYNTHESIS ARCHITECTURE
+                  </span>
+                  <span className="font-mono text-[9px] text-white/50 uppercase tracking-wider block">
+                    Zero-Drift Sovereign State
+                  </span>
+                </div>
+              </div>
               <StaggerContainer delay={0.1} stagger={0.08}>
                 <div className="space-y-3">
                   {convergenceVectors.map((v, i) => (
@@ -73,7 +92,7 @@ export default function FutureConvergence() {
               </StaggerContainer>
             </div>
 
-            {/* Center 3D Core Monogram Visualizer in Dark Mode */}
+            {/* Center 3D Core Monogram Visualizer in Dark Mode (Moving) */}
             <div className="lg:col-span-8 flex flex-col items-center justify-center order-1 lg:order-2">
               <FadeIn direction="up" delay={0.2} className="w-full">
                 <div className="relative w-full h-[440px] sm:h-[500px] flex items-center justify-center">
@@ -86,6 +105,7 @@ export default function FutureConvergence() {
                     darkBackground={true}
                     showOrbit={true}
                     showHud={false}
+                    isStatic={false}
                     autoRotateSpeed={0.55}
                     systemState="CONVERGENCE"
                     expansionLevel={0.2}

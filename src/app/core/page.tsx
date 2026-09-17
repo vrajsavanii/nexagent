@@ -43,11 +43,31 @@ export default function CorePage() {
           {/* Left Editorial Header */}
           <div className="lg:col-span-6 space-y-6">
             <FadeIn direction="up">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="w-2 h-2 rounded-full bg-[#3D9D99] animate-pulse" />
-                <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
-                  Phase 8 // 3D Spatial Computing Engine
-                </span>
+              {/* 3D Monogram (Without Orbit) / Group Identity Node - Static */}
+              <div className="flex items-center gap-4 mb-4">
+                <div className="relative h-14 w-14 sm:h-16 sm:w-16 flex-shrink-0 flex items-center justify-center">
+                  <NexAgentCore3D
+                    frameless={true}
+                    transparent={true}
+                    showOrbit={false}
+                    showHud={false}
+                    isStatic={true}
+                    systemState="IDLE"
+                    className="w-full h-full"
+                  />
+                </div>
+                <div className="h-7 w-[1px] bg-[#17191A]/20"></div>
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#3D9D99] animate-pulse" />
+                    <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+                      Phase 8 // 3D Spatial Computing Engine
+                    </span>
+                  </div>
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#57595B]">
+                    NexAgent Core Identity Node
+                  </span>
+                </div>
               </div>
               <h1 className="font-display text-4xl sm:text-5xl uppercase tracking-tight text-[#17191A] font-medium leading-[1.05]">
                 NEXAGENT CORE //{' '}
@@ -74,7 +94,7 @@ export default function CorePage() {
             </FadeIn>
           </div>
 
-          {/* Right Live 3D Canvas */}
+          {/* Right Live 3D Canvas (Moving) */}
           <div className="lg:col-span-6 flex items-center justify-center">
             <FadeIn direction="left" delay={0.2} className="w-full">
               <div className="relative w-full h-[480px] sm:h-[540px] flex items-center justify-center">
@@ -85,6 +105,7 @@ export default function CorePage() {
                   showOrbit={true}
                   showHud={true}
                   showStateSelector={true}
+                  isStatic={false}
                   autoRotateSpeed={0.65}
                   className="w-full h-full"
                 />

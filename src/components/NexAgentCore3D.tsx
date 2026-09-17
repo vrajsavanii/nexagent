@@ -48,6 +48,7 @@ export interface NexAgentCore3DProps {
   expansionLevel?: number; // 0 (compact) to 1 (expanded)
   systemState?: LegacyOrNewSystemState;
   showStateSelector?: boolean;
+  isStatic?: boolean; // When true: stationary 3D logo with fixed perspective, zero animation/rotation
 }
 
 /**
@@ -105,6 +106,7 @@ export default function NexAgentCore3D({
   expansionLevel = 0,
   systemState = 'IDLE',
   showStateSelector = false,
+  isStatic = false,
 }: NexAgentCore3DProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [wireframe, setWireframe] = useState(false);
@@ -164,7 +166,7 @@ export default function NexAgentCore3D({
     const quality = QUALITY_PROFILES[qualityTier];
 
     const onPointerMove = (e: MouseEvent) => {
-      if (!quality.enableMouseParallax || prefersReducedMotion) return;
+      if (isStatic || !quality.enableMouseParallax || prefersReducedMotion) return;
       const rect = container.getBoundingClientRect();
       if (rect.width <= 0 || rect.height <= 0) return;
       const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
@@ -245,6 +247,12 @@ export default function NexAgentCore3D({
 
     const connectionsGroup = new THREE.Group();
     coreRoot.add(connectionsGroup);
+
+    if (isStatic) {
+      modularSatellitesGroup.visible = false;
+      pathwaysGroup.visible = false;
+      connectionsGroup.visible = false;
+    }
 
     const allMaterials: THREE.Material[] = [];
     const allGeometries: THREE.BufferGeometry[] = [];
@@ -462,6 +470,25 @@ export default function NexAgentCore3D({
         return;
       }
 
+      if (isStatic) {
+        logoGroup.rotation.set(0.04, 0.08, 0);
+        logoGroup.position.set(0, 0, 0);
+        camera.position.set(0, 0, effectiveCamDist);
+        camera.lookAt(0, 0, 0);
+
+        // Wireframe toggle
+        const isWire = wireframeRef.current;
+        if (matNFront.wireframe !== isWire) {
+          matNFront.wireframe = isWire;
+          matChevronFront.wireframe = isWire;
+          matBarFront.wireframe = isWire;
+          sideMaterial.wireframe = isWire;
+        }
+
+        renderer.render(scene, camera);
+        return;
+      }
+
       const delta = clock.getDelta();
       const cState = activeStateRef.current;
       const stateCfg = CORE_STATES[cState] || CORE_STATES.IDLE;
@@ -570,7 +597,7 @@ export default function NexAgentCore3D({
         container.removeChild(canvas);
       }
     };
-  }, [showOrbit, cameraDistance, autoRotateSpeed, darkBackground, showDebug]);
+  }, [showOrbit, cameraDistance, autoRotateSpeed, darkBackground, showDebug, isStatic]);
 
   const isPlainBg = frameless || transparent;
   const currentCfg = CORE_STATES[activeState] || CORE_STATES.IDLE;
@@ -638,7 +665,7 @@ export default function NexAgentCore3D({
       )}
 
       {/* State Selector Pills */}
-      {showStateSelector && !webglFailed && (
+      {showStateSelector && !isStatic && !webglFailed && (
         <div className="absolute top-12 left-4 right-4 flex items-center gap-1.5 overflow-x-auto py-1 z-20 pointer-events-auto">
           {(Object.keys(CORE_STATES) as CoreSystemState[]).map((st) => (
             <button
@@ -657,7 +684,7 @@ export default function NexAgentCore3D({
       )}
 
       {/* Control Dock */}
-      {showHud && !webglFailed && (
+      {showHud && !isStatic && !webglFailed && (
         <div className="absolute bottom-2 right-2 flex items-center gap-2 z-20">
           {process.env.NODE_ENV === 'development' && (
             <button

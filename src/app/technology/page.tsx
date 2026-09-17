@@ -64,8 +64,31 @@ export default function TechnologyPage() {
         <PageContainer>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <FadeIn className="lg:col-span-7 space-y-6">
+              {/* 3D Monogram (Without Orbit) / Group Identity Node - Static */}
+              <div className="flex items-center gap-4">
+                <div className="relative h-14 w-14 sm:h-16 sm:w-16 flex-shrink-0 flex items-center justify-center">
+                  <NexAgentCore3D
+                    frameless={true}
+                    transparent={true}
+                    showOrbit={false}
+                    showHud={false}
+                    isStatic={true}
+                    systemState="PROCESSING"
+                    className="w-full h-full"
+                  />
+                </div>
+                <div className="h-7 w-[1px] bg-outline-variant/50"></div>
+                <div className="flex flex-col">
+                  <span className="font-headline-sm text-headline-sm uppercase tracking-tight text-on-surface font-semibold">
+                    NEXAGENT
+                  </span>
+                  <span className="inline-block px-2.5 py-0.5 bg-primary/10 border border-primary/20 font-mono text-[10px] uppercase tracking-wider text-primary font-semibold w-fit mt-0.5">
+                    ENGINEERING ARCHITECTURE
+                  </span>
+                </div>
+              </div>
+
               <SectionHeader
-                eyebrow="NEXAGENT / ENGINEERING ARCHITECTURE"
                 heading="Engineered For Enterprise Sovereignty & Scale."
                 accentWord="Enterprise Sovereignty & Scale."
                 headingAs="h1"
@@ -92,7 +115,12 @@ export default function TechnologyPage() {
             </FadeIn>
 
             <FadeIn className="lg:col-span-5 h-[420px] w-full" delay={0.15}>
-              <NexAgentCore3D allowFullscreen={true} showHud={true} />
+              <NexAgentCore3D
+                allowFullscreen={true}
+                showHud={true}
+                isStatic={false}
+                autoRotateSpeed={0.65}
+              />
             </FadeIn>
           </div>
         </PageContainer>

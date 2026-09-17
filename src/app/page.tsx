@@ -54,13 +54,13 @@ export default function HomePage() {
                 {/* 3D Monogram (Without Orbit) / Group Identity Node */}
                 <div className="flex items-center gap-4">
                   <div className="relative h-14 w-14 sm:h-16 sm:w-16 flex-shrink-0 flex items-center justify-center">
-                    {/* Live 3D Logo without orbit on plain background */}
+                    {/* Live 3D Logo (Static Monogram) on plain background */}
                     <NexAgentCore3D
                       frameless={true}
                       transparent={true}
                       showOrbit={false}
                       showHud={false}
-                      autoRotateSpeed={0.35}
+                      isStatic={true}
                       systemState="INTELLIGENCE"
                       className="w-full h-full"
                     />
@@ -164,12 +164,13 @@ export default function HomePage() {
                   {/* Subtle radial ambient lighting */}
                   <div className="absolute inset-0 bg-radial-gradient from-primary/10 via-transparent to-transparent pointer-events-none blur-3xl opacity-60"></div>
 
-                  {/* 3D WebGL Monogram on Plain Background with Orbit & Layered Modules */}
+                  {/* 3D WebGL Monogram on Plain Background with Orbit & Layered Modules (Moving) */}
                   <NexAgentCore3D
                     frameless={true}
                     transparent={true}
                     showOrbit={true}
                     showHud={false}
+                    isStatic={false}
                     autoRotateSpeed={0.65}
                     systemState="INTELLIGENCE"
                     expansionLevel={0}
