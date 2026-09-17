@@ -11,7 +11,10 @@ import {
   SPATIAL_COLORS,
 } from '@/lib/3d/spatial-language';
 import {
-  createFrontCoreMaterial,
+  createTextureN,
+  createTextureAChevron,
+  createTextureABar,
+  createNAMonogramGeometries,
   createSideCoreMaterial,
   createSatelliteGlassMaterial,
   createOrbitRingMaterial,
@@ -153,16 +156,13 @@ export default function NexAgentCore3D({
       return;
     }
 
-    // Check user preference for reduced motion
     const prefersReducedMotion =
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Detect device-aware quality tier
     const qualityTier: QualityTier = detectQualityTier();
     const quality = QUALITY_PROFILES[qualityTier];
 
-    // Track mouse with physical inertia (only if tier permits parallax)
     const onPointerMove = (e: MouseEvent) => {
       if (!quality.enableMouseParallax || prefersReducedMotion) return;
       const rect = container.getBoundingClientRect();
@@ -189,7 +189,7 @@ export default function NexAgentCore3D({
 
     function computeOptimalCamDist(a: number, withOrbit: boolean) {
       const tanHalfFov = Math.tan(THREE.MathUtils.degToRad(38 / 2));
-      const targetSpan = withOrbit ? 15.2 * 1.32 : 11.7 * 1.25;
+      const targetSpan = withOrbit ? 14.8 * 1.25 : 11.2 * 1.18;
       const reqH = Math.max(targetSpan, targetSpan / Math.max(a, 0.4));
       return reqH / (2 * tanHalfFov);
     }
@@ -217,14 +217,13 @@ export default function NexAgentCore3D({
     const dpr = typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, quality.maxDpr) : 1;
     renderer.setPixelRatio(dpr);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = darkBackground ? 1.45 : 1.30;
+    renderer.toneMappingExposure = darkBackground ? 1.35 : 1.22;
     renderer.setClearColor(0x000000, 0);
 
     const canvas = renderer.domElement;
     container.innerHTML = '';
     container.appendChild(canvas);
 
-    // Handle WebGL context loss safely
     const onContextLost = (event: Event) => {
       event.preventDefault();
       setWebglFailed(true);
@@ -249,66 +248,63 @@ export default function NexAgentCore3D({
 
     const allMaterials: THREE.Material[] = [];
     const allGeometries: THREE.BufferGeometry[] = [];
+    const allTextures: THREE.Texture[] = [];
 
-    // 1. Texture Generation
-    const texLoader = new THREE.TextureLoader();
-    let logoTexture: THREE.Texture | null = null;
-    try {
-      logoTexture = texLoader.load('/images/logo.jpeg', (tex) => {
-        tex.colorSpace = THREE.SRGBColorSpace;
-        tex.generateMipmaps = true;
-        tex.minFilter = THREE.LinearMipmapLinearFilter;
-        tex.magFilter = THREE.LinearFilter;
-      });
-    } catch {
-      const fallbackCanvas = document.createElement('canvas');
-      fallbackCanvas.width = 512;
-      fallbackCanvas.height = 512;
-      const ctx = fallbackCanvas.getContext('2d');
-      if (ctx) {
-        ctx.fillStyle = '#17191A';
-        ctx.fillRect(0, 0, 512, 512);
-        logoTexture = new THREE.CanvasTexture(fallbackCanvas);
-      }
-    }
-
-    // Geometry definition: Extruded authentic "И" Monogram
-    const shape = new THREE.Shape();
-    shape.moveTo(-3.5, -4.5);
-    shape.lineTo(-3.5, 4.5);
-    shape.lineTo(-1.8, 4.5);
-    shape.lineTo(1.8, -1.2);
-    shape.lineTo(1.8, 4.5);
-    shape.lineTo(3.5, 4.5);
-    shape.lineTo(3.5, -4.5);
-    shape.lineTo(1.8, -4.5);
-    shape.lineTo(-1.8, 1.2);
-    shape.lineTo(-1.8, -4.5);
-    shape.closePath();
-
-    const extrudeSettings: THREE.ExtrudeGeometryOptions = {
-      depth: 0.85,
-      bevelEnabled: qualityTier !== 'LEVEL_4_MOBILE',
-      bevelSegments: qualityTier === 'LEVEL_1_ULTRA' ? 3 : 2,
-      steps: 1,
-      bevelSize: 0.12,
-      bevelThickness: 0.12,
-    };
-
-    const logoGeometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-    logoGeometry.center();
-    allGeometries.push(logoGeometry);
-
-    const frontMaterial = createFrontCoreMaterial(logoTexture);
-    allMaterials.push(frontMaterial);
+    // ========================================================================
+    // AUTHENTIC "NA" MONOGRAM (Matching logo_overlay_test.png)
+    // ========================================================================
+    const texN = createTextureN();
+    const texChevron = createTextureAChevron();
+    const texBar = createTextureABar();
+    allTextures.push(texN, texChevron, texBar);
 
     const sideMaterial = createSideCoreMaterial(darkBackground);
     allMaterials.push(sideMaterial);
 
-    const logoMesh = new THREE.Mesh(logoGeometry, [frontMaterial, sideMaterial]);
-    logoGroup.add(logoMesh);
+    const matNFront = new THREE.MeshPhysicalMaterial({
+      map: texN,
+      roughness: 0.22,
+      metalness: 0.88,
+      clearcoat: 0.45,
+      clearcoatRoughness: 0.12,
+    });
+    allMaterials.push(matNFront);
 
-    // Secondary modular satellites (champagne and teal optical glass)
+    const matChevronFront = new THREE.MeshPhysicalMaterial({
+      map: texChevron,
+      roughness: 0.2,
+      metalness: 0.9,
+      clearcoat: 0.45,
+      clearcoatRoughness: 0.12,
+    });
+    allMaterials.push(matChevronFront);
+
+    const matBarFront = new THREE.MeshPhysicalMaterial({
+      map: texBar,
+      roughness: 0.24,
+      metalness: 0.85,
+      clearcoat: 0.4,
+      clearcoatRoughness: 0.15,
+    });
+    allMaterials.push(matBarFront);
+
+    // Generate precision geometries
+    const { geomN, geomChevron, geomBar } = createNAMonogramGeometries(qualityTier);
+    allGeometries.push(geomN, geomChevron, geomBar);
+
+    const meshN = new THREE.Mesh(geomN, [matNFront, sideMaterial]);
+    const meshChevron = new THREE.Mesh(geomChevron, [matChevronFront, sideMaterial]);
+    const meshBar = new THREE.Mesh(geomBar, [matBarFront, sideMaterial]);
+
+    logoGroup.add(meshN);
+    logoGroup.add(meshChevron);
+    logoGroup.add(meshBar);
+
+    // Initial slight angle facing camera cleanly
+    logoGroup.rotation.y = 0.08;
+    logoGroup.rotation.x = 0.04;
+
+    // Optical transmission satellites (champagne and teal glass)
     const satelliteModules: Array<{
       mesh: THREE.Mesh;
       basePos: THREE.Vector3;
@@ -322,10 +318,10 @@ export default function NexAgentCore3D({
     allMaterials.push(glassMatChampagne);
 
     const satDefs = [
-      { pos: new THREE.Vector3(-4.8, 3.2, -0.4), dir: new THREE.Vector3(-1.2, 0.8, -0.4), mat: glassMatTeal, sz: [0.65, 1.4, 0.5] },
-      { pos: new THREE.Vector3(4.8, -3.2, 0.4), dir: new THREE.Vector3(1.2, -0.8, 0.4), mat: glassMatChampagne, sz: [0.65, 1.4, 0.5] },
-      { pos: new THREE.Vector3(4.2, 3.5, -0.3), dir: new THREE.Vector3(1.0, 0.9, -0.3), mat: glassMatTeal, sz: [0.55, 1.1, 0.45] },
-      { pos: new THREE.Vector3(-4.2, -3.5, 0.3), dir: new THREE.Vector3(-1.0, -0.9, 0.3), mat: glassMatChampagne, sz: [0.55, 1.1, 0.45] },
+      { pos: new THREE.Vector3(-5.2, 3.4, -0.4), dir: new THREE.Vector3(-1.2, 0.8, -0.4), mat: glassMatTeal, sz: [0.65, 1.4, 0.5] },
+      { pos: new THREE.Vector3(5.2, -3.4, 0.4), dir: new THREE.Vector3(1.2, -0.8, 0.4), mat: glassMatChampagne, sz: [0.65, 1.4, 0.5] },
+      { pos: new THREE.Vector3(4.5, 3.6, -0.3), dir: new THREE.Vector3(1.0, 0.9, -0.3), mat: glassMatTeal, sz: [0.55, 1.1, 0.45] },
+      { pos: new THREE.Vector3(-4.5, -3.6, 0.3), dir: new THREE.Vector3(-1.0, -0.9, 0.3), mat: glassMatChampagne, sz: [0.55, 1.1, 0.45] },
     ];
 
     satDefs.forEach((d) => {
@@ -337,7 +333,7 @@ export default function NexAgentCore3D({
       satelliteModules.push({ mesh: m, basePos: d.pos.clone(), expandDir: d.dir.clone() });
     });
 
-    // Radiant dynamic connection lines between Core and Satellites
+    // Radiant connection lines between Core and Satellites
     const connectionLines: THREE.Line[] = [];
     const connectionMat = new THREE.LineBasicMaterial({
       color: SPATIAL_COLORS.TEAL,
@@ -399,20 +395,27 @@ export default function NexAgentCore3D({
       orbitRing2.add(dataNode2);
     }
 
-    // Studio Luminescence
-    const ambientLight = new THREE.AmbientLight(0xffffff, darkBackground ? 1.1 : 1.4);
+    // Studio Lighting Rig matching core3d.js
+    const ambientLight = new THREE.AmbientLight(0xffffff, darkBackground ? 1.0 : 1.25);
     scene.add(ambientLight);
 
-    const keyLight = new THREE.DirectionalLight(0xfff5e8, darkBackground ? 2.4 : 2.8);
-    keyLight.position.set(10, 14, 16);
+    const hemiLight = new THREE.HemisphereLight(0xfffbf5, 0x162d4a, 0.85);
+    scene.add(hemiLight);
+
+    const camLight = new THREE.DirectionalLight(0xffffff, 1.3);
+    camLight.position.set(0, 0, 10);
+    camera.add(camLight);
+
+    const keyLight = new THREE.DirectionalLight(0xfff7ed, darkBackground ? 2.3 : 2.5);
+    keyLight.position.set(10, 12, 10);
     scene.add(keyLight);
 
-    const fillLight = new THREE.DirectionalLight(0xccf0ee, darkBackground ? 1.6 : 1.9);
-    fillLight.position.set(-14, -8, 10);
+    const fillLight = new THREE.DirectionalLight(0xd9f6f4, darkBackground ? 1.4 : 1.6);
+    fillLight.position.set(-10, -8, 8);
     scene.add(fillLight);
 
-    const rimLight = new THREE.DirectionalLight(0xd4af37, darkBackground ? 2.0 : 2.5);
-    rimLight.position.set(0, 16, -14);
+    const rimLight = new THREE.DirectionalLight(0xffffff, darkBackground ? 1.8 : 2.0);
+    rimLight.position.set(0, 8, -12);
     scene.add(rimLight);
 
     // Responsive Resize Handler
@@ -431,7 +434,6 @@ export default function NexAgentCore3D({
     };
     window.addEventListener('resize', onResize, { passive: true });
 
-    // IntersectionObserver to pause rendering when scrolled offscreen
     let isIntersecting = true;
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -441,14 +443,12 @@ export default function NexAgentCore3D({
     );
     observer.observe(container);
 
-    // Tab visibility listener for background tab pause
     let isTabActive = !document.hidden;
     const onVisibilityChange = () => {
       isTabActive = !document.hidden;
     };
     document.addEventListener('visibilitychange', onVisibilityChange);
 
-    // Render loop state
     let animId: number;
     let time = 0;
     const clock = new THREE.Clock();
@@ -458,7 +458,6 @@ export default function NexAgentCore3D({
     const animate = () => {
       animId = requestAnimationFrame(animate);
 
-      // Skip GPU pass if off-screen or tab hidden
       if (!isIntersecting || !isTabActive) {
         return;
       }
@@ -471,24 +470,24 @@ export default function NexAgentCore3D({
         time += delta * autoRotateSpeed * stateCfg.rotationSpeedMultiplier;
       }
 
-      // Smooth mouse interpolation (if enabled)
+      // Smooth mouse interpolation
       const mouse = mousePosRef.current;
       mouse.x += (mouse.targetX - mouse.x) * 0.06;
       mouse.y += (mouse.targetY - mouse.y) * 0.06;
 
-      const baseAngleY = time * 0.75;
-      const baseAngleX = Math.sin(time * 0.45) * 0.12;
-      const floatY = Math.sin(time * 0.9 * stateCfg.pulseFrequency) * 0.15;
+      const baseAngleY = time * 0.65;
+      const baseAngleX = Math.sin(time * 0.35) * 0.1;
+      const floatY = Math.sin(time * 0.85 * stateCfg.pulseFrequency) * 0.12;
 
-      logoGroup.rotation.y = baseAngleY + mouse.x * 0.08;
-      logoGroup.rotation.x = baseAngleX - mouse.y * 0.05;
+      logoGroup.rotation.y = baseAngleY + mouse.x * 0.12;
+      logoGroup.rotation.x = baseAngleX - mouse.y * 0.08;
       logoGroup.position.y = floatY;
 
       camera.position.x = mouse.x * 0.35;
       camera.position.y = mouse.y * 0.25;
       camera.lookAt(0, 0, 0);
 
-      // Smoothly interpolate expansion toward target state configuration
+      // Interpolate satellite expansion
       const targetExp = Math.max(stateCfg.satelliteExpansion, expansionRef.current);
       currentSatelliteExp += (targetExp - currentSatelliteExp) * 0.08;
 
@@ -498,7 +497,6 @@ export default function NexAgentCore3D({
         sat.mesh.position.y = sat.basePos.y + sat.expandDir.y * (currentSatelliteExp * 0.85) + offset;
         sat.mesh.position.z = sat.basePos.z + sat.expandDir.z * (currentSatelliteExp * 0.85);
 
-        // Update connection line endpoints
         if (connectionLines[i]) {
           const lineGeo = connectionLines[i].geometry as THREE.BufferGeometry;
           const posAttr = lineGeo.attributes.position as THREE.BufferAttribute;
@@ -508,15 +506,13 @@ export default function NexAgentCore3D({
         }
       });
 
-      // Radiant connection opacity modulated by active state
       const isBeamActive = cState === 'PROCESSING' || cState === 'ORCHESTRATING' || cState === 'DEPLOYING';
       const targetOpacity = isBeamActive
-        ? (0.2 + 0.15 * Math.sin(time * 3 * stateCfg.pulseFrequency))
+        ? 0.2 + 0.15 * Math.sin(time * 3 * stateCfg.pulseFrequency)
         : 0;
       connectionMat.opacity += (targetOpacity - connectionMat.opacity) * 0.1;
       connectionMat.color.lerp(new THREE.Color(stateCfg.accentColor), 0.05);
 
-      // Dynamic Node color shifting
       if (nodeMat1) {
         nodeMat1.color.lerp(new THREE.Color(stateCfg.accentColor), 0.05);
       }
@@ -524,7 +520,6 @@ export default function NexAgentCore3D({
         nodeMat2.color.lerp(new THREE.Color(stateCfg.secondaryColor), 0.05);
       }
 
-      // Orbit animation with state multipliers
       if (orbitRing1 && dataNode1) {
         orbitRing1.rotation.z = time * 0.2 * stateCfg.orbitSpeedMultiplier;
         const angle1 = time * 0.75 * stateCfg.orbitSpeedMultiplier;
@@ -538,14 +533,15 @@ export default function NexAgentCore3D({
 
       // Wireframe toggle
       const isWire = wireframeRef.current;
-      if (frontMaterial.wireframe !== isWire) {
-        frontMaterial.wireframe = isWire;
+      if (matNFront.wireframe !== isWire) {
+        matNFront.wireframe = isWire;
+        matChevronFront.wireframe = isWire;
+        matBarFront.wireframe = isWire;
         sideMaterial.wireframe = isWire;
       }
 
       renderer.render(scene, camera);
 
-      // Dev debug tracking
       if (process.env.NODE_ENV === 'development' && showDebug) {
         setDebugStats(debugTracker.update(renderer, cState, qualityTier));
       }
@@ -553,7 +549,6 @@ export default function NexAgentCore3D({
 
     animate();
 
-    // Clean disposal
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener('resize', onResize);
@@ -568,7 +563,7 @@ export default function NexAgentCore3D({
         renderer,
         geometries: allGeometries,
         materials: allMaterials,
-        textures: [logoTexture],
+        textures: allTextures,
       });
 
       if (container.contains(canvas)) {
@@ -642,7 +637,7 @@ export default function NexAgentCore3D({
         </div>
       )}
 
-      {/* State Selector Pills (if requested or in Fullscreen) */}
+      {/* State Selector Pills */}
       {showStateSelector && !webglFailed && (
         <div className="absolute top-12 left-4 right-4 flex items-center gap-1.5 overflow-x-auto py-1 z-20 pointer-events-auto">
           {(Object.keys(CORE_STATES) as CoreSystemState[]).map((st) => (
@@ -661,7 +656,7 @@ export default function NexAgentCore3D({
         </div>
       )}
 
-      {/* Subtle Floating Control Dock */}
+      {/* Control Dock */}
       {showHud && !webglFailed && (
         <div className="absolute bottom-2 right-2 flex items-center gap-2 z-20">
           {process.env.NODE_ENV === 'development' && (

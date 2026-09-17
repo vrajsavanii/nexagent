@@ -10,7 +10,10 @@ import {
   SPATIAL_COLORS,
 } from '@/lib/3d/spatial-language';
 import {
-  createFrontCoreMaterial,
+  createTextureN,
+  createTextureAChevron,
+  createTextureABar,
+  createNAMonogramGeometries,
   createSideCoreMaterial,
   createSatelliteGlassMaterial,
   disposeThreeResources,
@@ -230,50 +233,52 @@ export default function ScrollNarrative3D({
     const networkGroup = new THREE.Group();
     rootGroup.add(networkGroup);
 
-    // 1. Texture Generation
-    const texLoader = new THREE.TextureLoader();
-    let logoTexture: THREE.Texture | null = null;
-    try {
-      logoTexture = texLoader.load('/images/logo.jpeg', (tex) => {
-        tex.colorSpace = THREE.SRGBColorSpace;
-      });
-    } catch {
-      // Procedural fallback
-    }
-
-    // 2. Extruded Monogram Geometry
-    const shape = new THREE.Shape();
-    shape.moveTo(-3.5, -4.5);
-    shape.lineTo(-3.5, 4.5);
-    shape.lineTo(-1.8, 4.5);
-    shape.lineTo(1.8, -1.2);
-    shape.lineTo(1.8, 4.5);
-    shape.lineTo(3.5, 4.5);
-    shape.lineTo(3.5, -4.5);
-    shape.lineTo(1.8, -4.5);
-    shape.lineTo(-1.8, 1.2);
-    shape.lineTo(-1.8, -4.5);
-    shape.closePath();
-
-    const logoGeo = new THREE.ExtrudeGeometry(shape, {
-      depth: 0.85,
-      bevelEnabled: true,
-      bevelSegments: 2,
-      steps: 1,
-      bevelSize: 0.12,
-      bevelThickness: 0.12,
-    });
-    logoGeo.center();
-    allGeometries.push(logoGeo);
-
-    const frontMat = createFrontCoreMaterial(logoTexture);
-    allMaterials.push(frontMat);
+    // 1. Procedural Textures & Materials for NA Monogram
+    const texN = createTextureN();
+    const texChevron = createTextureAChevron();
+    const texBar = createTextureABar();
 
     const sideMat = createSideCoreMaterial(false);
     allMaterials.push(sideMat);
 
-    const logoMesh = new THREE.Mesh(logoGeo, [frontMat, sideMat]);
-    coreGroup.add(logoMesh);
+    const matNFront = new THREE.MeshPhysicalMaterial({
+      map: texN,
+      roughness: 0.22,
+      metalness: 0.88,
+      clearcoat: 0.45,
+      clearcoatRoughness: 0.12,
+    });
+    allMaterials.push(matNFront);
+
+    const matChevronFront = new THREE.MeshPhysicalMaterial({
+      map: texChevron,
+      roughness: 0.2,
+      metalness: 0.9,
+      clearcoat: 0.45,
+      clearcoatRoughness: 0.12,
+    });
+    allMaterials.push(matChevronFront);
+
+    const matBarFront = new THREE.MeshPhysicalMaterial({
+      map: texBar,
+      roughness: 0.24,
+      metalness: 0.85,
+      clearcoat: 0.4,
+      clearcoatRoughness: 0.15,
+    });
+    allMaterials.push(matBarFront);
+
+    // 2. Extruded NA Monogram Geometries
+    const { geomN, geomChevron, geomBar } = createNAMonogramGeometries(qualityTier);
+    allGeometries.push(geomN, geomChevron, geomBar);
+
+    const meshN = new THREE.Mesh(geomN, [matNFront, sideMat]);
+    const meshChevron = new THREE.Mesh(geomChevron, [matChevronFront, sideMat]);
+    const meshBar = new THREE.Mesh(geomBar, [matBarFront, sideMat]);
+
+    coreGroup.add(meshN);
+    coreGroup.add(meshChevron);
+    coreGroup.add(meshBar);
 
     // 3. Satellites
     const glassMatTeal = createSatelliteGlassMaterial('teal');
@@ -434,7 +439,7 @@ export default function ScrollNarrative3D({
         renderer,
         geometries: allGeometries,
         materials: allMaterials,
-        textures: [logoTexture],
+        textures: [texN, texChevron, texBar],
       });
 
       if (container.contains(canvas)) {
