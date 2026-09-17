@@ -53,7 +53,8 @@ module.exports = {
         'outline-variant': '#BDC9C7',
         error:             '#B91C1C',
         'on-surface-variant': '#57595B',
-        'primary-container': '#15827E',
+        'on-background':   '#17191A',
+        secondary:         '#3D9D99',
         'inverse-on-surface': '#F7F7F5',
       },
 

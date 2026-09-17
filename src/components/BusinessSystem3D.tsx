@@ -485,7 +485,7 @@ export default function BusinessSystem3D({
               }}
               className={`px-3 py-1 text-[11px] font-mono uppercase tracking-wider rounded transition-all cursor-pointer whitespace-nowrap ${
                 activeNodeIndex === idx
-                  ? 'bg-on-background text-inverse-on-surface font-semibold shadow-xs'
+                  ? 'bg-[#17191A] text-white font-semibold shadow-xs'
                   : 'bg-surface-container-lowest text-outline hover:text-on-surface border border-outline-variant/30'
               }`}
             >

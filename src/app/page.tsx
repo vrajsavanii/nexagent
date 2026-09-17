@@ -99,7 +99,7 @@ export default function HomePage() {
                   <Link
                     href="/book-a-strategy-call"
                     onClick={() => trackEvent('cta_click', { ctaName: 'Book a Strategy Call', ctaLocation: 'hero' })}
-                    className="inline-flex items-center gap-3 bg-on-background text-inverse-on-surface font-label-code text-label-code uppercase tracking-widest px-8 py-4 hover:bg-secondary transition-all shadow-md group"
+                    className="inline-flex items-center gap-3 bg-[#17191A] text-white font-label-code text-label-code uppercase tracking-widest px-8 py-4 hover:bg-[#3D9D99] transition-all shadow-md group"
                   >
                     <span>Book a Strategy Call</span>
                     <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">

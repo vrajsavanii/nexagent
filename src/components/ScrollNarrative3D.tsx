@@ -537,7 +537,7 @@ export default function ScrollNarrative3D({
             ) : (
               <button
                 onClick={() => setScene(currentSceneIdx + 1)}
-                className="px-3 py-1 font-mono text-[10px] uppercase tracking-wider bg-on-background hover:bg-secondary text-inverse-on-surface rounded cursor-pointer"
+                className="px-3 py-1 font-mono text-[10px] uppercase tracking-wider bg-[#17191A] hover:bg-[#3D9D99] text-white rounded cursor-pointer"
               >
                 Next Scene →
               </button>
