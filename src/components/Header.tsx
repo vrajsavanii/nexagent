@@ -44,8 +44,8 @@ export default function Header() {
         >
           {/* Brand Logo & Name */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-[#2A2B2E] flex items-center justify-center text-white font-bold text-sm shadow-xs group-hover:scale-105 transition-transform">
-              <span className="text-[#EB572C]">✦</span>
+            <div className="w-8 h-8 rounded-lg bg-[#2A2B2E] flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform overflow-hidden">
+              <img src="/images/logo.jpeg" alt="NexAgent Logo" className="w-full h-full object-cover" />
             </div>
             <span className="font-sans font-extrabold text-base tracking-tight text-[#2A2B2E] uppercase">
               NexAgent

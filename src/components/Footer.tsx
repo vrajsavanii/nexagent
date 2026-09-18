@@ -11,8 +11,8 @@ export default function Footer() {
           {/* Brand Left */}
           <div className="lg:col-span-2 space-y-4 max-w-sm">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-[#2A2B2E] flex items-center justify-center text-white font-bold text-sm shadow-xs">
-                <span className="text-[#EB572C]">✦</span>
+              <div className="w-8 h-8 rounded-lg bg-[#2A2B2E] flex items-center justify-center shadow-xs overflow-hidden">
+                <img src="/images/logo.jpeg" alt="NexAgent Logo" className="w-full h-full object-cover" />
               </div>
               <span className="font-sans font-extrabold text-lg tracking-tight text-[#2A2B2E] uppercase">
                 NexAgent

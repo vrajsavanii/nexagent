@@ -1,1 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="201" height="44" fill="none"><path fill="#EB572C" d="M0 30.664 27.33 1.002 16.826 30.167l10.076-.298L58.997 0l-7.97 29.157-24.126.712-14.997 13.957 4.92-13.66z"/><path fill="#EB572C" d="M73.627 12.795v-3.96h20.806v3.96h-8.06v22.118h-4.686V12.795zm29.191-3.96v26.078h-4.724V8.835zm3.619 3.96v-3.96h20.807v3.96h-8.061v22.118h-4.686V12.795zm24.665 22.118h-5.043l9.181-26.078h5.832l9.194 26.078h-5.043l-6.965-20.73h-.204zm.165-10.225h13.752v3.795h-13.752zM174.78 8.835v26.078h-4.202L158.29 17.15h-.216v17.763h-4.724V8.835h4.227l12.275 17.776h.23V8.835zm18.97 7.169q-.178-1.668-1.503-2.598-1.312-.93-3.412-.93-1.478.001-2.534.446-1.057.445-1.618 1.21a2.95 2.95 0 0 0-.573 1.744q0 .816.37 1.414.381.598 1.031 1.018.65.408 1.439.688a16 16 0 0 0 1.592.471l2.445.611q1.477.345 2.839.93 1.375.586 2.458 1.477a6.55 6.55 0 0 1 1.731 2.152q.637 1.26.637 2.954 0 2.292-1.171 4.037-1.172 1.731-3.387 2.712-2.204.968-5.336.968-3.043 0-5.284-.943-2.229-.941-3.489-2.75-1.248-1.808-1.35-4.406h4.648q.102 1.363.84 2.267.739.905 1.923 1.35 1.197.445 2.674.445 1.54 0 2.699-.458 1.172-.471 1.834-1.299.663-.84.675-1.96-.012-1.02-.598-1.682-.587-.675-1.643-1.12a16 16 0 0 0-2.445-.815l-2.967-.764q-3.221-.828-5.093-2.509-1.86-1.693-1.859-4.495 0-2.304 1.248-4.036 1.26-1.732 3.425-2.687 2.164-.968 4.902-.968 2.776 0 4.864.968 2.101.956 3.298 2.661 1.197 1.694 1.236 3.897z" opacity=".9"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="201" height="44" viewBox="0 0 201 44" fill="none">
+  <defs>
+    <!-- Gradient for N letterform matching logo.jpeg -->
+    <linearGradient id="na_n_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4E8D9C"/>
+      <stop offset="50%" stop-color="#365C6A"/>
+      <stop offset="100%" stop-color="#1B2B38"/>
+    </linearGradient>
+    <!-- Gradient for A letterform matching logo.jpeg -->
+    <linearGradient id="na_a_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2D4C3"/>
+      <stop offset="60%" stop-color="#A58E7E"/>
+      <stop offset="100%" stop-color="#604E48"/>
+    </linearGradient>
+    <filter id="subtle_shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Central Card Content Container -->
+  <g transform="translate(6, 6)" filter="url(#subtle_shadow)">
+    <!-- 3D Monogram N -->
+    <path d="M2 30 L2 2 L16 18 L16 30 Z" fill="url(#na_n_grad)"/>
+    <path d="M16 2 L23 2 L23 18 L16 18 Z" fill="#789A9C"/>
+
+    <!-- 3D Monogram A -->
+    <path d="M22 30 L32 2 L38 2 L28 30 Z" fill="url(#na_a_grad)"/>
+    <path d="M29 23 L40 23 L37 30 L26 30 Z" fill="#6B5953"/>
+  </g>
+
+  <!-- Brand Typography -->
+  <text x="56" y="27.5" font-family="'Urbanist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="17" font-weight="900" fill="#202226" letter-spacing="0.04em">NEXAGENT</text>
+
+  <!-- Autonomous Status Dot -->
+  <circle cx="188" cy="22" r="3.5" fill="#10A37F"/>
+  <circle cx="188" cy="22" r="6" fill="#10A37F" opacity="0.25"/>
+</svg>

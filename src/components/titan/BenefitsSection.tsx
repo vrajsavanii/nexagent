@@ -107,18 +107,20 @@ export default function BenefitsSection() {
                 Build With AI
               </motion.button>
 
-              {/* Animated 3D Clicking Hand Cursor */}
+              {/* Animated Clicking Hand Cursor Pointing in the Middle */}
               <motion.div
                 animate={{
-                  x: [10, 5, 10],
-                  y: [15, 8, 15],
+                  y: [0, -6, 0],
+                  scale: [1, 0.95, 1],
                 }}
                 transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute right-12 bottom-10 pointer-events-none"
+                className="absolute left-1/2 -translate-x-1/2 bottom-4 pointer-events-none"
               >
-                <div className="w-7 h-7 flex items-center justify-center text-2xl filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.15)]">
-                  👆
-                </div>
+                <img
+                  src="/assets/images/HJyrDFrGXT5Jsrk5l1zTjKOrmaY.png"
+                  alt="Pointing Hand Cursor"
+                  className="w-8 h-10 object-contain drop-shadow-[0_4px_8px_rgba(0,0,0,0.18)]"
+                />
               </motion.div>
             </div>
 
