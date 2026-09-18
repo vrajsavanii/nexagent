@@ -24,7 +24,7 @@ export default function Footer() {
             <div className="pt-2">
               <Link
                 href="/book-a-strategy-call"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-white bg-[#EB572C] hover:bg-[#D44820] transition-colors shadow-xs"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-white bg-[#3D9D99] hover:bg-[#2E827E] transition-colors shadow-xs"
               >
                 <span>Book a Strategy Call</span>
                 <span className="text-[10px]">↗</span>

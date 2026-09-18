@@ -45,15 +45,15 @@ module.exports = {
         'titan-bg':          '#FBF5F3',
         'titan-text':        '#2A2B2E',
         'titan-muted':       '#738290',
-        'titan-coral':       '#EB572C',
-        'titan-coral-dark':  '#D63D10',
-        'titan-coral-light': '#FDF0EB',
+        'titan-coral':       '#3D9D99',
+        'titan-coral-dark':  '#2E827E',
+        'titan-coral-light': 'rgba(61, 157, 153, 0.12)',
         'titan-card':        '#FFFFFF',
         'titan-card-dark':   '#2A2B2E',
         'titan-border':      'rgba(205, 211, 219, 0.6)',
 
         // ── Legacy compatibility aliases (avoid introducing new usage) ──
-        primary:           '#EB572C', // updated primary to Titan radiant coral
+        primary:           '#3D9D99', // updated primary to signature NexAgent teal
         'on-surface':      '#2A2B2E',
         surface:           '#FBF5F3',
         background:        '#FBF5F3',
@@ -65,7 +65,7 @@ module.exports = {
         error:             '#B91C1C',
         'on-surface-variant': '#5E6572',
         'on-background':   '#2A2B2E',
-        secondary:         '#D63D10',
+        secondary:         '#365C6A',
         'inverse-on-surface': '#FFFFFF',
       },
 

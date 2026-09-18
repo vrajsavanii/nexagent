@@ -33,14 +33,14 @@ export default function IndustriesIndexPage() {
 
         <FadeIn>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[rgba(205,211,219,0.7)] shadow-2xs mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#EB572C]" />
+            <span className="w-2 h-2 rounded-full bg-[#3D9D99]" />
             <span className="font-mono text-xs uppercase tracking-wider text-[#2A2B2E] font-bold">
               INDUSTRY-ADAPTED SYSTEMS
             </span>
           </div>
 
           <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#2A2B2E] max-w-4xl leading-[1.08]">
-            ENGINEERED ACROSS <span className="font-light italic text-[#EB572C]">INDUSTRIES.</span>
+            ENGINEERED ACROSS <span className="font-light italic text-[#3D9D99]">INDUSTRIES.</span>
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-[#738290] max-w-3xl leading-relaxed">
@@ -54,10 +54,10 @@ export default function IndustriesIndexPage() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {industriesList.map((ind) => (
             <StaggerItem key={ind.id}>
-              <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-10 shadow-[0_12px_32px_-6px_rgba(42,43,46,0.06)] hover:border-[#EB572C]/40 transition-all flex flex-col justify-between h-full group">
+              <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-10 shadow-[0_12px_32px_-6px_rgba(42,43,46,0.06)] hover:border-[#3D9D99]/40 transition-all flex flex-col justify-between h-full group">
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-4">
-                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#EB572C] bg-[#FDF0EB] px-3 py-1 rounded-full">
+                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#3D9D99] bg-[rgba(61,157,153,0.10)] px-3 py-1 rounded-full">
                       {ind.slug.replace('-', ' ')}
                     </span>
                     <span className="text-xs font-mono text-[#738290]">
@@ -65,7 +65,7 @@ export default function IndustriesIndexPage() {
                     </span>
                   </div>
 
-                  <h2 className="font-sans text-2xl sm:text-3xl font-extrabold text-[#2A2B2E] group-hover:text-[#EB572C] transition-colors mb-4">
+                  <h2 className="font-sans text-2xl sm:text-3xl font-extrabold text-[#2A2B2E] group-hover:text-[#3D9D99] transition-colors mb-4">
                     {ind.name}
                   </h2>
 
@@ -81,7 +81,7 @@ export default function IndustriesIndexPage() {
                     <ul className="space-y-1.5 text-xs text-[#5E6572]">
                       {ind.operationalChallenges.slice(0, 3).map((ch, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <span className="text-[#EB572C] font-bold mt-0.5">↳</span>
+                          <span className="text-[#3D9D99] font-bold mt-0.5">↳</span>
                           <span>{ch}</span>
                         </li>
                       ))}
@@ -107,7 +107,7 @@ export default function IndustriesIndexPage() {
                 <div className="pt-6 border-t border-[rgba(205,211,219,0.4)] flex items-center justify-between">
                   <Link
                     href={`/industries/${ind.slug}`}
-                    className="inline-flex items-center gap-2 text-xs font-bold text-[#EB572C] hover:text-[#D44820] uppercase tracking-wider transition-colors"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-[#3D9D99] hover:text-[#2E827E] uppercase tracking-wider transition-colors"
                   >
                     <span>View Architecture Blueprint</span>
                     <span>→</span>
@@ -126,7 +126,7 @@ export default function IndustriesIndexPage() {
 
         {/* Global Applicability Banner */}
         <FadeIn className="mt-16 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-sm text-center max-w-4xl mx-auto">
-          <span className="inline-block px-3 py-1 rounded-full bg-[#FDF0EB] text-[#EB572C] font-mono text-xs font-bold uppercase tracking-wider mb-4">
+          <span className="inline-block px-3 py-1 rounded-full bg-[rgba(61,157,153,0.10)] text-[#3D9D99] font-mono text-xs font-bold uppercase tracking-wider mb-4">
             Custom Vertical Systems
           </span>
           <h3 className="font-sans text-2xl sm:text-3xl font-extrabold text-[#2A2B2E] mb-3">
@@ -137,7 +137,7 @@ export default function IndustriesIndexPage() {
           </p>
           <Link
             href="/book-a-strategy-call"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-[#EB572C] hover:bg-[#D44820] shadow-sm transition-all"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-[#3D9D99] hover:bg-[#2E827E] shadow-sm transition-all"
           >
             Book a Strategy Call
           </Link>

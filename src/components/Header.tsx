@@ -69,7 +69,7 @@ export default function Header() {
           <div className="hidden sm:flex items-center gap-3">
             <Link
               href="/book-a-strategy-call"
-              className="inline-flex items-center justify-center px-5 py-2 rounded-full text-xs font-bold text-white bg-[#EB572C] hover:bg-[#D44820] shadow-xs hover:shadow-sm transition-all"
+              className="inline-flex items-center justify-center px-5 py-2 rounded-full text-xs font-bold text-white bg-[#3D9D99] hover:bg-[#2E827E] shadow-xs hover:shadow-sm transition-all"
             >
               Book a Strategy Call
             </Link>
@@ -112,7 +112,7 @@ export default function Header() {
                 <Link
                   href="/book-a-strategy-call"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full inline-flex items-center justify-center py-2.5 rounded-full text-xs font-bold text-white bg-[#EB572C] hover:bg-[#D44820] shadow-sm transition-colors"
+                  className="w-full inline-flex items-center justify-center py-2.5 rounded-full text-xs font-bold text-white bg-[#3D9D99] hover:bg-[#2E827E] shadow-sm transition-colors"
                 >
                   Book a Strategy Call
                 </Link>

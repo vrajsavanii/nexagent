@@ -22,7 +22,7 @@ export default function ProjectsSection() {
         'Deployed sovereign inference agents that process electronic medical records, route patient queues, and schedule clinical equipment with sub-100ms response times.',
       metric1: { value: '47%', label: 'Reduction in wait time' },
       metric2: { value: '68%', label: 'Throughput gain' },
-      gradient: 'from-[#EB572C] to-[#C93B10]',
+      gradient: 'from-[#3D9D99] to-[#236B68]',
     },
   ];
 
@@ -56,7 +56,7 @@ export default function ProjectsSection() {
               className="p-8 sm:p-10 rounded-3xl bg-white border border-[rgba(205,211,219,0.5)] shadow-[0_12px_32px_-4px_rgba(42,43,46,0.06)] flex flex-col justify-between"
             >
               <div className="space-y-4">
-                <span className="inline-block px-3 py-1 rounded-full bg-[#FDF0EB] text-[#EB572C] text-[10px] font-bold tracking-wider uppercase">
+                <span className="inline-block px-3 py-1 rounded-full bg-[rgba(61,157,153,0.10)] text-[#3D9D99] text-[10px] font-bold tracking-wider uppercase">
                   {p.tag}
                 </span>
                 <h3 className="font-sans font-extrabold text-2xl text-[#2A2B2E] leading-snug">
@@ -78,7 +78,7 @@ export default function ProjectsSection() {
                   </span>
                 </div>
                 <div>
-                  <span className="font-sans font-black text-3xl sm:text-4xl text-[#EB572C] block">
+                  <span className="font-sans font-black text-3xl sm:text-4xl text-[#3D9D99] block">
                     {p.metric2.value}
                   </span>
                   <span className="text-xs font-semibold text-[#738290] mt-1 block">

@@ -10,7 +10,7 @@ export default function CtaBanner() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="relative rounded-3xl bg-[#2A2B2E] p-10 sm:p-16 text-center text-white overflow-hidden shadow-[0_20px_50px_-10px_rgba(42,43,46,0.3)]">
           {/* Background Radial Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-radial-gradient from-[#EB572C]/20 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-radial-gradient from-[#3D9D99]/20 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl mx-auto space-y-6">
             <h2 className="font-sans font-extrabold text-3xl sm:text-5xl tracking-tight leading-tight">
@@ -23,7 +23,7 @@ export default function CtaBanner() {
             <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/book-a-strategy-call"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#EB572C] hover:bg-[#D63D10] text-white text-sm font-bold shadow-[0_10px_25px_-4px_rgba(235,87,44,0.5)] transition-all transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#3D9D99] hover:bg-[#2E827E] text-white text-sm font-bold shadow-[0_10px_25px_-4px_rgba(61,157,153,0.5)] transition-all transform hover:-translate-y-0.5"
               >
                 <span>Book A Demo</span>
                 <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">

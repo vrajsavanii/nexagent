@@ -44,11 +44,11 @@ export default function AboutPage() {
       name: 'Vraj Savani',
       role: 'Co-Founder (Equal Ownership)',
       desc: 'Directs systems architecture, workflow orchestration, and technology strategy across NexAgent’s client engagements and internal product development.',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
     },
     {
-      name: 'Technical Co-Founder',
-      role: 'Co-Founder & Systems Engineering (Equal Ownership)',
+      name: 'Manthan Kachhadiya',
+      role: 'Co-Founder (Equal Ownership)',
       desc: 'Leads distributed backend engineering, cloud integration architectures, and deterministic data pipelines connecting client operations with modern AI capabilities.',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
     },
@@ -62,7 +62,7 @@ export default function AboutPage() {
 
         <FadeIn>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[rgba(205,211,219,0.7)] shadow-2xs mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#EB572C]" />
+            <span className="w-2 h-2 rounded-full bg-[#3D9D99]" />
             <span className="font-mono text-xs uppercase tracking-wider text-[#2A2B2E] font-bold">
               FOUNDER-LED TECHNOLOGY COMPANY
             </span>
@@ -70,7 +70,7 @@ export default function AboutPage() {
 
           <h1 className="font-sans text-4xl sm:text-6xl uppercase font-black tracking-tight text-[#2A2B2E] max-w-4xl leading-[1.05]">
             AI-POWERED TECHNOLOGY FOR BUSINESSES THAT WANT TO{' '}
-            <span className="font-light italic text-[#EB572C]">OPERATE BETTER.</span>
+            <span className="font-light italic text-[#3D9D99]">OPERATE BETTER.</span>
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-[#738290] max-w-3xl leading-relaxed font-normal">
@@ -83,12 +83,12 @@ export default function AboutPage() {
       <section className="max-w-6xl mx-auto px-6 py-16">
         <FadeIn className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-[0_12px_32px_-4px_rgba(42,43,46,0.06)] grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <span className="inline-block px-3 py-1 rounded-full bg-[#FDF0EB] text-[#EB572C] text-xs uppercase tracking-wider font-bold">
+            <span className="inline-block px-3 py-1 rounded-full bg-[rgba(61,157,153,0.10)] text-[#3D9D99] text-xs uppercase tracking-wider font-bold">
               Company Definition &amp; Positioning
             </span>
             <h2 className="font-sans text-3xl sm:text-4xl text-[#2A2B2E] font-extrabold leading-snug">
               Intelligent Technology. <br />
-              <span className="italic font-normal text-[#EB572C]">Real Business Systems. Automation That Works.</span>
+              <span className="italic font-normal text-[#3D9D99]">Real Business Systems. Automation That Works.</span>
             </h2>
             <p className="text-sm sm:text-base text-[#738290] leading-relaxed">
               NexAgent is not merely an automation agency, a software shop, or an AI consultancy. We operate at the intersection of AI, software engineering, workflow automation, and digital infrastructure — applying technical capabilities directly to real-world business problems.
@@ -101,7 +101,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5 flex flex-col items-center">
             <div className="relative w-full max-w-md rounded-2xl overflow-hidden border border-[rgba(205,211,219,0.5)] bg-[#2A2B2E] p-8 text-white space-y-4 shadow-md">
               <div className="flex items-center gap-2">
-                <span className="text-2xl text-[#EB572C] font-black">✦</span>
+                <span className="text-2xl text-[#3D9D99] font-black">✦</span>
                 <span className="font-sans font-black text-lg tracking-tight uppercase">
                   NEXAGENT
                 </span>
@@ -116,7 +116,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-[#84888A]">Operating Model:</span>
-                  <span className="font-semibold text-[#EB572C]">Hybrid (Client + Internal)</span>
+                  <span className="font-semibold text-[#3D9D99]">Hybrid (Client + Internal)</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-[#84888A]">Orientation:</span>
@@ -135,7 +135,7 @@ export default function AboutPage() {
       {/* ── The Hybrid Model ────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-16 border-t border-[rgba(205,211,219,0.5)]">
         <FadeIn className="mb-10 max-w-3xl">
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#EB572C] block mb-2">
+          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#3D9D99] block mb-2">
             OPERATING ARCHITECTURE
           </span>
           <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
@@ -148,7 +148,7 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-8 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] shadow-xs space-y-3">
-            <span className="font-mono text-xs font-bold text-[#EB572C] uppercase">Category 01</span>
+            <span className="font-mono text-xs font-bold text-[#3D9D99] uppercase">Category 01</span>
             <h3 className="font-sans text-xl font-bold text-[#2A2B2E]">Client Solutions</h3>
             <p className="text-xs sm:text-sm text-[#738290] leading-relaxed">
               Bespoke workflow automation, AI agents, voice systems, and custom software integrations built directly to customer operational requirements.
@@ -159,7 +159,7 @@ export default function AboutPage() {
           </div>
 
           <div className="p-8 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] shadow-xs space-y-3">
-            <span className="font-mono text-xs font-bold text-[#EB572C] uppercase">Category 02</span>
+            <span className="font-mono text-xs font-bold text-[#3D9D99] uppercase">Category 02</span>
             <h3 className="font-sans text-xl font-bold text-[#2A2B2E]">Custom Technology</h3>
             <p className="text-xs sm:text-sm text-[#738290] leading-relaxed">
               Tailored business management systems, unified CRMs, intelligence dashboards, and API middleware designed around existing company infrastructure.
@@ -170,12 +170,12 @@ export default function AboutPage() {
           </div>
 
           <div className="p-8 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] shadow-xs space-y-3">
-            <span className="font-mono text-xs font-bold text-[#EB572C] uppercase">Category 03</span>
+            <span className="font-mono text-xs font-bold text-[#3D9D99] uppercase">Category 03</span>
             <h3 className="font-sans text-xl font-bold text-[#2A2B2E]">Internal Products</h3>
             <p className="text-xs sm:text-sm text-[#738290] leading-relaxed">
               Reusable automation frameworks, low-latency conversational voice engines, and intelligent document parsing platforms developed for long-term scale.
             </p>
-            <span className="inline-block px-2.5 py-1 rounded-md bg-[#FDF0EB] text-[11px] font-mono text-[#EB572C] font-semibold mt-2">
+            <span className="inline-block px-2.5 py-1 rounded-md bg-[rgba(61,157,153,0.10)] text-[11px] font-mono text-[#3D9D99] font-semibold mt-2">
               In Development &amp; Beta
             </span>
           </div>
@@ -185,7 +185,7 @@ export default function AboutPage() {
       {/* ── How We Work: 6-Phase Execution ───────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-16 border-t border-[rgba(205,211,219,0.5)]">
         <FadeIn className="mb-10 max-w-3xl">
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#EB572C] block mb-2">
+          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#3D9D99] block mb-2">
             METHODOLOGY
           </span>
           <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
@@ -202,7 +202,7 @@ export default function AboutPage() {
               key={phase.num}
               className="p-6 bg-white rounded-2xl border border-[rgba(205,211,219,0.5)] shadow-xs space-y-2"
             >
-              <span className="font-mono text-xs font-bold text-[#EB572C]">{phase.num}</span>
+              <span className="font-mono text-xs font-bold text-[#3D9D99]">{phase.num}</span>
               <h3 className="font-sans text-lg font-bold text-[#2A2B2E]">{phase.name}</h3>
               <p className="text-xs text-[#5E6572] leading-relaxed">{phase.desc}</p>
             </div>
@@ -213,7 +213,7 @@ export default function AboutPage() {
       {/* ── Operating Principles ─────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-16 border-t border-[rgba(205,211,219,0.5)]">
         <FadeIn className="mb-10 max-w-2xl">
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#EB572C] block mb-2">
+          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#3D9D99] block mb-2">
             PHILOSOPHY
           </span>
           <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
@@ -224,8 +224,8 @@ export default function AboutPage() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {principles.map((pr) => (
             <StaggerItem key={pr.num}>
-              <div className="p-8 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] shadow-[0_10px_28px_-4px_rgba(42,43,46,0.05)] h-full flex flex-col justify-between space-y-4 hover:border-[#EB572C]/40 transition-all">
-                <span className="font-mono text-2xl font-black text-[#EB572C]">{pr.num}</span>
+              <div className="p-8 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] shadow-[0_10px_28px_-4px_rgba(42,43,46,0.05)] h-full flex flex-col justify-between space-y-4 hover:border-[#3D9D99]/40 transition-all">
+                <span className="font-mono text-2xl font-black text-[#3D9D99]">{pr.num}</span>
                 <div>
                   <h3 className="font-sans text-xl font-bold text-[#2A2B2E]">{pr.title}</h3>
                   <p className="text-xs sm:text-sm text-[#738290] mt-2 leading-relaxed">{pr.desc}</p>
@@ -239,7 +239,7 @@ export default function AboutPage() {
       {/* ── Founders & Ownership ─────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-16 border-t border-[rgba(205,211,219,0.5)]">
         <FadeIn className="mb-10 max-w-3xl">
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#EB572C] block mb-2">
+          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#3D9D99] block mb-2">
             FOUNDERS &amp; OWNERSHIP
           </span>
           <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
@@ -266,7 +266,7 @@ export default function AboutPage() {
               </div>
               <div className="space-y-1.5 text-center sm:text-left">
                 <h3 className="font-sans font-extrabold text-xl text-[#2A2B2E]">{f.name}</h3>
-                <p className="text-xs font-bold text-[#EB572C]">{f.role}</p>
+                <p className="text-xs font-bold text-[#3D9D99]">{f.role}</p>
                 <p className="text-xs text-[#738290] leading-relaxed pt-1">{f.desc}</p>
               </div>
             </div>
@@ -277,7 +277,7 @@ export default function AboutPage() {
       {/* ── Built For The Long Term ────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-16 border-t border-[rgba(205,211,219,0.5)]">
         <FadeIn className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-xs space-y-6">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#EB572C] font-bold">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#3D9D99] font-bold">
             LONG-TERM DIRECTION &amp; AMBITION
           </span>
           <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
@@ -294,7 +294,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="p-6 rounded-2xl bg-[#F7F7F5] border border-[rgba(205,211,219,0.4)] space-y-2">
-              <span className="font-mono text-xs font-bold text-[#EB572C] uppercase">Future Direction</span>
+              <span className="font-mono text-xs font-bold text-[#3D9D99] uppercase">Future Direction</span>
               <p className="text-xs sm:text-sm text-[#5E6572] leading-relaxed">
                 Expanding our reusable software platforms, developing specialized operating platforms, and growing an international ecosystem of intelligent business technologies.
               </p>
@@ -307,7 +307,7 @@ export default function AboutPage() {
       <section className="max-w-6xl mx-auto px-6 py-16">
         <FadeIn className="bg-[#2A2B2E] text-white rounded-3xl p-8 sm:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
           <div className="space-y-3 max-w-xl text-center md:text-left">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#EB572C] font-bold">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#3D9D99] font-bold">
               GLOBAL AMBITION
             </span>
             <h2 className="font-sans text-2xl sm:text-4xl uppercase font-extrabold leading-tight">
@@ -320,7 +320,7 @@ export default function AboutPage() {
 
           <Link
             href="/book-a-strategy-call"
-            className="px-8 py-3.5 bg-[#EB572C] hover:bg-[#D63D10] text-white rounded-full text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap shadow-md"
+            className="px-8 py-3.5 bg-[#3D9D99] hover:bg-[#2E827E] text-white rounded-full text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap shadow-md"
           >
             Book a Strategy Call
           </Link>

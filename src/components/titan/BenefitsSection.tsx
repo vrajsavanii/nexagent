@@ -51,7 +51,7 @@ export default function BenefitsSection() {
                 <path
                   d="M 20 100 A 80 80 0 0 1 125 35"
                   fill="none"
-                  stroke="#EB572C"
+                  stroke="#3D9D99"
                   strokeWidth="8"
                   strokeLinecap="round"
                 />
@@ -60,7 +60,7 @@ export default function BenefitsSection() {
                 <text x="25" y="85" fontSize="8" fill="#738290" fontWeight="bold">01</text>
                 <text x="15" y="115" fontSize="8" fill="#738290">Ideation</text>
 
-                <text x="95" y="25" fontSize="8" fill="#EB572C" fontWeight="bold">02</text>
+                <text x="95" y="25" fontSize="8" fill="#3D9D99" fontWeight="bold">02</text>
                 <text x="90" y="45" fontSize="10" fill="#2A2B2E" fontWeight="bold">Day</text>
 
                 <text x="165" y="85" fontSize="8" fill="#738290" fontWeight="bold">03</text>
@@ -75,7 +75,7 @@ export default function BenefitsSection() {
                 onClick={() => setNeedleAngle((prev) => (prev === 25 ? 55 : 25))}
                 title="Click to accelerate"
               >
-                <div className="w-1.5 h-16 mx-auto rounded-full bg-gradient-to-t from-[#2A2B2E] via-[#EB572C] to-[#EB572C] shadow-md" />
+                <div className="w-1.5 h-16 mx-auto rounded-full bg-gradient-to-t from-[#2A2B2E] via-[#3D9D99] to-[#3D9D99] shadow-md" />
                 <div className="w-3.5 h-3.5 rounded-full bg-[#2A2B2E] border-2 border-white mx-auto -mt-1 shadow-sm" />
               </motion.div>
             </div>
@@ -102,7 +102,7 @@ export default function BenefitsSection() {
                 whileTap={{ scale: 0.95 }}
                 animate={clicked ? { scale: [1, 1.05, 1] } : {}}
                 onClick={() => setClicked(!clicked)}
-                className="px-6 py-3 rounded-full bg-gradient-to-r from-[#FF7F57] to-[#EB572C] text-white font-bold text-sm shadow-[0_8px_24px_-2px_rgba(235,87,44,0.45)] cursor-pointer"
+                className="px-6 py-3 rounded-full bg-gradient-to-r from-[#5EBAB6] to-[#3D9D99] text-white font-bold text-sm shadow-[0_8px_24px_-2px_rgba(61,157,153,0.45)] cursor-pointer"
               >
                 Build With AI
               </motion.button>
@@ -163,7 +163,7 @@ export default function BenefitsSection() {
                 <motion.span
                   animate={{ rotate: syncing ? 360 : 0 }}
                   transition={{ duration: 1, ease: 'linear' }}
-                  className="w-5 h-5 rounded-full bg-[#EB572C] flex items-center justify-center text-white text-xs font-bold"
+                  className="w-5 h-5 rounded-full bg-[#3D9D99] flex items-center justify-center text-white text-xs font-bold"
                 >
                   ↻
                 </motion.span>

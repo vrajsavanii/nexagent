@@ -105,14 +105,14 @@ export default function ProductsIndexPage() {
 
         <FadeIn>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[rgba(205,211,219,0.7)] shadow-2xs mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#EB572C]" />
+            <span className="w-2 h-2 rounded-full bg-[#3D9D99]" />
             <span className="font-mono text-xs uppercase tracking-wider text-[#2A2B2E] font-bold">
               PRODUCT ECOSYSTEM
             </span>
           </div>
 
           <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#2A2B2E] max-w-4xl leading-[1.08]">
-            FROM CAPABILITIES TO <span className="font-light italic text-[#EB572C]">SCALABLE PRODUCTS.</span>
+            FROM CAPABILITIES TO <span className="font-light italic text-[#3D9D99]">SCALABLE PRODUCTS.</span>
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-[#738290] max-w-3xl leading-relaxed">
@@ -145,7 +145,7 @@ export default function ProductsIndexPage() {
             const badge = getStatusBadge(prod.readiness || 'CONCEPT');
             return (
               <StaggerItem key={prod.id}>
-                <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-[0_12px_32px_-6px_rgba(42,43,46,0.06)] hover:border-[#EB572C]/40 transition-all grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-[0_12px_32px_-6px_rgba(42,43,46,0.06)] hover:border-[#3D9D99]/40 transition-all grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
                   {/* Left Col: Info */}
                   <div className="lg:col-span-8 space-y-6">
                     <div className="flex flex-wrap items-center gap-3">
@@ -173,7 +173,7 @@ export default function ProductsIndexPage() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {prod.capabilities?.map((cap, i) => (
                           <div key={i} className="flex items-start gap-2 text-xs text-[#5E6572]">
-                            <span className="text-[#EB572C] font-bold mt-0.5">✦</span>
+                            <span className="text-[#3D9D99] font-bold mt-0.5">✦</span>
                             <span>{cap}</span>
                           </div>
                         ))}
@@ -214,7 +214,7 @@ export default function ProductsIndexPage() {
                     <div className="space-y-3 pt-4 border-t border-[rgba(205,211,219,0.4)]">
                       <Link
                         href={`/book-a-strategy-call?product=${prod.slug}`}
-                        className="w-full inline-flex items-center justify-center py-3 rounded-full text-xs font-bold text-white bg-[#EB572C] hover:bg-[#D44820] shadow-sm transition-all text-center"
+                        className="w-full inline-flex items-center justify-center py-3 rounded-full text-xs font-bold text-white bg-[#3D9D99] hover:bg-[#2E827E] shadow-sm transition-all text-center"
                       >
                         {prod.ctaText || 'Discuss Architecture'}
                       </Link>

@@ -130,7 +130,7 @@ export default function SolutionsPage() {
         'Enterprise security and least-privilege role management',
       ],
       deliverables: ['Custom business software', 'Production deployment', 'API documentation'],
-      slug: 'custom-ai-systems',
+      slug: 'modernize-software',
     },
     {
       id: 'connect-systems',
@@ -219,7 +219,7 @@ export default function SolutionsPage() {
 
         <FadeIn>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[rgba(205,211,219,0.7)] shadow-2xs mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#EB572C]" />
+            <span className="w-2 h-2 rounded-full bg-[#3D9D99]" />
             <span className="font-mono text-xs uppercase tracking-wider text-[#2A2B2E] font-bold">
               PROBLEM-FIRST TECHNOLOGY
             </span>
@@ -227,7 +227,7 @@ export default function SolutionsPage() {
 
           <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#2A2B2E] max-w-4xl leading-[1.08]">
             TECHNOLOGY THAT SOLVES <br />
-            <span className="font-light italic text-[#EB572C]">REAL BUSINESS WORK.</span>
+            <span className="font-light italic text-[#3D9D99]">REAL BUSINESS WORK.</span>
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-[#738290] max-w-3xl leading-relaxed">
@@ -260,10 +260,10 @@ export default function SolutionsPage() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredSolutions.map((sol) => (
             <StaggerItem key={sol.id}>
-              <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 shadow-[0_10px_28px_-4px_rgba(42,43,46,0.05)] hover:border-[#EB572C]/40 transition-all flex flex-col justify-between h-full space-y-6">
+              <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 shadow-[0_10px_28px_-4px_rgba(42,43,46,0.05)] hover:border-[#3D9D99]/40 transition-all flex flex-col justify-between h-full space-y-6">
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-3">
-                    <span className="font-mono text-xs font-bold text-[#EB572C] bg-[#FDF0EB] px-3 py-1 rounded-full">
+                    <span className="font-mono text-xs font-bold text-[#3D9D99] bg-[rgba(61,157,153,0.10)] px-3 py-1 rounded-full">
                       SOLUTION {sol.number}
                     </span>
                     <span className="text-[11px] font-mono text-[#738290] uppercase">
@@ -291,7 +291,7 @@ export default function SolutionsPage() {
                     <ul className="space-y-1.5 text-xs text-[#5E6572]">
                       {sol.capabilities.slice(0, 3).map((cap, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <span className="text-[#EB572C] font-bold mt-0.5">✦</span>
+                          <span className="text-[#3D9D99] font-bold mt-0.5">✦</span>
                           <span>{cap}</span>
                         </li>
                       ))}
@@ -302,7 +302,7 @@ export default function SolutionsPage() {
                 <div className="pt-4 border-t border-[rgba(205,211,219,0.3)] flex items-center justify-between">
                   <Link
                     href={`/solutions/${sol.slug}`}
-                    className="text-xs font-bold text-[#EB572C] hover:text-[#D44820] uppercase tracking-wider transition-colors"
+                    className="text-xs font-bold text-[#3D9D99] hover:text-[#2E827E] uppercase tracking-wider transition-colors"
                   >
                     View Details →
                   </Link>
@@ -320,7 +320,7 @@ export default function SolutionsPage() {
 
         {/* Tailored Integration Callout */}
         <FadeIn className="mt-16 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-sm text-center max-w-4xl mx-auto">
-          <span className="inline-block px-3 py-1 rounded-full bg-[#FDF0EB] text-[#EB572C] font-mono text-xs font-bold uppercase tracking-wider mb-4">
+          <span className="inline-block px-3 py-1 rounded-full bg-[rgba(61,157,153,0.10)] text-[#3D9D99] font-mono text-xs font-bold uppercase tracking-wider mb-4">
             Custom Architecture
           </span>
           <h3 className="font-sans text-2xl sm:text-3xl font-extrabold text-[#2A2B2E] mb-3">
@@ -331,7 +331,7 @@ export default function SolutionsPage() {
           </p>
           <Link
             href="/book-a-strategy-call"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-[#EB572C] hover:bg-[#D44820] shadow-sm transition-all"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-[#3D9D99] hover:bg-[#2E827E] shadow-sm transition-all"
           >
             Discuss Your System
           </Link>

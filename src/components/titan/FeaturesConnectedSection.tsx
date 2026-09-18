@@ -104,12 +104,12 @@ export default function FeaturesConnectedSection() {
               whileHover={{ y: -3 }}
               className={`p-6 rounded-3xl cursor-pointer transition-all ${
                 activeTab === index
-                  ? 'bg-white border-2 border-[#EB572C]/40 shadow-[0_12px_28px_-4px_rgba(235,87,44,0.12)]'
+                  ? 'bg-white border-2 border-[#3D9D99]/40 shadow-[0_12px_28px_-4px_rgba(61,157,153,0.12)]'
                   : 'bg-white/80 border border-[rgba(205,211,219,0.5)] shadow-xs hover:bg-white'
               }`}
             >
               <div className={`w-10 h-10 rounded-2xl flex items-center justify-center mb-4 transition-colors ${
-                activeTab === index ? 'bg-[#EB572C] text-white' : 'bg-[#FDF0EB] text-[#EB572C]'
+                activeTab === index ? 'bg-[#3D9D99] text-white' : 'bg-[rgba(61,157,153,0.10)] text-[#3D9D99]'
               }`}>
                 {item.icon}
               </div>
@@ -140,7 +140,7 @@ export default function FeaturesConnectedSection() {
                   <path
                     key={i}
                     d={`M ${xPositions[i]} 0 C ${xPositions[i]} ${i === 0 || i === 3 ? 60 : 50}, ${i < 2 ? 285 : 315} ${i < 2 ? 75 : 75}, 300 100`}
-                    stroke={active ? '#EB572C' : 'rgba(205,211,219,0.5)'}
+                    stroke={active ? '#3D9D99' : 'rgba(205,211,219,0.5)'}
                     strokeWidth={active ? 2 : 1.5}
                     strokeLinecap="round"
                     style={{ transition: 'stroke 0.3s, stroke-width 0.3s' }}
@@ -156,7 +156,7 @@ export default function FeaturesConnectedSection() {
             className="w-20 h-20 rounded-2xl bg-white border border-[rgba(205,211,219,0.7)] shadow-[0_12px_28px_-6px_rgba(42,43,46,0.12)] flex items-center justify-center -mt-2 z-10 cursor-pointer"
           >
             <div className="w-10 h-10 rounded-xl bg-[#2A2B2E] flex items-center justify-center shadow-2xs">
-              <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#EB572C]" fill="none" stroke="currentColor" strokeWidth={2}>
+              <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#3D9D99]" fill="none" stroke="currentColor" strokeWidth={2}>
                 <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z" strokeLinecap="round"/>
                 <path d="M12 8v4l3 3" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -174,13 +174,13 @@ export default function FeaturesConnectedSection() {
             transition={{ duration: 0.3 }}
             className="mt-8 w-full max-w-lg p-6 rounded-2xl bg-white border border-[rgba(205,211,219,0.5)] shadow-xs"
           >
-            <p className="text-xs font-bold text-[#EB572C] uppercase tracking-widest mb-3">
+            <p className="text-xs font-bold text-[#3D9D99] uppercase tracking-widest mb-3">
               {featureDetails[activeTab].title}
             </p>
             <ul className="space-y-2">
               {featureDetails[activeTab].details.map((d, i) => (
                 <li key={i} className="flex items-center gap-2.5 text-sm text-[#5E6572]">
-                  <span className="w-4 h-4 rounded-full bg-[#FDF0EB] text-[#EB572C] flex items-center justify-center text-[10px] font-black flex-shrink-0">✓</span>
+                  <span className="w-4 h-4 rounded-full bg-[rgba(61,157,153,0.10)] text-[#3D9D99] flex items-center justify-center text-[10px] font-black flex-shrink-0">✓</span>
                   {d}
                 </li>
               ))}
@@ -199,7 +199,7 @@ export default function FeaturesConnectedSection() {
           {/* Polaroid Photo Frame with 3D Pin */}
           <div className="relative flex-shrink-0">
             {/* 3D Red Pushpin */}
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-tr from-[#EB572C] via-[#FF7F57] to-[#962808] shadow-[0_3px_6px_rgba(0,0,0,0.35)] z-20" />
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-tr from-[#3D9D99] via-[#5EBAB6] to-[#962808] shadow-[0_3px_6px_rgba(0,0,0,0.35)] z-20" />
 
             {/* White Polaroid Border */}
             <div className="p-3 pb-5 bg-white border border-[rgba(205,211,219,0.6)] rounded-2xl shadow-[0_12px_30px_-6px_rgba(42,43,46,0.12)] transform rotate-2 hover:rotate-0 transition-transform duration-300">
