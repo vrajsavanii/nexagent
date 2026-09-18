@@ -11,14 +11,8 @@ import {
   SPATIAL_COLORS,
 } from '@/lib/3d/spatial-language';
 import {
-  createTextureN,
-  createTextureAChevron,
-  createTextureABar,
-  createNAMonogramGeometries,
-  createSideCoreMaterial,
-  createSatelliteGlassMaterial,
-  createOrbitRingMaterial,
-  createDataNodeMaterial,
+  createNeuralCoreGeometries,
+  createNeuralMaterials,
   disposeThreeResources,
 } from '@/lib/3d/materials';
 import { ThreeDebugTracker, DebugStats } from '@/lib/3d/debug';
@@ -232,178 +226,100 @@ export default function NexAgentCore3D({
     };
     canvas.addEventListener('webglcontextlost', onContextLost, false);
 
-    // Root architectural groups
+    // Root architectural groups for the 3D Neural Orchestration Core
     const coreRoot = new THREE.Group();
     scene.add(coreRoot);
-
-    const logoGroup = new THREE.Group();
-    coreRoot.add(logoGroup);
-
-    const modularSatellitesGroup = new THREE.Group();
-    coreRoot.add(modularSatellitesGroup);
-
-    const pathwaysGroup = new THREE.Group();
-    coreRoot.add(pathwaysGroup);
-
-    const connectionsGroup = new THREE.Group();
-    coreRoot.add(connectionsGroup);
-
-    if (isStatic) {
-      modularSatellitesGroup.visible = false;
-      pathwaysGroup.visible = false;
-      connectionsGroup.visible = false;
-    }
 
     const allMaterials: THREE.Material[] = [];
     const allGeometries: THREE.BufferGeometry[] = [];
     const allTextures: THREE.Texture[] = [];
 
-    // ========================================================================
-    // AUTHENTIC "NA" MONOGRAM (Matching logo_overlay_test.png)
-    // ========================================================================
-    const texN = createTextureN();
-    const texChevron = createTextureAChevron();
-    const texBar = createTextureABar();
-    allTextures.push(texN, texChevron, texBar);
+    // Instantiate precision neural core geometries & physical shaders
+    const geoms = createNeuralCoreGeometries(qualityTier);
+    allGeometries.push(
+      geoms.coreIcosahedron,
+      geoms.innerEnergySeed,
+      geoms.latticeWireframe,
+      geoms.gimbalRing1,
+      geoms.gimbalRing2,
+      geoms.gimbalRing3,
+      geoms.vertexMarkerGeo,
+      geoms.dataPacketGeo
+    );
 
-    const sideMaterial = createSideCoreMaterial(darkBackground);
-    allMaterials.push(sideMaterial);
+    const mats = createNeuralMaterials(darkBackground);
+    allMaterials.push(
+      mats.coreMaterial,
+      mats.innerSeedMaterial,
+      mats.latticeEdgesMaterial,
+      mats.gimbalMat1,
+      mats.gimbalMat2,
+      mats.gimbalMat3,
+      mats.vertexNodeMaterial,
+      mats.dataPacketMaterialTeal,
+      mats.dataPacketMaterialGold
+    );
 
-    const matNFront = new THREE.MeshPhysicalMaterial({
-      map: texN,
-      roughness: 0.22,
-      metalness: 0.88,
-      clearcoat: 0.45,
-      clearcoatRoughness: 0.12,
-    });
-    allMaterials.push(matNFront);
+    // 1. Central Singularity Core Mesh (Faceted Titanium Icosahedron)
+    const coreMesh = new THREE.Mesh(geoms.coreIcosahedron, mats.coreMaterial);
+    coreRoot.add(coreMesh);
 
-    const matChevronFront = new THREE.MeshPhysicalMaterial({
-      map: texChevron,
-      roughness: 0.2,
-      metalness: 0.9,
-      clearcoat: 0.45,
-      clearcoatRoughness: 0.12,
-    });
-    allMaterials.push(matChevronFront);
+    // 2. Inner Pulsing Energy Seed
+    const innerSeedMesh = new THREE.Mesh(geoms.innerEnergySeed, mats.innerSeedMaterial);
+    coreRoot.add(innerSeedMesh);
 
-    const matBarFront = new THREE.MeshPhysicalMaterial({
-      map: texBar,
-      roughness: 0.24,
-      metalness: 0.85,
-      clearcoat: 0.4,
-      clearcoatRoughness: 0.15,
-    });
-    allMaterials.push(matBarFront);
+    // 3. Geodesic Synaptic Lattice Cage
+    const wireframeGeo = new THREE.WireframeGeometry(geoms.latticeWireframe);
+    allGeometries.push(wireframeGeo);
+    const latticeEdges = new THREE.LineSegments(wireframeGeo, mats.latticeEdgesMaterial);
+    coreRoot.add(latticeEdges);
 
-    // Generate precision geometries
-    const { geomN, geomChevron, geomBar } = createNAMonogramGeometries(qualityTier);
-    allGeometries.push(geomN, geomChevron, geomBar);
-
-    const meshN = new THREE.Mesh(geomN, [matNFront, sideMaterial]);
-    const meshChevron = new THREE.Mesh(geomChevron, [matChevronFront, sideMaterial]);
-    const meshBar = new THREE.Mesh(geomBar, [matBarFront, sideMaterial]);
-
-    logoGroup.add(meshN);
-    logoGroup.add(meshChevron);
-    logoGroup.add(meshBar);
-
-    // Initial slight angle facing camera cleanly
-    logoGroup.rotation.y = 0.08;
-    logoGroup.rotation.x = 0.04;
-
-    // Optical transmission satellites (champagne and teal glass)
-    const satelliteModules: Array<{
-      mesh: THREE.Mesh;
-      basePos: THREE.Vector3;
-      expandDir: THREE.Vector3;
-    }> = [];
-
-    const glassMatTeal = createSatelliteGlassMaterial('teal');
-    allMaterials.push(glassMatTeal);
-
-    const glassMatChampagne = createSatelliteGlassMaterial('champagne');
-    allMaterials.push(glassMatChampagne);
-
-    const satDefs = [
-      { pos: new THREE.Vector3(-5.2, 3.4, -0.4), dir: new THREE.Vector3(-1.2, 0.8, -0.4), mat: glassMatTeal, sz: [0.65, 1.4, 0.5] },
-      { pos: new THREE.Vector3(5.2, -3.4, 0.4), dir: new THREE.Vector3(1.2, -0.8, 0.4), mat: glassMatChampagne, sz: [0.65, 1.4, 0.5] },
-      { pos: new THREE.Vector3(4.5, 3.6, -0.3), dir: new THREE.Vector3(1.0, 0.9, -0.3), mat: glassMatTeal, sz: [0.55, 1.1, 0.45] },
-      { pos: new THREE.Vector3(-4.5, -3.6, 0.3), dir: new THREE.Vector3(-1.0, -0.9, 0.3), mat: glassMatChampagne, sz: [0.55, 1.1, 0.45] },
-    ];
-
-    satDefs.forEach((d) => {
-      const boxGeo = new THREE.BoxGeometry(d.sz[0], d.sz[1], d.sz[2]);
-      allGeometries.push(boxGeo);
-      const m = new THREE.Mesh(boxGeo, d.mat);
-      m.position.copy(d.pos);
-      modularSatellitesGroup.add(m);
-      satelliteModules.push({ mesh: m, basePos: d.pos.clone(), expandDir: d.dir.clone() });
-    });
-
-    // Radiant connection lines between Core and Satellites
-    const connectionLines: THREE.Line[] = [];
-    const connectionMat = new THREE.LineBasicMaterial({
-      color: SPATIAL_COLORS.TEAL,
-      transparent: true,
-      opacity: 0,
-    });
-    allMaterials.push(connectionMat);
-
-    satelliteModules.forEach((sat) => {
-      const lineGeo = new THREE.BufferGeometry().setFromPoints([
-        new THREE.Vector3(0, 0, 0),
-        sat.basePos.clone(),
-      ]);
-      allGeometries.push(lineGeo);
-      const line = new THREE.Line(lineGeo, connectionMat);
-      connectionsGroup.add(line);
-      connectionLines.push(line);
-    });
-
-    // Parametric Orbits
-    let orbitRing1: THREE.Mesh | null = null;
-    let orbitRing2: THREE.Mesh | null = null;
-    let dataNode1: THREE.Mesh | null = null;
-    let dataNode2: THREE.Mesh | null = null;
-    let nodeMat1: THREE.MeshBasicMaterial | null = null;
-    let nodeMat2: THREE.MeshBasicMaterial | null = null;
-
-    if (showOrbit) {
-      const ringMat1 = createOrbitRingMaterial(SPATIAL_COLORS.TEAL, darkBackground ? 0.35 : 0.25);
-      allMaterials.push(ringMat1);
-
-      const ringMat2 = createOrbitRingMaterial(SPATIAL_COLORS.CHAMPAGNE, darkBackground ? 0.3 : 0.2);
-      allMaterials.push(ringMat2);
-
-      const torusGeo1 = new THREE.TorusGeometry(7.3, 0.035, 10, quality.orbitSegments);
-      allGeometries.push(torusGeo1);
-      orbitRing1 = new THREE.Mesh(torusGeo1, ringMat1);
-      orbitRing1.rotation.x = Math.PI / 2.35;
-      pathwaysGroup.add(orbitRing1);
-
-      const torusGeo2 = new THREE.TorusGeometry(7.7, 0.035, 10, quality.orbitSegments);
-      allGeometries.push(torusGeo2);
-      orbitRing2 = new THREE.Mesh(torusGeo2, ringMat2);
-      orbitRing2.rotation.x = -Math.PI / 2.45;
-      orbitRing2.rotation.y = Math.PI / 6;
-      pathwaysGroup.add(orbitRing2);
-
-      const nodeGeo = new THREE.SphereGeometry(0.18, 12, 12);
-      allGeometries.push(nodeGeo);
-
-      nodeMat1 = createDataNodeMaterial(SPATIAL_COLORS.TEAL);
-      allMaterials.push(nodeMat1);
-      dataNode1 = new THREE.Mesh(nodeGeo, nodeMat1);
-      orbitRing1.add(dataNode1);
-
-      nodeMat2 = createDataNodeMaterial(SPATIAL_COLORS.CHAMPAGNE);
-      allMaterials.push(nodeMat2);
-      dataNode2 = new THREE.Mesh(nodeGeo, nodeMat2);
-      orbitRing2.add(dataNode2);
+    // 4. Glowing Synaptic Vertex Nodes (Cognitive Agent Decision Points)
+    const vertexGroup = new THREE.Group();
+    coreRoot.add(vertexGroup);
+    const posAttr = geoms.latticeWireframe.attributes.position;
+    const vertexMap = new Set<string>();
+    for (let i = 0; i < posAttr.count; i++) {
+      const x = Number(posAttr.getX(i).toFixed(2));
+      const y = Number(posAttr.getY(i).toFixed(2));
+      const z = Number(posAttr.getZ(i).toFixed(2));
+      const key = `${x},${y},${z}`;
+      if (!vertexMap.has(key)) {
+        vertexMap.add(key);
+        const nodeMesh = new THREE.Mesh(geoms.vertexMarkerGeo, mats.vertexNodeMaterial);
+        nodeMesh.position.set(x, y, z);
+        vertexGroup.add(nodeMesh);
+      }
     }
 
-    // Studio Lighting Rig matching core3d.js
+    // 5. Kinetic Precision Gimbal Rings (Counter-Rotating Mathematical Horizon)
+    const gimbalGroup = new THREE.Group();
+    coreRoot.add(gimbalGroup);
+
+    const ring1 = new THREE.Mesh(geoms.gimbalRing1, mats.gimbalMat1);
+    gimbalGroup.add(ring1);
+
+    const ring2 = new THREE.Mesh(geoms.gimbalRing2, mats.gimbalMat2);
+    ring2.rotation.x = Math.PI / 3;
+    ring2.rotation.y = Math.PI / 6;
+    gimbalGroup.add(ring2);
+
+    const ring3 = new THREE.Mesh(geoms.gimbalRing3, mats.gimbalMat3);
+    ring3.rotation.x = -Math.PI / 2.6;
+    ring3.rotation.z = Math.PI / 4;
+    gimbalGroup.add(ring3);
+
+    // 6. Floating Kinetic Data Packets traversing telemetry rails
+    const packet1 = new THREE.Mesh(geoms.dataPacketGeo, mats.dataPacketMaterialTeal);
+    ring1.add(packet1);
+
+    const packet2 = new THREE.Mesh(geoms.dataPacketGeo, mats.dataPacketMaterialGold);
+    ring2.add(packet2);
+
+    const packet3 = new THREE.Mesh(geoms.dataPacketGeo, mats.dataPacketMaterialTeal);
+    ring3.add(packet3);
+
+    // Studio Lighting Rig
     const ambientLight = new THREE.AmbientLight(0xffffff, darkBackground ? 1.0 : 1.25);
     scene.add(ambientLight);
 
@@ -422,7 +338,7 @@ export default function NexAgentCore3D({
     fillLight.position.set(-10, -8, 8);
     scene.add(fillLight);
 
-    const rimLight = new THREE.DirectionalLight(0xffffff, darkBackground ? 1.8 : 2.0);
+    const rimLight = new THREE.DirectionalLight(0x3d9d99, darkBackground ? 2.0 : 2.2);
     rimLight.position.set(0, 8, -12);
     scene.add(rimLight);
 
@@ -470,25 +386,6 @@ export default function NexAgentCore3D({
         return;
       }
 
-      if (isStatic) {
-        logoGroup.rotation.set(0.04, 0.08, 0);
-        logoGroup.position.set(0, 0, 0);
-        camera.position.set(0, 0, effectiveCamDist);
-        camera.lookAt(0, 0, 0);
-
-        // Wireframe toggle
-        const isWire = wireframeRef.current;
-        if (matNFront.wireframe !== isWire) {
-          matNFront.wireframe = isWire;
-          matChevronFront.wireframe = isWire;
-          matBarFront.wireframe = isWire;
-          sideMaterial.wireframe = isWire;
-        }
-
-        renderer.render(scene, camera);
-        return;
-      }
-
       const delta = clock.getDelta();
       const cState = activeStateRef.current;
       const stateCfg = CORE_STATES[cState] || CORE_STATES.IDLE;
@@ -502,69 +399,59 @@ export default function NexAgentCore3D({
       mouse.x += (mouse.targetX - mouse.x) * 0.06;
       mouse.y += (mouse.targetY - mouse.y) * 0.06;
 
-      const baseAngleY = time * 0.65;
-      const baseAngleX = Math.sin(time * 0.35) * 0.1;
-      const floatY = Math.sin(time * 0.85 * stateCfg.pulseFrequency) * 0.12;
+      // Central core harmonic rotation
+      coreMesh.rotation.y = time * 0.45 + mouse.x * 0.15;
+      coreMesh.rotation.x = Math.sin(time * 0.35) * 0.25 - mouse.y * 0.1;
+      coreMesh.rotation.z = Math.cos(time * 0.28) * 0.15;
 
-      logoGroup.rotation.y = baseAngleY + mouse.x * 0.12;
-      logoGroup.rotation.x = baseAngleX - mouse.y * 0.08;
-      logoGroup.position.y = floatY;
+      // Inner seed counter-rotation and breathing pulse
+      innerSeedMesh.rotation.y = -time * 0.8;
+      innerSeedMesh.rotation.x = time * 0.55;
+      const pulseScale = 1.0 + Math.sin(time * 3 * stateCfg.pulseFrequency) * 0.12;
+      innerSeedMesh.scale.set(pulseScale, pulseScale, pulseScale);
 
-      camera.position.x = mouse.x * 0.35;
-      camera.position.y = mouse.y * 0.25;
-      camera.lookAt(0, 0, 0);
+      // Outer synaptic lattice
+      latticeEdges.rotation.y = time * 0.22;
+      latticeEdges.rotation.z = -time * 0.18;
+      vertexGroup.rotation.copy(latticeEdges.rotation);
 
-      // Interpolate satellite expansion
+      // Expansion handling based on system state
       const targetExp = Math.max(stateCfg.satelliteExpansion, expansionRef.current);
       currentSatelliteExp += (targetExp - currentSatelliteExp) * 0.08;
+      const latticeScale = 1.0 + currentSatelliteExp * 0.25;
+      latticeEdges.scale.set(latticeScale, latticeScale, latticeScale);
+      vertexGroup.scale.copy(latticeEdges.scale);
 
-      satelliteModules.forEach((sat, i) => {
-        const offset = Math.sin(time * 0.8 + i) * 0.08;
-        sat.mesh.position.x = sat.basePos.x + sat.expandDir.x * (currentSatelliteExp * 0.85) + offset * 0.5;
-        sat.mesh.position.y = sat.basePos.y + sat.expandDir.y * (currentSatelliteExp * 0.85) + offset;
-        sat.mesh.position.z = sat.basePos.z + sat.expandDir.z * (currentSatelliteExp * 0.85);
+      // Gimbal Rings rotation
+      ring1.rotation.z = time * 0.32 * stateCfg.orbitSpeedMultiplier;
+      ring2.rotation.z = -time * 0.26 * stateCfg.orbitSpeedMultiplier;
+      ring3.rotation.z = time * 0.22 * stateCfg.orbitSpeedMultiplier;
 
-        if (connectionLines[i]) {
-          const lineGeo = connectionLines[i].geometry as THREE.BufferGeometry;
-          const posAttr = lineGeo.attributes.position as THREE.BufferAttribute;
-          posAttr.setXYZ(0, logoGroup.position.x, logoGroup.position.y, logoGroup.position.z);
-          posAttr.setXYZ(1, sat.mesh.position.x, sat.mesh.position.y, sat.mesh.position.z);
-          posAttr.needsUpdate = true;
-        }
-      });
+      // Data packets gliding along radii
+      const angle1 = time * 0.9 * stateCfg.orbitSpeedMultiplier;
+      packet1.position.set(Math.cos(angle1) * 5.2, Math.sin(angle1) * 5.2, 0);
 
-      const isBeamActive = cState === 'PROCESSING' || cState === 'ORCHESTRATING' || cState === 'DEPLOYING';
-      const targetOpacity = isBeamActive
-        ? 0.2 + 0.15 * Math.sin(time * 3 * stateCfg.pulseFrequency)
-        : 0;
-      connectionMat.opacity += (targetOpacity - connectionMat.opacity) * 0.1;
-      connectionMat.color.lerp(new THREE.Color(stateCfg.accentColor), 0.05);
+      const angle2 = -time * 0.75 * stateCfg.orbitSpeedMultiplier;
+      packet2.position.set(Math.cos(angle2) * 5.95, Math.sin(angle2) * 5.95, 0);
 
-      if (nodeMat1) {
-        nodeMat1.color.lerp(new THREE.Color(stateCfg.accentColor), 0.05);
-      }
-      if (nodeMat2) {
-        nodeMat2.color.lerp(new THREE.Color(stateCfg.secondaryColor), 0.05);
-      }
+      const angle3 = time * 0.65 * stateCfg.orbitSpeedMultiplier;
+      packet3.position.set(Math.cos(angle3) * 6.65, Math.sin(angle3) * 6.65, 0);
 
-      if (orbitRing1 && dataNode1) {
-        orbitRing1.rotation.z = time * 0.2 * stateCfg.orbitSpeedMultiplier;
-        const angle1 = time * 0.75 * stateCfg.orbitSpeedMultiplier;
-        dataNode1.position.set(Math.cos(angle1) * 7.3, Math.sin(angle1) * 7.3, 0);
-      }
-      if (orbitRing2 && dataNode2) {
-        orbitRing2.rotation.z = -time * 0.16 * stateCfg.orbitSpeedMultiplier;
-        const angle2 = -time * 0.65 * stateCfg.orbitSpeedMultiplier;
-        dataNode2.position.set(Math.cos(angle2) * 7.7, Math.sin(angle2) * 7.7, 0);
-      }
+      // Camera parallax
+      camera.position.x = mouse.x * 0.4;
+      camera.position.y = mouse.y * 0.3;
+      camera.lookAt(0, 0, 0);
+
+      // Color lerping for state responsiveness
+      mats.coreMaterial.emissive.lerp(new THREE.Color(stateCfg.accentColor), 0.05);
+      mats.innerSeedMaterial.color.lerp(new THREE.Color(stateCfg.accentColor), 0.05);
+      mats.latticeEdgesMaterial.color.lerp(new THREE.Color(stateCfg.accentColor), 0.05);
+      mats.dataPacketMaterialTeal.color.lerp(new THREE.Color(stateCfg.accentColor), 0.05);
 
       // Wireframe toggle
       const isWire = wireframeRef.current;
-      if (matNFront.wireframe !== isWire) {
-        matNFront.wireframe = isWire;
-        matChevronFront.wireframe = isWire;
-        matBarFront.wireframe = isWire;
-        sideMaterial.wireframe = isWire;
+      if (mats.coreMaterial.wireframe !== isWire) {
+        mats.coreMaterial.wireframe = isWire;
       }
 
       renderer.render(scene, camera);

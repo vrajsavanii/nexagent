@@ -41,21 +41,32 @@ module.exports = {
         'nx-success':      'var(--nx-success)',       // #15803D
         'nx-warning':      'var(--nx-warning)',       // #B45309
 
+        // ── TitanSAAS Design System Palette ────────────────────────
+        'titan-bg':          '#FBF5F3',
+        'titan-text':        '#2A2B2E',
+        'titan-muted':       '#738290',
+        'titan-coral':       '#EB572C',
+        'titan-coral-dark':  '#D63D10',
+        'titan-coral-light': '#FDF0EB',
+        'titan-card':        '#FFFFFF',
+        'titan-card-dark':   '#2A2B2E',
+        'titan-border':      'rgba(205, 211, 219, 0.6)',
+
         // ── Legacy compatibility aliases (avoid introducing new usage) ──
-        primary:           '#3D9D99',
-        'on-surface':      '#17191A',
-        surface:           '#F7F7F5',
-        background:        '#F7F7F5',
-        'surface-container-low': '#F3F3F4',
+        primary:           '#EB572C', // updated primary to Titan radiant coral
+        'on-surface':      '#2A2B2E',
+        surface:           '#FBF5F3',
+        background:        '#FBF5F3',
+        'surface-container-low': '#FFFFFF',
         'surface-container-lowest': '#FFFFFF',
-        'surface-dim':     '#DADADB',
-        outline:           '#57595B',
-        'outline-variant': '#BDC9C7',
+        'surface-dim':     '#F0EAE7',
+        outline:           '#738290',
+        'outline-variant': '#CDD3DB',
         error:             '#B91C1C',
-        'on-surface-variant': '#57595B',
-        'on-background':   '#17191A',
-        secondary:         '#3D9D99',
-        'inverse-on-surface': '#F7F7F5',
+        'on-surface-variant': '#5E6572',
+        'on-background':   '#2A2B2E',
+        secondary:         '#D63D10',
+        'inverse-on-surface': '#FFFFFF',
       },
 
       // ─────────────────────────────────────────────────────────────

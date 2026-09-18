@@ -17,6 +17,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
   },
   async headers() {
@@ -47,19 +51,58 @@ const nextConfig = {
           {
             key: 'Content-Security-Policy',
             value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "font-src 'self' https://fonts.gstatic.com data:",
-              "img-src 'self' data: blob: https://lh3.googleusercontent.com https://nexagent.group",
-              "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com",
-              "worker-src 'self' blob:",
+              "default-src 'self' https://framerusercontent.com https://*.framerusercontent.com",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://framerusercontent.com https://*.framerusercontent.com https://framer.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://framerusercontent.com https://*.framerusercontent.com",
+              "font-src 'self' https://fonts.gstatic.com https://framerusercontent.com https://*.framerusercontent.com data:",
+              "img-src 'self' data: blob: https://lh3.googleusercontent.com https://nexagent.group https://images.unsplash.com https://framerusercontent.com https://*.framerusercontent.com",
+              "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://framerusercontent.com https://*.framerusercontent.com https://framer.com",
+              "worker-src 'self' blob: https://framerusercontent.com",
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",
             ].join('; '),
           },
         ],
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: '/ventures',
+        destination: '/about',
+        permanent: false,
+      },
+      {
+        source: '/companies',
+        destination: '/about',
+        permanent: false,
+      },
+      {
+        source: '/case-studies',
+        destination: '/solutions',
+        permanent: false,
+      },
+      {
+        source: '/ecosystem',
+        destination: '/technology',
+        permanent: false,
+      },
+      {
+        source: '/model-010',
+        destination: '/technology',
+        permanent: false,
+      },
+      {
+        source: '/strategy-call',
+        destination: '/book-a-strategy-call',
+        permanent: true,
+      },
+      {
+        source: '/pricing',
+        destination: '/book-a-strategy-call',
+        permanent: false,
       },
     ];
   },

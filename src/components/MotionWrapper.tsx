@@ -24,7 +24,7 @@ export const MOTION = {
     exit:      [0.4, 0.0, 1, 1]      as [number, number, number, number],
   },
   // Viewport margins for whileInView triggers
-  viewport: { once: true, margin: "-60px" },
+  viewport: { once: true, margin: "0px" },
 } as const;
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -78,7 +78,7 @@ export function FadeIn({
     <motion.div
       initial={getInitial()}
       whileInView={getTarget()}
-      viewport={MOTION.viewport}
+      viewport={{ once: true, amount: 0 }}
       transition={{
         duration,
         delay,

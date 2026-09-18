@@ -1,277 +1,342 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/MotionWrapper';
-import { ContextualCTA } from '@/components/CtaSystem';
-import { PageContainer, SectionContainer, SectionHeader } from '@/components/ui';
+import { Breadcrumbs } from '@/components/content';
+
+interface SolutionCategory {
+  id: string;
+  number: string;
+  problem: string;
+  title: string;
+  summary: string;
+  capabilities: string[];
+  deliverables: string[];
+  slug: string;
+}
 
 export default function SolutionsPage() {
-  const [activeTab, setActiveTab] = useState('healthcare');
+  const [activeFilter, setActiveFilter] = useState<string>('All');
 
-  const industries = [
+  const solutionList: SolutionCategory[] = [
     {
-      id: 'healthcare',
-      label: 'Healthcare & Life Sciences',
-      headline: 'Ambient Clinical Documentation & Physician Workflow Automation',
-      description:
-        'Eliminating administrative friction and clinician burnout through HIPAA-compliant ambient AI scribing, automated SOAP note generation, and seamless bidirectional EHR synchronization.',
-      benefit: '2.4 Hours / Day',
-      benefitLabel: 'Recovered per Physician',
-      steps: [
-        { num: '01', title: 'Digital Patient Intake', desc: 'Secure mobile pre-registration and insurance verification' },
-        { num: '02', title: 'Ambient Audio Stream', desc: 'Real-time room audio processed with medical-domain models' },
-        { num: '03', title: 'Clinical SOAP Structuring', desc: 'Subjective, objective, assessment, and plan generated instantly' },
-        { num: '04', title: 'Orders & Prescriptions', desc: 'Automated diagnostic lab orders and e-prescribe dispatch' },
-        { num: '05', title: 'EHR Synchronization', desc: 'Sub-second direct integration into Epic, Cerner, or Athena' },
-        { num: '06', title: 'Claims & Coding Verification', desc: 'ICD-10 / CPT code cross-check with zero billing denials' },
+      id: 'automate-operations',
+      number: '01',
+      problem: 'Fragmented internal processes & manual bottlenecks',
+      title: 'Automate Internal Operations',
+      summary:
+        'Connect disparate business software, eliminate repetitive human data re-entry, and orchestrate automated multi-step operations across departments.',
+      capabilities: [
+        'Multi-system workflow orchestration and task routing',
+        'Automated approval workflows and notification escalation',
+        'Inventory, order, and dispatch synchronization',
+        'Exception handling and audit trail preservation',
       ],
-      caseStudy: {
-        client: 'Regional Hospital Network (12 Facilities)',
-        result: 'Saved 48,000+ administrative physician hours annually and accelerated outpatient patient throughput by 28%.',
-      },
+      deliverables: ['Custom automation pipelines', 'Webhook integrations', 'Operations control plane'],
+      slug: 'business-automation',
     },
     {
-      id: 'finance',
-      label: 'Financial Services & Fintech',
-      headline: 'Deterministic Risk Underwriting & Algorithmic Ledger Clearing',
-      description:
-        'Continuous AML screening, real-time transaction reconciliation, and automated credit assessment across cross-border banking corridors with cryptographic auditability.',
-      benefit: '< 140ms',
-      benefitLabel: 'Clearing & Risk Decision Latency',
-      steps: [
-        { num: '01', title: 'Transaction Ingestion', desc: 'High-throughput ISO-20022 payment payload parsing' },
-        { num: '02', title: 'Global Sanctions Audit', desc: 'Instant real-time checks across OFAC and EU lists' },
-        { num: '03', title: 'Behavioral Fraud Model', desc: 'Neural pattern scoring with sub-15ms inference' },
-        { num: '04', title: 'Liquidity Optimization', desc: 'Dynamic routing across multi-institution banking rails' },
-        { num: '05', title: 'Settlement Dispatch', desc: 'Instant domestic and international rail settlement' },
-        { num: '06', title: 'Immutable Ledger Audit', desc: 'Cryptographically sealed audit trail for regulators' },
+      id: 'automate-sales',
+      number: '02',
+      problem: 'Slow lead response times & scattered deal context',
+      title: 'Automate Sales & Lead Generation',
+      summary:
+        'Engage, qualify, and route prospects the second they express interest. Automate CRM data entry, meeting preparation, and multi-channel outreach.',
+      capabilities: [
+        'Instant inbound lead enrichment and scoring',
+        'Autonomous calendar scheduling and meeting coordination',
+        'CRM record updates and deal stage synchronization',
+        'Pre-call executive research briefs and dossier compilation',
       ],
-      caseStudy: {
-        client: 'Cross-Border Payments Institution',
-        result: 'Processed $4.2B in volume with a 99.98% clean settlement rate and reduced manual compliance reviews by 82%.',
-      },
+      deliverables: ['Lead qualification engine', 'CRM sync connectors', 'Meeting assistant'],
+      slug: 'sales-automation',
     },
     {
-      id: 'b2b',
-      label: 'B2B Enterprise & Commerce',
-      headline: 'Autonomous Revenue Operations & Pipeline Intelligence',
-      description:
-        'Turning buyer intent signals into qualified executive meetings with zero manual data entry. Automated account enrichment, objection handling, and real-time deal brief synthesis.',
-      benefit: '4.8x',
-      benefitLabel: 'Lead-to-Meeting Acceleration',
-      steps: [
-        { num: '01', title: 'Intent Signal Detection', desc: 'First-party visitor telemetry and firmographic intent capture' },
-        { num: '02', title: 'Deep Tech Stack Enrichment', desc: 'Automated executive mapping and organizational context' },
-        { num: '03', title: 'Personalized Conversation', desc: 'Adaptive multi-channel outreach tailored to pain points' },
-        { num: '04', title: 'Objection Navigation', desc: 'Context-aware responses referencing case studies and ROI' },
-        { num: '05', title: 'Account Executive Booking', desc: 'Direct calendar scheduling with zero human friction' },
-        { num: '06', title: 'Executive Brief Synthesis', desc: 'Comprehensive pre-call dossier generated in CRM' },
+      id: 'automate-marketing',
+      number: '03',
+      problem: 'Manual campaign execution & disconnected attribution',
+      title: 'Automate Marketing Workflows',
+      summary:
+        'Streamline content distribution, customer lifecycle segmentation, and cross-channel campaign orchestration without manual friction.',
+      capabilities: [
+        'Behavioral segmentation and personalized messaging triggers',
+        'Automated multi-channel campaign publishing',
+        'Lead source attribution and conversion tracking',
+        'A/B test coordination and performance alerts',
       ],
-      caseStudy: {
-        client: 'Enterprise SaaS Unicorn ($120M ARR)',
-        result: 'Decreased inbound response time from 4 hours to 45 seconds, resulting in a 42% lift in qualified sales pipeline.',
-      },
+      deliverables: ['Campaign automation pipelines', 'Attribution dashboards', 'Audience segment sync'],
+      slug: 'marketing-automation',
     },
     {
-      id: 'logistics',
-      label: 'Supply Chain & Logistics',
-      headline: 'Predictive Freight Routing & Automated Bill-of-Lading Ingestion',
-      description:
-        'Multimodal optical document parsing, live telematics tracking, and proactive port congestion avoidance for international shipping and freight logistics operators.',
-      benefit: '-31%',
-      benefitLabel: 'Detention & Demurrage Penalties',
-      steps: [
-        { num: '01', title: 'Document Optical Extraction', desc: 'Instant multimodal parsing of manifests and bills of lading' },
-        { num: '02', title: 'Carrier Capacity Matching', desc: 'Algorithmic spot and contract rate assignment' },
-        { num: '03', title: 'Dynamic Weather & Port Reroute', desc: 'Proactive avoidance of choke points and strikes' },
-        { num: '04', title: 'Cold-Chain IoT Telemetry', desc: 'Continuous temperature and vibration sensor tracking' },
-        { num: '05', title: 'Customs Clearance Automation', desc: 'Automated electronic document filing with authorities' },
-        { num: '06', title: 'Proof of Delivery Signoff', desc: 'Digital custody verification and automatic invoicing' },
+      id: 'customer-communication',
+      number: '04',
+      problem: 'Slow customer response times & overwhelmed support staff',
+      title: 'Automate Customer Communication',
+      summary:
+        'Provide instant, accurate, 24/7 assistance across web, email, WhatsApp, and messaging platforms that solves customer requests directly.',
+      capabilities: [
+        'Omnichannel customer support integration',
+        'Direct order tracking, booking adjustments, and refund handling',
+        'Multilingual inquiry classification and sentiment routing',
+        'Automated ticket creation and escalation to human staff',
       ],
-      caseStudy: {
-        client: 'Intermodal Freight Forwarder',
-        result: 'Automated 120,000 documents per quarter and reduced demurrage penalty expenses by $2.8M.',
-      },
+      deliverables: ['Conversational AI assistants', 'Zendesk / Freshdesk integrations', 'Knowledge base sync'],
+      slug: 'ai-assistants',
     },
     {
-      id: 'hospitality',
-      label: 'Hospitality & Luxury Retail',
-      headline: 'Connected Guest Operations & Predictive Service Orchestration',
-      description:
-        'Unified guest profiles, contactless mobile room key issuance, predictive room servicing, and automated ancillary revenue optimization.',
-      benefit: '+38%',
-      benefitLabel: 'Ancillary Revenue per Guest',
-      steps: [
-        { num: '01', title: 'Pre-Arrival Guest Profiling', desc: 'Personalized itinerary and room upgrade recommendations' },
-        { num: '02', title: 'Mobile Cloud Check-in', desc: 'Digital keycard dispatched to Apple Wallet / Google Wallet' },
-        { num: '03', title: 'Multilingual AI Concierge', desc: 'Sub-second response to room service and local bookings' },
-        { num: '04', title: 'Presence-Based Housekeeping', desc: 'IoT door sensors routing teams to unoccupied rooms' },
-        { num: '05', title: 'Unified Folio Balancing', desc: 'Automated real-time expense reconciliation across outlets' },
-        { num: '06', title: 'Express Departure & Review AI', desc: 'Instant check-out with automated sentiment follow-up' },
+      id: 'voice-agents',
+      number: '05',
+      problem: 'High telephone wait times & abandoned phone calls',
+      title: 'Deploy AI Voice Agents',
+      summary:
+        'Ultra-low latency conversational voice agents that answer telephone calls, answer questions, take reservations, and route urgent matters.',
+      capabilities: [
+        'Sub-200ms conversational turn-taking with natural interruption',
+        'Direct telephony PBX / SIP trunking and Twilio integration',
+        'Real-time reservation, appointment, and CRM booking',
+        'Audio transcription and call summary generation',
       ],
-      caseStudy: {
-        client: 'Luxury Boutique Resort Collection',
-        result: 'Elevated guest satisfaction scores to 98% while reducing front desk queue times to zero during peak arrival windows.',
-      },
+      deliverables: ['Custom voice runtime', 'Telephony gateway', 'PMS / CRM booking connectors'],
+      slug: 'voice-ai',
+    },
+    {
+      id: 'ai-assistants',
+      number: '06',
+      problem: 'Employees losing hours searching for information',
+      title: 'Build Internal AI Assistants',
+      summary:
+        'Equip your team with specialized AI assistants connected to your internal documents, SOPs, codebases, and databases.',
+      capabilities: [
+        'Secure semantic retrieval across company knowledge bases',
+        'Strict document citation and source verification',
+        'Role-based access control ensuring confidential data remains isolated',
+        'Slack and Microsoft Teams native integration',
+      ],
+      deliverables: ['Internal enterprise assistant', 'Document indexing pipeline', 'Team permission matrix'],
+      slug: 'ai-agents',
+    },
+    {
+      id: 'modernize-software',
+      number: '07',
+      problem: 'Outdated legacy software slowing down business agility',
+      title: 'Modernize Business Software',
+      summary:
+        'Re-engineer outdated legacy portals and spreadsheets into high-velocity, modern web applications built for reliability and scale.',
+      capabilities: [
+        'Modern full-stack web applications (Next.js, Node, Go, Python)',
+        'Database migration and schema optimization',
+        'Responsive, accessible, and intuitive UI/UX design',
+        'Enterprise security and least-privilege role management',
+      ],
+      deliverables: ['Custom business software', 'Production deployment', 'API documentation'],
+      slug: 'custom-ai-systems',
+    },
+    {
+      id: 'connect-systems',
+      number: '08',
+      problem: 'Siloed applications unable to communicate with each other',
+      title: 'Connect Business Systems (Integration)',
+      summary:
+        'Build custom integration bridges between your ERP, CRM, accounting tools, e-commerce platforms, and legacy databases.',
+      capabilities: [
+        'Bi-directional REST and GraphQL API middleware',
+        'Idempotent webhook brokers with retry queues',
+        'ERP synchronization (Salesforce, SAP, NetSuite, Epic)',
+        'Zero-loss two-phase commit transaction coordination',
+      ],
+      deliverables: ['Integration middleware', 'Webhook broker', 'Monitoring alerts'],
+      slug: 'crm-and-business-systems',
+    },
+    {
+      id: 'business-intelligence',
+      number: '09',
+      problem: 'Lack of real-time visibility into key business metrics',
+      title: 'Build Business Intelligence & Dashboards',
+      summary:
+        'Transform scattered database records into real-time executive dashboards, automated anomaly detection, and scheduled operational reports.',
+      capabilities: [
+        'Real-time KPI visualization and metric trackers',
+        'Automated anomaly detection and deviation alerts',
+        'Scheduled executive summary reports delivered via email/Slack',
+        'Custom SQL query engines and reporting exports',
+      ],
+      deliverables: ['Executive analytics dashboard', 'Alerting webhooks', 'Automated report engine'],
+      slug: 'business-intelligence',
+    },
+    {
+      id: 'automate-documentation',
+      number: '10',
+      problem: 'Manual document processing, data extraction, and paperwork',
+      title: 'Automate Documentation Workflows',
+      summary:
+        'Extract, parse, validate, and file complex documents—such as contracts, medical notes, invoices, and compliance forms—into structured data.',
+      capabilities: [
+        'Scanned PDF and image OCR with entity extraction',
+        'Cross-field mathematical and schema invariant validation',
+        'Automated dossier compilation and report drafting',
+        'Confidence-scored human review workflows',
+      ],
+      deliverables: ['Document processing engine', 'Validation schema', 'Review interface'],
+      slug: 'documentation-automation',
+    },
+    {
+      id: 'custom-ai-systems',
+      number: '11',
+      problem: 'Unique operational workflows that off-the-shelf software cannot solve',
+      title: 'Build Custom AI Systems',
+      summary:
+        'Architect and deploy specialized end-to-end artificial intelligence systems engineered around your exact proprietary workflow and constraints.',
+      capabilities: [
+        'Custom model fine-tuning and specialized weights',
+        'Dedicated sovereign compute enclave hosting',
+        'Full intellectual property ownership and custom integration',
+        'Ongoing performance monitoring and algorithmic improvements',
+      ],
+      deliverables: ['Proprietary AI system', 'Architecture blueprint', 'Maintenance SLA'],
+      slug: 'custom-ai-systems',
     },
   ];
 
-  const current = industries.find((i) => i.id === activeTab) || industries[0];
+  const filterOptions = ['All', 'Operations', 'Sales & Marketing', 'AI & Voice', 'Software & Data'];
+
+  const filteredSolutions =
+    activeFilter === 'All'
+      ? solutionList
+      : solutionList.filter((s) => {
+          if (activeFilter === 'Operations') return s.id.includes('operation') || s.id.includes('connect');
+          if (activeFilter === 'Sales & Marketing') return s.id.includes('sales') || s.id.includes('marketing');
+          if (activeFilter === 'AI & Voice') return s.id.includes('voice') || s.id.includes('assistant') || s.id.includes('custom-ai');
+          if (activeFilter === 'Software & Data') return s.id.includes('software') || s.id.includes('intelligence') || s.id.includes('doc');
+          return true;
+        });
 
   return (
-    <div className="w-full min-h-screen bg-[#F7F7F5] text-[#17191A] pt-28 pb-20">
+    <div className="w-full min-h-screen bg-[#FBF5F3] text-[#2A2B2E] pt-28 pb-24">
+      {/* Hero Section */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-10 pt-10 pb-16 border-b border-[rgba(205,211,219,0.5)]">
+        <Breadcrumbs items={[{ label: 'Solutions' }]} className="mb-6" />
 
-      {/* ── Hero Section ────────────────────────────────────────────────────── */}
-      <SectionContainer border="bottom" size="sm">
-        <PageContainer>
-          <FadeIn>
-            <SectionHeader
-              eyebrow="NEXAGENT / ENTERPRISE SYSTEMS"
-              heading="Solutions Engineered For Complex Operational Ecosystems."
-              accentWord="Complex Operational Ecosystems."
-              headingAs="h1"
-              headingSize="xl"
-              description="Every industry operates under distinct regulatory mandates, technical legacy systems, and commercial tempos. NexAgent engineers tailored, turnkey operating architectures designed for immediate enterprise impact."
-            />
-          </FadeIn>
-        </PageContainer>
-      </SectionContainer>
-
-      {/* ── Interactive Industry Switcher ─────────────────────────────────── */}
-      <SectionContainer border="bottom" size="md">
-        <PageContainer>
-          {/* Industry Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-none border-b border-[rgba(23,25,26,0.10)] mb-10">
-            {industries.map((ind) => (
-              <button
-                key={ind.id}
-                type="button"
-                onClick={() => setActiveTab(ind.id)}
-                className={[
-                  'px-4 py-2 rounded-full text-xs font-medium tracking-wide whitespace-nowrap transition-all duration-150',
-                  activeTab === ind.id
-                    ? 'bg-[#17191A] text-white shadow-sm'
-                    : 'bg-white hover:bg-[rgba(23,25,26,0.05)] text-[#57595B] border border-[rgba(23,25,26,0.10)]',
-                ].join(' ')}
-                aria-pressed={activeTab === ind.id}
-              >
-                {ind.label}
-              </button>
-            ))}
+        <FadeIn>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[rgba(205,211,219,0.7)] shadow-2xs mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#EB572C]" />
+            <span className="font-mono text-xs uppercase tracking-wider text-[#2A2B2E] font-bold">
+              PROBLEM-FIRST TECHNOLOGY
+            </span>
           </div>
 
-          {/* Active Industry Showcase */}
-          <FadeIn key={current.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left: Overview & Metric */}
-            <div className="lg:col-span-5 space-y-5">
-              <div className="p-6 bg-white rounded border border-[rgba(23,25,26,0.10)] shadow-sm space-y-4">
-                <span className="font-mono text-[11px] text-[#3D9D99] uppercase tracking-wider font-semibold block">
-                  {current.label} Architecture
-                </span>
-                <h2 className="text-xl font-semibold text-[#17191A] leading-snug tracking-tight">
-                  {current.headline}
-                </h2>
-                <p className="text-sm text-[#57595B] leading-relaxed">
-                  {current.description}
-                </p>
-                <div className="pt-4 border-t border-[rgba(23,25,26,0.08)]">
-                  <span className="text-4xl font-bold text-[#3D9D99] block leading-none">
-                    {current.benefit}
-                  </span>
-                  <span className="font-mono text-xs text-[#57595B] mt-1 block">
-                    {current.benefitLabel}
-                  </span>
+          <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#2A2B2E] max-w-4xl leading-[1.08]">
+            TECHNOLOGY THAT SOLVES <br />
+            <span className="font-light italic text-[#EB572C]">REAL BUSINESS WORK.</span>
+          </h1>
+
+          <p className="mt-6 text-base sm:text-lg text-[#738290] max-w-3xl leading-relaxed">
+            Organizations operate across fragmented software, repetitive manual processes, disconnected data, and escalating customer demands. NexAgent engineers practical systems that connect those workflows, automate manual overhead, and help teams scale with clarity.
+          </p>
+        </FadeIn>
+      </section>
+
+      {/* Filter Tabs */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-10 pt-8 pb-4">
+        <div className="flex flex-wrap items-center gap-2">
+          {filterOptions.map((opt) => (
+            <button
+              key={opt}
+              onClick={() => setActiveFilter(opt)}
+              className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                activeFilter === opt
+                  ? 'bg-[#2A2B2E] text-white shadow-xs'
+                  : 'bg-white text-[#5E6572] hover:bg-[#F0EFEA] border border-[rgba(205,211,219,0.6)]'
+              }`}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Solutions Grid */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-10 py-10">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredSolutions.map((sol) => (
+            <StaggerItem key={sol.id}>
+              <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 shadow-[0_10px_28px_-4px_rgba(42,43,46,0.05)] hover:border-[#EB572C]/40 transition-all flex flex-col justify-between h-full space-y-6">
+                <div>
+                  <div className="flex items-center justify-between gap-4 mb-3">
+                    <span className="font-mono text-xs font-bold text-[#EB572C] bg-[#FDF0EB] px-3 py-1 rounded-full">
+                      SOLUTION {sol.number}
+                    </span>
+                    <span className="text-[11px] font-mono text-[#738290] uppercase">
+                      Problem Solved
+                    </span>
+                  </div>
+
+                  <div className="mb-4">
+                    <span className="text-xs font-mono text-[#738290] block mb-1">
+                      Friction: {sol.problem}
+                    </span>
+                    <h2 className="font-sans text-xl sm:text-2xl font-bold text-[#2A2B2E]">
+                      {sol.title}
+                    </h2>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-[#5E6572] leading-relaxed mb-6">
+                    {sol.summary}
+                  </p>
+
+                  <div className="space-y-3 mb-6">
+                    <h4 className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#2A2B2E]">
+                      System Capabilities:
+                    </h4>
+                    <ul className="space-y-1.5 text-xs text-[#5E6572]">
+                      {sol.capabilities.slice(0, 3).map((cap, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-[#EB572C] font-bold mt-0.5">✦</span>
+                          <span>{cap}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
 
-              {/* Case Study */}
-              <div className="p-6 bg-[#17191A] text-white rounded shadow-md space-y-3">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#3D9D99] block">
-                  Enterprise Deployment Result
-                </span>
-                <h3 className="text-sm font-semibold">{current.caseStudy.client}</h3>
-                <p className="text-xs text-[#B9BCBA] leading-relaxed">
-                  {current.caseStudy.result}
-                </p>
-              </div>
-            </div>
-
-            {/* Right: 6-Step Workflow */}
-            <div className="lg:col-span-7">
-              <h3 className="font-mono text-[11px] uppercase tracking-wider text-[#57595B] mb-4">
-                End-to-End System Workflow
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {current.steps.map((step, idx) => (
-                  <div
-                    key={idx}
-                    className="p-5 bg-white rounded border border-[rgba(23,25,26,0.10)] shadow-sm hover:border-[rgba(61,157,153,0.4)] transition-all duration-150 flex flex-col justify-between space-y-2"
+                <div className="pt-4 border-t border-[rgba(205,211,219,0.3)] flex items-center justify-between">
+                  <Link
+                    href={`/solutions/${sol.slug}`}
+                    className="text-xs font-bold text-[#EB572C] hover:text-[#D44820] uppercase tracking-wider transition-colors"
                   >
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs font-bold text-[#3D9D99]">{step.num}</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#3D9D99]" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-[#17191A]">{step.title}</h4>
-                      <p className="text-xs text-[#57595B] mt-1 leading-relaxed">{step.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </FadeIn>
-        </PageContainer>
-      </SectionContainer>
-
-      {/* ── Deployment Engagement Model ──────────────────────────────────── */}
-      <SectionContainer size="md">
-        <PageContainer>
-          <FadeIn className="text-center max-w-3xl mx-auto">
-            <SectionHeader
-              eyebrow="NEXAGENT / ENGINEERING METHODOLOGY"
-              heading="How We Deploy Custom Systems."
-              accentWord="Custom Systems."
-              description="We partner directly with executive stakeholders and internal engineering teams through a rigorous four-phase deployment model engineered to deploy production systems within accelerated operational timelines."
-              align="center"
-            />
-          </FadeIn>
-
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-4 gap-5 mt-10">
-            {[
-              { phase: 'Phase 01', title: 'Architecture Audit',    desc: 'Deep mapping of legacy software, API surfaces, manual operational bottlenecks, and security boundaries.',                              duration: '2 Weeks' },
-              { phase: 'Phase 02', title: 'Sandbox Prototyping',   desc: 'Building isolated, production-spec prototypes running fine-tuned models on private data partitions.',                              duration: '3 Weeks' },
-              { phase: 'Phase 03', title: 'Phased Integration',    desc: 'Gradual canary deployment with real-time audit tracing, zero downtime, and automated rollback guardrails.',                       duration: '4 Weeks' },
-              { phase: 'Phase 04', title: 'Autonomous Scaling',    desc: 'Handover to internal teams with continuous model fine-tuning, latency optimization, and 24/7 SLA support.',                      duration: 'Continuous' },
-            ].map(({ phase, title, desc, duration }) => (
-              <StaggerItem key={phase}>
-                <div className="p-6 bg-white rounded border border-[rgba(23,25,26,0.10)] h-full flex flex-col justify-between space-y-4">
-                  <span className="font-mono text-sm font-bold text-[#3D9D99]">{phase}</span>
-                  <div>
-                    <h3 className="text-sm font-semibold text-[#17191A]">{title}</h3>
-                    <p className="text-xs text-[#57595B] mt-2 leading-relaxed">{desc}</p>
-                  </div>
-                  <span className="text-[11px] font-mono text-[#57595B]">Duration: {duration}</span>
+                    View Details →
+                  </Link>
+                  <Link
+                    href={`/book-a-strategy-call?solution=${sol.id}`}
+                    className="text-xs font-semibold text-[#738290] hover:text-[#2A2B2E] transition-colors"
+                  >
+                    Discuss System ↗
+                  </Link>
                 </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
 
-          <div className="text-center pt-10 flex flex-wrap items-center justify-center gap-3">
-            <ContextualCTA
-              label="Discuss Your Business Challenge"
-              href="/book-a-strategy-call"
-              location="solutions_bottom"
-              variant="primary"
-            />
-            <ContextualCTA
-              label="Talk to NexAgent"
-              href="/contact"
-              location="solutions_bottom"
-              variant="secondary"
-            />
-          </div>
-        </PageContainer>
-      </SectionContainer>
+        {/* Tailored Integration Callout */}
+        <FadeIn className="mt-16 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-sm text-center max-w-4xl mx-auto">
+          <span className="inline-block px-3 py-1 rounded-full bg-[#FDF0EB] text-[#EB572C] font-mono text-xs font-bold uppercase tracking-wider mb-4">
+            Custom Architecture
+          </span>
+          <h3 className="font-sans text-2xl sm:text-3xl font-extrabold text-[#2A2B2E] mb-3">
+            Systems Built Around The Way You Actually Work.
+          </h3>
+          <p className="text-sm text-[#738290] max-w-2xl mx-auto leading-relaxed mb-6">
+            We don&apos;t force your team onto rigid third-party software. NexAgent builds tailored technology systems around your existing software, your existing workflows, your existing teams, and your existing data.
+          </p>
+          <Link
+            href="/book-a-strategy-call"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-[#EB572C] hover:bg-[#D44820] shadow-sm transition-all"
+          >
+            Discuss Your System
+          </Link>
+        </FadeIn>
+      </section>
     </div>
   );
 }

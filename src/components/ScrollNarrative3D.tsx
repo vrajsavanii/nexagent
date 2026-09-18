@@ -10,11 +10,8 @@ import {
   SPATIAL_COLORS,
 } from '@/lib/3d/spatial-language';
 import {
-  createTextureN,
-  createTextureAChevron,
-  createTextureABar,
-  createNAMonogramGeometries,
-  createSideCoreMaterial,
+  createNeuralCoreGeometries,
+  createNeuralMaterials,
   createSatelliteGlassMaterial,
   disposeThreeResources,
 } from '@/lib/3d/materials';
@@ -106,31 +103,31 @@ export const NARRATIVE_SCENES: NarrativeSceneConfig[] = [
   },
   {
     id: 'network',
-    code: 'SCENE 06 // GLOBAL',
-    title: 'PLANETARY MESH',
+    code: 'SCENE 06 // DISTRIBUTED',
+    title: 'ENTERPRISE MESH',
     subtitle: 'Distributed Edge Infrastructure',
     description:
-      'Global coordination across USA, UK, UAE, and India with sovereign compliance and sub-25ms roundtrip edge routing.',
+      'Sovereign coordination with sub-25ms roundtrip edge routing and air-gapped private compute clusters.',
     camPos: [-3.0, -1.2, 11.8],
     camTarget: [-0.5, -0.2, 0],
     coreExpansion: 0.7,
     rotationSpeed: 0.9,
     accentColor: SPATIAL_COLORS.CHAMPAGNE,
-    highlightCategory: 'GLOBAL TOPOLOGY',
+    highlightCategory: 'TOPOLOGY',
   },
   {
     id: 'ecosystem',
     code: 'SCENE 07 // UNIFICATION',
-    title: 'CONVERGENT ECOSYSTEM',
-    subtitle: 'Technology, Products & Ventures',
+    title: 'CONVERGENT ARCHITECTURE',
+    subtitle: 'Autonomous Systems & Operations',
     description:
-      'Every capability, product line (Model-010, Event Mesh), and future enterprise venture operates as a harmonious whole.',
+      'Every capability, product line, and automated pipeline operates with permanent compounding discipline.',
     camPos: [2.0, 1.8, 12.0],
     camTarget: [0.4, 0.4, 0],
     coreExpansion: 0.85,
     rotationSpeed: 0.75,
     accentColor: SPATIAL_COLORS.TEAL,
-    highlightCategory: 'ECOSYSTEM',
+    highlightCategory: 'ARCHITECTURE',
   },
   {
     id: 'next',
@@ -233,52 +230,44 @@ export default function ScrollNarrative3D({
     const networkGroup = new THREE.Group();
     rootGroup.add(networkGroup);
 
-    // 1. Procedural Textures & Materials for NA Monogram
-    const texN = createTextureN();
-    const texChevron = createTextureAChevron();
-    const texBar = createTextureABar();
+    // 1. Procedural Neural Core Geometries & Materials
+    const neuralGeoms = createNeuralCoreGeometries(qualityTier);
+    const neuralMats = createNeuralMaterials(false);
 
-    const sideMat = createSideCoreMaterial(false);
-    allMaterials.push(sideMat);
+    allGeometries.push(
+      neuralGeoms.coreIcosahedron,
+      neuralGeoms.innerEnergySeed,
+      neuralGeoms.latticeWireframe,
+      neuralGeoms.gimbalRing1,
+      neuralGeoms.gimbalRing2,
+      neuralGeoms.gimbalRing3
+    );
 
-    const matNFront = new THREE.MeshPhysicalMaterial({
-      map: texN,
-      roughness: 0.22,
-      metalness: 0.88,
-      clearcoat: 0.45,
-      clearcoatRoughness: 0.12,
-    });
-    allMaterials.push(matNFront);
+    allMaterials.push(
+      neuralMats.coreMaterial,
+      neuralMats.innerSeedMaterial,
+      neuralMats.latticeEdgesMaterial,
+      neuralMats.gimbalMat1,
+      neuralMats.gimbalMat2,
+      neuralMats.gimbalMat3
+    );
 
-    const matChevronFront = new THREE.MeshPhysicalMaterial({
-      map: texChevron,
-      roughness: 0.2,
-      metalness: 0.9,
-      clearcoat: 0.45,
-      clearcoatRoughness: 0.12,
-    });
-    allMaterials.push(matChevronFront);
+    const meshCore = new THREE.Mesh(neuralGeoms.coreIcosahedron, neuralMats.coreMaterial);
+    const meshSeed = new THREE.Mesh(neuralGeoms.innerEnergySeed, neuralMats.innerSeedMaterial);
+    const meshLattice = new THREE.LineSegments(
+      new THREE.WireframeGeometry(neuralGeoms.latticeWireframe),
+      neuralMats.latticeEdgesMaterial
+    );
+    const meshGimbal1 = new THREE.Mesh(neuralGeoms.gimbalRing1, neuralMats.gimbalMat1);
+    const meshGimbal2 = new THREE.Mesh(neuralGeoms.gimbalRing2, neuralMats.gimbalMat2);
+    const meshGimbal3 = new THREE.Mesh(neuralGeoms.gimbalRing3, neuralMats.gimbalMat3);
 
-    const matBarFront = new THREE.MeshPhysicalMaterial({
-      map: texBar,
-      roughness: 0.24,
-      metalness: 0.85,
-      clearcoat: 0.4,
-      clearcoatRoughness: 0.15,
-    });
-    allMaterials.push(matBarFront);
-
-    // 2. Extruded NA Monogram Geometries
-    const { geomN, geomChevron, geomBar } = createNAMonogramGeometries(qualityTier);
-    allGeometries.push(geomN, geomChevron, geomBar);
-
-    const meshN = new THREE.Mesh(geomN, [matNFront, sideMat]);
-    const meshChevron = new THREE.Mesh(geomChevron, [matChevronFront, sideMat]);
-    const meshBar = new THREE.Mesh(geomBar, [matBarFront, sideMat]);
-
-    coreGroup.add(meshN);
-    coreGroup.add(meshChevron);
-    coreGroup.add(meshBar);
+    coreGroup.add(meshCore);
+    coreGroup.add(meshSeed);
+    coreGroup.add(meshLattice);
+    coreGroup.add(meshGimbal1);
+    coreGroup.add(meshGimbal2);
+    coreGroup.add(meshGimbal3);
 
     // 3. Satellites
     const glassMatTeal = createSatelliteGlassMaterial('teal');
@@ -439,7 +428,6 @@ export default function ScrollNarrative3D({
         renderer,
         geometries: allGeometries,
         materials: allMaterials,
-        textures: [texN, texChevron, texBar],
       });
 
       if (container.contains(canvas)) {

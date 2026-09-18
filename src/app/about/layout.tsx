@@ -1,24 +1,24 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About NexAgent | Global Intelligent Technology Group',
+  title: 'About NexAgent | Autonomous Enterprise Systems',
   description:
-    'Learn about NexAgent, a global technology group building AI-powered software, automation systems, intelligent business solutions and digital infrastructure under the mandate to Build smarter, Grow faster.',
+    'Learn about NexAgent, founded by 2 technical co-founders building AI-powered software, deterministic automation systems, and digital infrastructure under the mandate to Build smarter, Grow faster.',
   alternates: {
     canonical: '/about',
   },
   openGraph: {
-    title: 'About NexAgent | Global Intelligent Technology Group',
+    title: 'About NexAgent | Autonomous Enterprise Systems',
     description:
-      'NexAgent is a global technology group building AI-powered software, automation systems, intelligent business solutions and digital infrastructure.',
+      'NexAgent was founded by 2 technical co-founders building AI-powered software, deterministic automation systems, and core digital infrastructure.',
     url: 'https://nexagent.group/about',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About NexAgent | Global Intelligent Technology Group',
+    title: 'About NexAgent | Autonomous Enterprise Systems',
     description:
-      'NexAgent is a global technology group building AI-powered software, automation systems, intelligent business solutions and digital infrastructure.',
+      'NexAgent was founded by 2 technical co-founders building AI-powered software, deterministic automation systems, and core digital infrastructure.',
   },
 };
 

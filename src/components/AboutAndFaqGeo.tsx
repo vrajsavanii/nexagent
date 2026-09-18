@@ -14,7 +14,7 @@ export const canonicalFaqs: FAQItem[] = [
   {
     question: 'What is NexAgent?',
     answer:
-      'NexAgent is a global technology group building AI-powered software, automation systems, intelligent business solutions and digital infrastructure. Operating under the principle "Build smarter, Grow faster", the company develops proprietary software products while engineering custom technology systems for organizations globally.',
+      'NexAgent is an autonomous intelligence technology enterprise founded by 2 technical co-founders, building AI-powered software, deterministic automation pipelines, and core digital infrastructure. Operating with unicorn velocity and private equity discipline under the principle "Build smarter, Grow faster", the company develops proprietary software products while engineering custom technology systems for market-leading organizations.',
     category: 'Entity & Model',
   },
   {
@@ -169,7 +169,7 @@ export default function AboutAndFaqGeo() {
                 COMPANY DEFINITION & ARCHITECTURE
               </span>
               <h2 className="font-display text-3xl sm:text-4xl uppercase text-on-surface tracking-tight leading-[1.08] mt-2">
-                A Global Technology Group Building Intelligent Business Systems.
+                Autonomous Systems Architecture For Compounding Enterprise Value.
               </h2>
               <div className="inline-block px-3 py-1 bg-surface-container-low border border-outline-variant/40 font-mono text-xs text-on-surface-variant mt-2">
                 CANONICAL ENTITY &bull; NEXAGENT
@@ -180,8 +180,8 @@ export default function AboutAndFaqGeo() {
           <div className="lg:col-span-7 space-y-6 lg:pl-6 lg:border-l border-outline-variant/30">
             <FadeIn direction="left" delay={0.1}>
               <p className="font-body-lg text-body-lg text-on-surface leading-relaxed">
-                <strong>NexAgent</strong> is a global technology group building AI-powered software, automation systems,
-                intelligent business solutions and digital infrastructure.
+                <strong>NexAgent</strong> was founded by 2 technical co-founders to build sovereign AI-powered software, automation systems,
+                intelligent business solutions, and digital infrastructure.
               </p>
               <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mt-3">
                 Modern enterprise demands speed, resilience, and automated execution. NexAgent bridges the gap between

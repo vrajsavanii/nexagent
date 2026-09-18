@@ -4,7 +4,6 @@ import {
   getPublishedSolutions,
   getPublishedIndustries,
   getPublishedProducts,
-  getPublishedCaseStudies,
   getPublishedInsights,
 } from '@/content';
 
@@ -15,17 +14,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Core Pages
   const staticRoutes = [
     { path: '', priority: 1.0, changeFrequency: 'weekly' as const },
-    { path: '/companies', priority: 0.9, changeFrequency: 'weekly' as const },
+    { path: '/technology', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/solutions', priority: 0.9, changeFrequency: 'weekly' as const },
-    { path: '/technology', priority: 0.85, changeFrequency: 'monthly' as const },
+    { path: '/industries', priority: 0.9, changeFrequency: 'weekly' as const },
+    { path: '/products', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/insights', priority: 0.9, changeFrequency: 'weekly' as const },
-    { path: '/ventures', priority: 0.85, changeFrequency: 'weekly' as const },
-    { path: '/ecosystem', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/model-010', priority: 0.85, changeFrequency: 'monthly' as const },
-    { path: '/core', priority: 0.75, changeFrequency: 'monthly' as const },
     { path: '/about', priority: 0.85, changeFrequency: 'monthly' as const },
     { path: '/contact', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/book-a-strategy-call', priority: 0.95, changeFrequency: 'weekly' as const },
+    { path: '/faq', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/privacy', priority: 0.5, changeFrequency: 'yearly' as const },
+    { path: '/terms', priority: 0.5, changeFrequency: 'yearly' as const },
   ];
 
   // Dynamic Content Routes (Only status === 'PUBLISHED')
@@ -53,12 +52,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
   }));
 
-  const caseStudyRoutes = getPublishedCaseStudies().map((c) => ({
-    path: `/case-studies/${c.slug}`,
-    priority: 0.8,
-    changeFrequency: 'monthly' as const,
-  }));
-
   const insightRoutes = getPublishedInsights().map((ins) => ({
     path: `/insights/${ins.slug}`,
     priority: 0.85,
@@ -72,7 +65,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...solutionRoutes,
     ...industryRoutes,
     ...productRoutes,
-    ...caseStudyRoutes,
     ...insightRoutes,
   ];
 

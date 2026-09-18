@@ -97,8 +97,8 @@ const rootStructuredData = {
         caption: 'NexAgent',
       },
       description:
-        'NexAgent is a global technology group building AI-powered software, automation systems, intelligent business solutions and digital infrastructure.',
-      slogan: 'Build smarter, Grow faster',
+        'NexAgent is a founder-led technology company that builds AI-powered software, automation systems, and digital infrastructure helping businesses reduce manual work, connect workflows, and scale operations.',
+      slogan: 'AI-Powered Technology for Businesses That Want to Operate Better.',
       areaServed: [
         { '@type': 'Country', name: 'United States' },
         { '@type': 'Country', name: 'United Kingdom' },

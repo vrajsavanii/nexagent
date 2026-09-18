@@ -60,13 +60,13 @@ export default function BookStrategyCallPage() {
 
             <div>
               <span className="font-mono text-[10px] uppercase text-[#57595B] tracking-wider block">
-                Global Footprint
+                Direct Engineering Access
               </span>
               <p className="font-display text-sm font-semibold text-[#17191A] mt-1">
-                USA • UK • UAE • INDIA
+                2 Technical Co-Founders
               </p>
               <p className="font-sans text-xs text-[#57595B] mt-0.5">
-                Multi-region coverage across Eastern, European, and Gulf time zones.
+                Every briefing is conducted directly by senior system architects.
               </p>
             </div>
           </div>

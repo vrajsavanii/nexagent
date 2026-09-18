@@ -202,8 +202,8 @@ export default function VenturesPage() {
               <div className="font-mono text-xs uppercase text-[#57595B] mt-1">Cloud Infrastructure</div>
             </div>
             <div>
-              <div className="font-display text-2xl sm:text-3xl font-semibold text-[#17191A]">4 Hubs</div>
-              <div className="font-mono text-xs uppercase text-[#57595B] mt-1">USA • UK • UAE • India</div>
+              <div className="font-display text-2xl sm:text-3xl font-semibold text-[#17191A]">Permanent</div>
+              <div className="font-mono text-xs uppercase text-[#57595B] mt-1">Compounding Model</div>
             </div>
             <div>
               <div className="font-display text-2xl sm:text-3xl font-semibold text-[#17191A]">Direct</div>
