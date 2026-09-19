@@ -19,7 +19,7 @@ export default function TermsPage() {
 
         <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.6)] p-8 sm:p-14 shadow-sm space-y-8">
           <div>
-            <span className="font-mono text-xs uppercase tracking-wider text-[#3D9D99] font-bold block mb-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#9E7B78] font-bold block mb-2">
               LEGAL TERMS
             </span>
             <h1 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
@@ -69,7 +69,7 @@ export default function TermsPage() {
             <section className="space-y-3">
               <h2 className="text-lg font-bold text-[#2A2B2E]">6. Governing Law &amp; Contact</h2>
               <p>
-                These terms are governed by standard commercial law principles. For inquiries regarding these terms, please contact us via our <Link href="/contact" className="text-[#3D9D99] underline">Contact Page</Link>.
+                These terms are governed by standard commercial law principles. For inquiries regarding these terms, please contact us via our <Link href="/contact" className="text-[#9E7B78] underline">Contact Page</Link>.
               </p>
             </section>
           </div>

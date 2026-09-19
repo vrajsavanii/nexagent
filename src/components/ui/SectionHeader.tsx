@@ -65,7 +65,7 @@ export function SectionHeader({
     return (
       <>
         {parts[0]}
-        <em className="not-italic text-[#3D9D99] font-normal">{accentWord}</em>
+        <em className="not-italic text-[#9E7B78] font-normal">{accentWord}</em>
         {parts[1]}
       </>
     );
@@ -82,11 +82,11 @@ export function SectionHeader({
       {eyebrow && (
         <p
           className={cn(
-            'font-mono text-[11px] uppercase tracking-[0.1em] font-semibold text-[#3D9D99] mb-3',
+            'font-mono text-[11px] uppercase tracking-[0.1em] font-semibold text-[#9E7B78] mb-3',
             'flex items-center gap-2'
           )}
         >
-          <span className="w-4 h-px bg-[#3D9D99]" aria-hidden="true" />
+          <span className="w-4 h-px bg-[#9E7B78]" aria-hidden="true" />
           {eyebrow}
         </p>
       )}
@@ -133,7 +133,7 @@ export function Eyebrow({ children, className }: EyebrowProps) {
         className
       )}
     >
-      <span className="w-1.5 h-1.5 rounded-full bg-[#3D9D99] flex-shrink-0" aria-hidden="true" />
+      <span className="w-1.5 h-1.5 rounded-full bg-[#9E7B78] flex-shrink-0" aria-hidden="true" />
       {children}
     </p>
   );

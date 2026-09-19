@@ -29,7 +29,7 @@ export function SourceList({ sources, className = '' }: SourceListProps) {
                 href={src.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-2 font-mono text-[10px] text-[#3D9D99] hover:underline"
+                className="ml-2 font-mono text-[10px] text-[#9E7B78] hover:underline"
               >
                 [Link ↗]
               </a>

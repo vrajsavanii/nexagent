@@ -155,7 +155,7 @@ export default function RootLayout({
         {/* WCAG 2.4.1 Skip to main content link */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#17191A] focus:text-[#F7F7F5] focus:font-mono focus:text-xs focus:uppercase focus:tracking-wider focus:rounded focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#3D9D99]"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#17191A] focus:text-[#F7F7F5] focus:font-mono focus:text-xs focus:uppercase focus:tracking-wider focus:rounded focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#9E7B78]"
         >
           Skip to main content
         </a>

@@ -31,7 +31,7 @@ export interface BadgeProps {
 
 const variantStyles: Record<BadgeVariant, string> = {
   default:   'bg-[rgba(23,25,26,0.06)] border border-[rgba(23,25,26,0.15)] text-[#17191A]',
-  teal:      'bg-[rgba(61,157,153,0.10)] border border-[rgba(61,157,153,0.25)] text-[#3D9D99]',
+  teal:      'bg-[rgba(158,123,120,0.10)] border border-[rgba(158,123,120,0.25)] text-[#9E7B78]',
   champagne: 'bg-[rgba(215,203,184,0.20)] border border-[rgba(215,203,184,0.6)] text-[#7A6A55]',
   muted:     'bg-[rgba(132,136,138,0.08)] border border-[rgba(132,136,138,0.20)] text-[#84888A]',
   error:     'bg-[rgba(185,28,28,0.06)] border border-[rgba(185,28,28,0.20)] text-[#B91C1C]',
@@ -40,7 +40,7 @@ const variantStyles: Record<BadgeVariant, string> = {
 
 const dotColors: Record<BadgeVariant, string> = {
   default:   'bg-[#17191A]',
-  teal:      'bg-[#3D9D99]',
+  teal:      'bg-[#9E7B78]',
   champagne: 'bg-[#D7CBB8]',
   muted:     'bg-[#84888A]',
   error:     'bg-[#B91C1C]',

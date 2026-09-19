@@ -86,7 +86,7 @@ export default function CommandPalette() {
           {/* Content Search Results */}
           {contentResults.length > 0 && (
             <div className="mb-2">
-              <div className="px-3 py-1 font-mono text-[9px] uppercase tracking-widest text-[#3D9D99] font-bold">
+              <div className="px-3 py-1 font-mono text-[9px] uppercase tracking-widest text-[#9E7B78] font-bold">
                 SYSTEM KNOWLEDGE &amp; ARCHITECTURE ({contentResults.length})
               </div>
               {contentResults.map((item) => (
@@ -97,10 +97,10 @@ export default function CommandPalette() {
                 >
                   <div className="pr-3">
                     <div className="flex items-center gap-2 mb-0.5">
-                      <span className="font-mono text-[9px] uppercase tracking-wider px-1.5 py-0.2 rounded font-bold text-[#3D9D99] bg-[#3D9D99]/10">
+                      <span className="font-mono text-[9px] uppercase tracking-wider px-1.5 py-0.2 rounded font-bold text-[#9E7B78] bg-[#9E7B78]/10">
                         {item.type}
                       </span>
-                      <span className="font-display text-xs font-semibold text-[#17191A] group-hover:text-[#3D9D99] transition-colors">
+                      <span className="font-display text-xs font-semibold text-[#17191A] group-hover:text-[#9E7B78] transition-colors">
                         {item.title}
                       </span>
                     </div>
@@ -131,7 +131,7 @@ export default function CommandPalette() {
                   className="w-full text-left px-3 py-2.5 hover:bg-white flex items-center justify-between text-[#17191A] transition-colors group cursor-pointer rounded-xs"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-[16px] text-[#3D9D99] group-hover:scale-110 transition-transform">
+                    <span className="material-symbols-outlined text-[16px] text-[#9E7B78] group-hover:scale-110 transition-transform">
                       {item.icon}
                     </span>
                     <span className="font-sans text-xs font-medium text-[#17191A]">{item.label}</span>

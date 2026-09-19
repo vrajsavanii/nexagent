@@ -180,7 +180,7 @@ export default function AdminLeadsPage() {
 
                     <div className="flex flex-wrap items-center gap-2 font-micro-annotation text-micro-annotation">
                       {lead.category && (
-                        <span className="px-2 py-0.5 bg-[#3D9D99]/15 text-[#3D9D99] font-bold uppercase">
+                        <span className="px-2 py-0.5 bg-[#9E7B78]/15 text-[#9E7B78] font-bold uppercase">
                           {lead.category}
                         </span>
                       )}
@@ -218,7 +218,7 @@ export default function AdminLeadsPage() {
                       <>
                         <span>/</span>
                         <span>
-                          UTM SOURCE: <strong className="text-[#3D9D99]">{lead.attribution.utmSource}</strong>
+                          UTM SOURCE: <strong className="text-[#9E7B78]">{lead.attribution.utmSource}</strong>
                         </span>
                       </>
                     )}

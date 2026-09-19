@@ -48,7 +48,7 @@ export default function MobileBottomCta() {
         <Link
           href="/book-a-strategy-call"
           onClick={() => trackEvent('cta_click', { ctaName: 'Book a Strategy Call', ctaLocation: 'mobile_sticky_bottom' })}
-          className="px-4 py-2.5 bg-[#17191A] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded shadow-sm flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-[#3D9D99]"
+          className="px-4 py-2.5 bg-[#17191A] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded shadow-sm flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-[#9E7B78]"
         >
           <span>Book Strategy Call</span>
           <span className="text-xs">→</span>

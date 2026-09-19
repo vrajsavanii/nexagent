@@ -90,7 +90,7 @@ export function PageLoader({
         {[0, 1, 2].map((i) => (
           <span
             key={i}
-            className="w-1.5 h-1.5 rounded-full bg-[#3D9D99]"
+            className="w-1.5 h-1.5 rounded-full bg-[#9E7B78]"
             style={{
               animation: 'pulse 1.2s ease-in-out infinite',
               animationDelay: `${i * 0.2}s`,
@@ -186,7 +186,7 @@ export function ErrorState({
           onClick={onRetry}
           className={cn(
             'mt-6 font-mono text-[11px] uppercase tracking-wider font-semibold',
-            'text-[#3D9D99] hover:text-[#17191A]',
+            'text-[#9E7B78] hover:text-[#17191A]',
             'flex items-center gap-1.5 transition-colors duration-fast'
           )}
         >

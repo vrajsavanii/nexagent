@@ -84,7 +84,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
           <FadeIn direction="up" className="lg:col-span-6">
             <div className="p-8 sm:p-10 bg-white border border-[#17191A]/10 rounded-sm h-full flex flex-col justify-between">
               <div>
-                <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+                <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
                   THE OPERATIONAL BOTTLENECK
                 </span>
                 <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium mb-4">
@@ -121,7 +121,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
         <FadeIn direction="up">
           <div className="p-8 sm:p-12 bg-white border border-[#17191A]/10 rounded-sm">
             <div className="max-w-3xl">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
                 THE NEXAGENT ARCHITECTURE
               </span>
               <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium mb-4">
@@ -138,7 +138,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
         <FadeIn direction="up">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
                 SYSTEM DEPLOYMENT
               </span>
             </div>
@@ -149,10 +149,10 @@ export default async function SolutionDetailPage({ params }: PageProps) {
               {sol.systemComponents.map((comp, idx) => (
                 <div
                   key={idx}
-                  className="p-6 bg-white border border-[#17191A]/10 rounded-sm flex flex-col justify-between hover:border-[#3D9D99] transition-all shadow-2xs"
+                  className="p-6 bg-white border border-[#17191A]/10 rounded-sm flex flex-col justify-between hover:border-[#9E7B78] transition-all shadow-2xs"
                 >
                   <div>
-                    <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-[#3D9D99] bg-[#3D9D99]/10 px-2 py-0.5 rounded inline-block mb-3">
+                    <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-[#9E7B78] bg-[#9E7B78]/10 px-2 py-0.5 rounded inline-block mb-3">
                       {comp.badge} Layer
                     </span>
                     <h3 className="font-display text-base font-semibold text-[#17191A] mb-2">
@@ -174,7 +174,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
         {/* Section 05: Who It Is For */}
         <FadeIn direction="up">
           <div className="p-8 sm:p-10 bg-white border border-[#17191A]/10 rounded-sm">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
               TARGET OPERATIONAL PROFILE
             </span>
             <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium mb-6">
@@ -183,7 +183,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {sol.whoItIsFor.map((item, idx) => (
                 <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm font-sans text-[#17191A]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#3D9D99] mt-2 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#9E7B78] mt-2 shrink-0" />
                   <span className="leading-relaxed font-medium">{item}</span>
                 </div>
               ))}

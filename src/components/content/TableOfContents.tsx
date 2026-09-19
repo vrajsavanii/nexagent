@@ -38,7 +38,7 @@ export function TableOfContents({ items, className = '' }: TableOfContentsProps)
       aria-label="Table of contents"
       className={`bg-white border border-[#17191A]/10 p-6 rounded-sm ${className}`}
     >
-      <div className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#3D9D99] mb-4">
+      <div className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#9E7B78] mb-4">
         TABLE OF CONTENTS
       </div>
       <ul className="space-y-2.5 text-xs font-sans">
@@ -53,7 +53,7 @@ export function TableOfContents({ items, className = '' }: TableOfContentsProps)
                 href={`#${item.id}`}
                 className={`block transition-all leading-snug ${
                   isActive
-                    ? 'text-[#3D9D99] font-medium translate-x-1'
+                    ? 'text-[#9E7B78] font-medium translate-x-1'
                     : 'text-[#57595B] hover:text-[#17191A]'
                 }`}
               >

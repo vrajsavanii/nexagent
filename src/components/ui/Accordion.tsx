@@ -76,7 +76,7 @@ export function AccordionItem({
           className={cn(
             'material-symbols-outlined text-[20px] flex-shrink-0',
             'transition-transform duration-standard',
-            open ? 'rotate-45 text-[#3D9D99]' : 'text-[#84888A] group-hover:text-[#57595B]'
+            open ? 'rotate-45 text-[#9E7B78]' : 'text-[#84888A] group-hover:text-[#57595B]'
           )}
           aria-hidden="true"
         >

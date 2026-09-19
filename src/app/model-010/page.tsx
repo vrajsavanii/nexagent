@@ -82,14 +82,14 @@ export default function Model010Page() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-16 border-b border-[#17191A]/10">
         <FadeIn direction="up">
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#3D9D99] animate-pulse" />
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+            <span className="w-2 h-2 rounded-full bg-[#9E7B78] animate-pulse" />
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
               NexAgent Proprietary AI Engine
             </span>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-[#17191A] font-medium leading-[1.05] max-w-4xl">
             MODEL-010 // THE AUTONOMOUS{' '}
-            <span className="italic font-light text-[#3D9D99]">NEURAL RUNTIME.</span>
+            <span className="italic font-light text-[#9E7B78]">NEURAL RUNTIME.</span>
           </h1>
           <p className="font-sans text-lg sm:text-xl text-[#57595B] max-w-3xl mt-6 leading-relaxed">
             Engineered exclusively for high-stakes enterprise workflows. Model-010 replaces speculative probabilistic guessing with deterministic execution, sub-100ms inference, and mathematical safety guardrails.
@@ -116,7 +116,7 @@ export default function Model010Page() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-20 border-b border-[#17191A]/10">
         <FadeIn direction="up">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
               SYSTEM ARCHITECTURE
             </span>
           </div>
@@ -128,9 +128,9 @@ export default function Model010Page() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {architectureSpecs.map((spec, idx) => (
             <FadeIn key={spec.code} direction="up" delay={idx * 0.1}>
-              <div className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all h-full flex flex-col justify-between">
+              <div className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all h-full flex flex-col justify-between">
                 <div>
-                  <span className="font-mono text-[10px] uppercase text-[#3D9D99] font-bold block mb-3">
+                  <span className="font-mono text-[10px] uppercase text-[#9E7B78] font-bold block mb-3">
                     {spec.code}
                   </span>
                   <h3 className="font-display text-lg font-semibold text-[#17191A] mb-2">
@@ -150,7 +150,7 @@ export default function Model010Page() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-20 border-b border-[#17191A]/10">
         <FadeIn direction="up">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
               RIGOROUS AUDIT
             </span>
           </div>
@@ -164,7 +164,7 @@ export default function Model010Page() {
             <thead>
               <tr className="bg-[#17191A] text-white font-mono text-xs uppercase tracking-wider">
                 <th className="p-4 sm:p-5 font-semibold">Evaluation Dimension</th>
-                <th className="p-4 sm:p-5 font-semibold text-[#3D9D99] bg-[#1E2326]">
+                <th className="p-4 sm:p-5 font-semibold text-[#9E7B78] bg-[#1E2326]">
                   Model-010 (NexAgent)
                 </th>
                 <th className="p-4 sm:p-5 font-semibold text-white/70">Standard LLM A</th>
@@ -175,7 +175,7 @@ export default function Model010Page() {
               {benchmarks.map((b, i) => (
                 <tr key={i} className="hover:bg-[#F7F7F5] transition-colors">
                   <td className="p-4 sm:p-5 font-medium">{b.metric}</td>
-                  <td className="p-4 sm:p-5 font-mono font-bold text-[#3D9D99] bg-[#3D9D99]/05">
+                  <td className="p-4 sm:p-5 font-mono font-bold text-[#9E7B78] bg-[#9E7B78]/05">
                     {b.m010}
                   </td>
                   <td className="p-4 sm:p-5 font-mono text-[#57595B]">{b.genericA}</td>
@@ -192,7 +192,7 @@ export default function Model010Page() {
         <FadeIn direction="up">
           <div className="p-8 sm:p-12 bg-white border border-[#17191A]/15 rounded shadow-sm">
             <div className="max-w-2xl mb-8">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold block mb-2">
                 SIMULATE ROI & RUNTIME
               </span>
               <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium">
@@ -232,7 +232,7 @@ export default function Model010Page() {
                   <label className="font-mono text-xs uppercase tracking-wider text-[#17191A] font-medium">
                     Monthly Operational Task Volume:
                   </label>
-                  <span className="font-mono text-xs text-[#3D9D99] font-bold">
+                  <span className="font-mono text-xs text-[#9E7B78] font-bold">
                     {(taskVolume / 1000000).toFixed(1)} Million Tasks / Month
                   </span>
                 </div>
@@ -243,7 +243,7 @@ export default function Model010Page() {
                   step={500000}
                   value={taskVolume}
                   onChange={(e) => setTaskVolume(Number(e.target.value))}
-                  className="w-full accent-[#3D9D99] cursor-pointer"
+                  className="w-full accent-[#9E7B78] cursor-pointer"
                 />
                 <div className="flex justify-between font-mono text-[10px] text-[#57595B] mt-1">
                   <span>500K</span>
@@ -262,7 +262,7 @@ export default function Model010Page() {
                 <div className="font-display text-3xl font-bold text-[#17191A]">
                   {currentCfg.latency} ms
                 </div>
-                <div className="font-sans text-[11px] text-[#3D9D99] mt-1 font-medium">
+                <div className="font-sans text-[11px] text-[#9E7B78] mt-1 font-medium">
                   Sub-second response
                 </div>
               </div>
@@ -274,7 +274,7 @@ export default function Model010Page() {
                 <div className="font-display text-3xl font-bold text-[#17191A]">
                   {currentCfg.accuracy}%
                 </div>
-                <div className="font-sans text-[11px] text-[#3D9D99] mt-1 font-medium">
+                <div className="font-sans text-[11px] text-[#9E7B78] mt-1 font-medium">
                   Verified Guardrails
                 </div>
               </div>
@@ -291,14 +291,14 @@ export default function Model010Page() {
                 </div>
               </div>
 
-              <div className="p-5 bg-[#3D9D99]/10 rounded border border-[#3D9D99]/30">
-                <div className="font-mono text-[10px] uppercase text-[#3D9D99] font-bold mb-1">
+              <div className="p-5 bg-[#9E7B78]/10 rounded border border-[#9E7B78]/30">
+                <div className="font-mono text-[10px] uppercase text-[#9E7B78] font-bold mb-1">
                   Net Annual Savings
                 </div>
-                <div className="font-display text-3xl font-bold text-[#3D9D99]">
+                <div className="font-display text-3xl font-bold text-[#9E7B78]">
                   ${annualSavings}
                 </div>
-                <div className="font-sans text-[11px] text-[#3D9D99] mt-1 font-semibold">
+                <div className="font-sans text-[11px] text-[#9E7B78] mt-1 font-semibold">
                   ~78% Infrastructure Savings
                 </div>
               </div>

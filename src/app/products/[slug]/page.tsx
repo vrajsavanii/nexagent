@@ -79,7 +79,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         {/* Section 01: Product Overview & Architecture */}
         <FadeIn direction="up">
           <div className="p-8 sm:p-12 bg-white border border-[#17191A]/10 rounded-sm">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
               SYSTEM ARCHITECTURE &amp; SCOPE
             </span>
             <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium mb-4">
@@ -95,7 +95,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <FadeIn direction="up">
             <div className="p-8 sm:p-10 bg-white border border-[#17191A]/10 rounded-sm h-full">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
                 BENCHMARKED CAPABILITIES
               </span>
               <h2 className="font-display text-2xl uppercase tracking-tight text-[#17191A] font-medium mb-6">
@@ -104,7 +104,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
               <ul className="space-y-3">
                 {prod.capabilities.map((cap, idx) => (
                   <li key={idx} className="flex items-start gap-3 font-sans text-xs sm:text-sm text-[#17191A]">
-                    <span className="text-[#3D9D99] font-bold">✓</span>
+                    <span className="text-[#9E7B78] font-bold">✓</span>
                     <span className="leading-relaxed font-medium">{cap}</span>
                   </li>
                 ))}
@@ -135,7 +135,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         {/* Section 03: Target Organizations */}
         <FadeIn direction="up">
           <div className="p-8 sm:p-10 bg-[#17191A] text-white rounded-sm">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
               AUDIENCE PROFILE
             </span>
             <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight font-light mb-6">
@@ -144,7 +144,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {prod.targetOrganizations.map((org, idx) => (
                 <div key={idx} className="p-5 bg-white/05 border border-white/10 rounded-sm">
-                  <span className="font-mono text-xs text-[#3D9D99] font-bold block mb-2">
+                  <span className="font-mono text-xs text-[#9E7B78] font-bold block mb-2">
                     PROFILE // 0{idx + 1}
                   </span>
                   <p className="font-sans text-xs text-[#84888A] leading-relaxed">

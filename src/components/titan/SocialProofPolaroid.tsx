@@ -97,7 +97,7 @@ export default function SocialProofPolaroid() {
           {/* Polaroid Photo Frame with 3D Pin */}
           <div className="relative flex-shrink-0">
             {/* 3D Red Pushpin */}
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-tr from-[#3D9D99] via-[#5EBAB6] to-[#962808] shadow-[0_3px_6px_rgba(0,0,0,0.35)] z-20" />
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-tr from-[#9E7B78] via-[#D7CFBC] to-[#962808] shadow-[0_3px_6px_rgba(0,0,0,0.35)] z-20" />
 
             {/* White Polaroid Border */}
             <div className="p-3 pb-5 bg-white border border-[rgba(205,211,219,0.6)] rounded-2xl shadow-[0_12px_30px_-6px_rgba(42,43,46,0.12)] transform -rotate-3 hover:rotate-0 transition-transform duration-300">
@@ -122,7 +122,7 @@ export default function SocialProofPolaroid() {
           <div className="space-y-4 text-left">
             <div className="flex gap-0.5">
               {[1,2,3,4,5].map(i => (
-                <svg key={i} className="w-4 h-4 text-[#3D9D99]" viewBox="0 0 20 20" fill="currentColor">
+                <svg key={i} className="w-4 h-4 text-[#9E7B78]" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                 </svg>
               ))}

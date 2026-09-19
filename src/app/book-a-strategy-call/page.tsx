@@ -11,9 +11,9 @@ export default function BookStrategyCallPage() {
         {/* Header Breadcrumb & Editorial Positioning */}
         <FadeIn direction="up">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#3D9D99]/10 border border-[#3D9D99]/20 rounded-full mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#3D9D99] animate-pulse" />
-              <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#9E7B78]/10 border border-[#9E7B78]/20 rounded-full mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#9E7B78] animate-pulse" />
+              <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
                 EXECUTIVE STRATEGY BRIEFING
               </span>
             </div>

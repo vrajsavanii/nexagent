@@ -62,7 +62,7 @@ export default function TeamSection() {
                 <h3 className="font-sans font-extrabold text-2xl text-[#2A2B2E]">
                   {member.name}
                 </h3>
-                <p className="text-sm font-bold text-[#3D9D99]">
+                <p className="text-sm font-bold text-[#9E7B78]">
                   {member.role}
                 </p>
                 <p className="text-xs sm:text-sm text-[#738290] leading-relaxed pt-1">

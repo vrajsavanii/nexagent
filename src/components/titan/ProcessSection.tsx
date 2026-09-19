@@ -57,10 +57,10 @@ export default function ProcessSection() {
               className="p-7 rounded-3xl bg-white border border-[rgba(205,211,219,0.5)] shadow-[0_10px_28px_-4px_rgba(42,43,46,0.05)] flex flex-col justify-between h-[280px]"
             >
               <div className="flex items-center justify-between">
-                <span className="font-mono text-2xl font-black text-[#3D9D99]">
+                <span className="font-mono text-2xl font-black text-[#9E7B78]">
                   {step.num}
                 </span>
-                <span className="w-2.5 h-2.5 rounded-full bg-[#3D9D99]/20" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#9E7B78]/20" />
               </div>
 
               <div className="space-y-2">

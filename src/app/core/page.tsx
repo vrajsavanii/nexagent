@@ -59,8 +59,8 @@ export default function CorePage() {
                 <div className="h-7 w-[1px] bg-[#17191A]/20"></div>
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#3D9D99] animate-pulse" />
-                    <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+                    <span className="w-2 h-2 rounded-full bg-[#9E7B78] animate-pulse" />
+                    <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
                       Phase 8 // 3D Spatial Computing Engine
                     </span>
                   </div>
@@ -71,7 +71,7 @@ export default function CorePage() {
               </div>
               <h1 className="font-display text-4xl sm:text-5xl uppercase tracking-tight text-[#17191A] font-medium leading-[1.05]">
                 NEXAGENT CORE //{' '}
-                <span className="italic font-light text-[#3D9D99]">SPATIAL LAB.</span>
+                <span className="italic font-light text-[#9E7B78]">SPATIAL LAB.</span>
               </h1>
               <p className="font-sans text-base sm:text-lg text-[#57595B] leading-relaxed">
                 The intersection of brand identity, spatial computing, and high-performance WebGL graphics. Built with Three.js, physical transmission shaders, and responsive mathematical framing.
@@ -80,7 +80,7 @@ export default function CorePage() {
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link
                   href="/technology"
-                  className="px-6 py-2.5 bg-[#17191A] hover:bg-[#3D9D99] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all shadow"
+                  className="px-6 py-2.5 bg-[#17191A] hover:bg-[#9E7B78] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all shadow"
                 >
                   Enterprise Technology Stack →
                 </Link>
@@ -98,7 +98,7 @@ export default function CorePage() {
           <div className="lg:col-span-6 flex items-center justify-center">
             <FadeIn direction="left" delay={0.2} className="w-full">
               <div className="relative w-full h-[480px] sm:h-[540px] flex items-center justify-center">
-                <div className="absolute inset-0 bg-radial-gradient from-[#3D9D99]/15 via-transparent to-transparent pointer-events-none blur-3xl opacity-70"></div>
+                <div className="absolute inset-0 bg-radial-gradient from-[#9E7B78]/15 via-transparent to-transparent pointer-events-none blur-3xl opacity-70"></div>
                 <NexAgentCore3D
                   frameless={true}
                   transparent={true}
@@ -120,7 +120,7 @@ export default function CorePage() {
         <FadeIn direction="up">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#17191A]/10 mb-10">
             <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
                 SCROLL & INTERACTIVE NARRATIVE
               </span>
               <h2 className="font-display text-3xl sm:text-4xl uppercase tracking-tight text-[#17191A] font-medium mt-1">
@@ -143,7 +143,7 @@ export default function CorePage() {
         <FadeIn direction="up">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#17191A]/10 mb-10">
             <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
                 SYSTEMS ARCHITECTURE
               </span>
               <h2 className="font-display text-3xl sm:text-4xl uppercase tracking-tight text-[#17191A] font-medium mt-1">
@@ -165,7 +165,7 @@ export default function CorePage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-20">
         <FadeIn direction="up">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
               ENGINEERING MATRIX
             </span>
           </div>
@@ -177,7 +177,7 @@ export default function CorePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {engineeringSpecs.map((spec, idx) => (
             <FadeIn key={spec.id} direction="up" delay={idx * 0.1}>
-              <div className="p-8 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all h-full flex flex-col justify-between">
+              <div className="p-8 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all h-full flex flex-col justify-between">
                 <div>
                   <h3 className="font-display text-xl font-semibold text-[#17191A] mb-2">
                     {spec.title}

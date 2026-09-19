@@ -39,15 +39,15 @@ export default function InsightsIndexPage() {
 
         <FadeIn direction="up">
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#3D9D99] animate-pulse" />
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+            <span className="w-2 h-2 rounded-full bg-[#9E7B78] animate-pulse" />
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
               ENGINEERING &amp; RESEARCH ARCHITECTURE
             </span>
           </div>
 
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-[#17191A] font-medium leading-[1.05] max-w-4xl">
             SYSTEMS ARCHITECTURE,{' '}
-            <span className="italic font-light text-[#3D9D99]">RESEARCH &amp; ANALYSIS.</span>
+            <span className="italic font-light text-[#9E7B78]">RESEARCH &amp; ANALYSIS.</span>
           </h1>
 
           <p className="font-sans text-base sm:text-lg text-[#57595B] max-w-3xl mt-6 leading-relaxed">
@@ -63,11 +63,11 @@ export default function InsightsIndexPage() {
           <div className="lg:col-span-8 space-y-8">
             {insights.map((insight, idx) => (
               <FadeIn key={insight.id} direction="up" delay={idx * 0.1}>
-                <article className="p-8 sm:p-10 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all flex flex-col justify-between group shadow-xs">
+                <article className="p-8 sm:p-10 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all flex flex-col justify-between group shadow-xs">
                   <div>
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                       <div className="flex items-center gap-2">
-                        <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-[#3D9D99] bg-[#3D9D99]/10 px-2 py-0.5 rounded">
+                        <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-[#9E7B78] bg-[#9E7B78]/10 px-2 py-0.5 rounded">
                           {insight.category}
                         </span>
                         <span className="font-mono text-[10px] uppercase text-[#84888A]">
@@ -80,7 +80,7 @@ export default function InsightsIndexPage() {
                     </div>
 
                     <Link href={`/insights/${insight.slug}`}>
-                      <h2 className="font-display text-xl sm:text-2xl font-semibold text-[#17191A] mb-3 group-hover:text-[#3D9D99] transition-colors leading-tight">
+                      <h2 className="font-display text-xl sm:text-2xl font-semibold text-[#17191A] mb-3 group-hover:text-[#9E7B78] transition-colors leading-tight">
                         {insight.title}
                       </h2>
                     </Link>
@@ -107,7 +107,7 @@ export default function InsightsIndexPage() {
                     </div>
                     <Link
                       href={`/insights/${insight.slug}`}
-                      className="text-[#3D9D99] font-semibold hover:underline flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
+                      className="text-[#9E7B78] font-semibold hover:underline flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
                     >
                       Read Analysis →
                     </Link>
@@ -120,7 +120,7 @@ export default function InsightsIndexPage() {
           {/* Sidebar */}
           <div className="lg:col-span-4 space-y-8">
             <div className="p-6 bg-white border border-[#17191A]/10 rounded-sm">
-              <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#3D9D99] block mb-3">
+              <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#9E7B78] block mb-3">
                 EDITORIAL INTEGRITY
               </span>
               <h3 className="font-display text-base font-semibold text-[#17191A] mb-2">
@@ -132,7 +132,7 @@ export default function InsightsIndexPage() {
             </div>
 
             <div className="p-6 bg-[#17191A] text-white rounded-sm">
-              <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#3D9D99] block mb-2">
+              <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#9E7B78] block mb-2">
                 INSTITUTIONAL ADVISORY
               </span>
               <h3 className="font-display text-lg font-light mb-3">
@@ -143,7 +143,7 @@ export default function InsightsIndexPage() {
               </p>
               <Link
                 href="/book-a-strategy-call"
-                className="inline-block w-full py-2.5 px-4 bg-[#3D9D99] hover:bg-[#348582] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded text-center transition-all"
+                className="inline-block w-full py-2.5 px-4 bg-[#9E7B78] hover:bg-[#8C6558] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded text-center transition-all"
               >
                 Schedule Technical Session →
               </Link>

@@ -26,7 +26,7 @@ const baseInputStyles = [
   'rounded-sm',
   'text-sm leading-normal font-sans',
   'transition-colors duration-fast',
-  'focus:outline-none focus:border-[#3D9D99] focus:ring-1 focus:ring-[rgba(61,157,153,0.25)]',
+  'focus:outline-none focus:border-[#9E7B78] focus:ring-1 focus:ring-[rgba(158,123,120,0.25)]',
   'disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-[#F7F7F5]',
 ].join(' ');
 

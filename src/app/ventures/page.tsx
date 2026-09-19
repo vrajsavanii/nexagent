@@ -178,14 +178,14 @@ export default function VenturesPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-16 border-b border-[#17191A]/10">
         <FadeIn direction="up">
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#3D9D99] animate-pulse" />
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+            <span className="w-2 h-2 rounded-full bg-[#9E7B78] animate-pulse" />
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
               NexAgent Capital & Incubation
             </span>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-[#17191A] font-medium leading-[1.05] max-w-4xl">
             BUILDING & ACQUIRING THE NEXT GENERATION OF{' '}
-            <span className="italic font-light text-[#3D9D99]">TECHNOLOGY LEADERS.</span>
+            <span className="italic font-light text-[#9E7B78]">TECHNOLOGY LEADERS.</span>
           </h1>
           <p className="font-sans text-lg sm:text-xl text-[#57595B] max-w-3xl mt-6 leading-relaxed">
             We provide enduring balance-sheet capital, sovereign cloud infrastructure, and global enterprise distribution to founders building category-defining software and AI platforms.
@@ -217,7 +217,7 @@ export default function VenturesPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-20 border-b border-[#17191A]/10">
         <FadeIn direction="up">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
               CAPITAL PHILOSOPHY
             </span>
           </div>
@@ -229,9 +229,9 @@ export default function VenturesPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
           {investmentThesis.map((item, idx) => (
             <FadeIn key={item.num} direction="up" delay={idx * 0.15}>
-              <div className="h-full p-8 bg-white border border-[#17191A]/10 rounded-sm shadow-sm flex flex-col justify-between hover:border-[#3D9D99]/50 transition-all">
+              <div className="h-full p-8 bg-white border border-[#17191A]/10 rounded-sm shadow-sm flex flex-col justify-between hover:border-[#9E7B78]/50 transition-all">
                 <div>
-                  <div className="font-mono text-xs text-[#3D9D99] font-bold mb-4">
+                  <div className="font-mono text-xs text-[#9E7B78] font-bold mb-4">
                     THESIS // {item.num}
                   </div>
                   <h3 className="font-display text-xl font-medium text-[#17191A] mb-3">
@@ -251,7 +251,7 @@ export default function VenturesPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-20 border-b border-[#17191A]/10">
         <FadeIn direction="up">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
               MANDATES & DOMAINS
             </span>
           </div>
@@ -263,13 +263,13 @@ export default function VenturesPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {focusAreas.map((area, idx) => (
             <FadeIn key={area.id} direction="up" delay={idx * 0.1}>
-              <div className="p-8 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all h-full flex flex-col justify-between">
+              <div className="p-8 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all h-full flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="font-display text-xl font-semibold text-[#17191A]">
                       {area.title}
                     </h3>
-                    <span className="px-2.5 py-1 bg-[#3D9D99]/10 text-[#3D9D99] font-mono text-[10px] uppercase font-bold tracking-wider rounded">
+                    <span className="px-2.5 py-1 bg-[#9E7B78]/10 text-[#9E7B78] font-mono text-[10px] uppercase font-bold tracking-wider rounded">
                       Active Mandate
                     </span>
                   </div>
@@ -282,7 +282,7 @@ export default function VenturesPage() {
                     </span>
                     {area.criteria.map((c, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs text-[#57595B]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#3D9D99]" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#9E7B78]" />
                         <span>{c}</span>
                       </div>
                     ))}
@@ -290,7 +290,7 @@ export default function VenturesPage() {
                 </div>
                 <div className="pt-4 border-t border-[#17191A]/10 flex items-center justify-between font-mono text-xs text-[#17191A]">
                   <span className="text-[#57595B]">Target Size:</span>
-                  <span className="font-semibold text-[#3D9D99]">{area.ticket}</span>
+                  <span className="font-semibold text-[#9E7B78]">{area.ticket}</span>
                 </div>
               </div>
             </FadeIn>
@@ -302,7 +302,7 @@ export default function VenturesPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-20 border-b border-[#17191A]/10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold block mb-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold block mb-2">
               AREAS WE ARE EXPLORING
             </span>
             <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium">
@@ -337,12 +337,12 @@ export default function VenturesPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredPortfolio.map((item, idx) => (
             <FadeIn key={item.name} direction="up" delay={idx * 0.1}>
-              <div className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all">
+              <div className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-display text-lg font-semibold text-[#17191A]">
                     {item.name}
                   </h4>
-                  <span className="font-mono text-[10px] uppercase text-[#3D9D99] bg-[#3D9D99]/10 px-2 py-0.5 rounded font-semibold">
+                  <span className="font-mono text-[10px] uppercase text-[#9E7B78] bg-[#9E7B78]/10 px-2 py-0.5 rounded font-semibold">
                     {item.type}
                   </span>
                 </div>
@@ -362,7 +362,7 @@ export default function VenturesPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-20 border-b border-[#17191A]/10">
         <FadeIn direction="up">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
               PARTNERSHIP ARCHITECTURE
             </span>
           </div>
@@ -377,9 +377,9 @@ export default function VenturesPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {engagementPathways.map((pathway, idx) => (
             <FadeIn key={pathway.id} direction="up" delay={idx * 0.1}>
-              <div className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all flex flex-col justify-between h-full shadow-sm">
+              <div className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all flex flex-col justify-between h-full shadow-sm">
                 <div>
-                  <div className="font-mono text-[10px] uppercase text-[#3D9D99] font-bold tracking-wider mb-2">
+                  <div className="font-mono text-[10px] uppercase text-[#9E7B78] font-bold tracking-wider mb-2">
                     PATHWAY // 0{idx + 1}
                   </div>
                   <h3 className="font-display text-lg font-semibold text-[#17191A] mb-2">
@@ -412,7 +412,7 @@ export default function VenturesPage() {
         <FadeIn direction="up">
           <div className="p-8 sm:p-12 bg-white border border-[#17191A]/15 rounded shadow-sm">
             <div className="max-w-xl mx-auto text-center mb-8">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold block mb-2">
                 FOUNDER SUBMISSIONS
               </span>
               <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium">
@@ -424,8 +424,8 @@ export default function VenturesPage() {
             </div>
 
             {formSubmitted ? (
-              <div className="p-8 text-center bg-[#F0EFEA] border border-[#3D9D99]/30 rounded">
-                <div className="w-10 h-10 rounded-full bg-[#3D9D99]/20 text-[#3D9D99] flex items-center justify-center mx-auto mb-3 text-lg font-bold">
+              <div className="p-8 text-center bg-[#F0EFEA] border border-[#9E7B78]/30 rounded">
+                <div className="w-10 h-10 rounded-full bg-[#9E7B78]/20 text-[#9E7B78] flex items-center justify-center mx-auto mb-3 text-lg font-bold">
                   ✓
                 </div>
                 <h4 className="font-display text-lg uppercase font-semibold text-[#17191A]">
@@ -448,7 +448,7 @@ export default function VenturesPage() {
                       value={formData.companyName}
                       onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                       placeholder="e.g. Apex Cognitive Systems"
-                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     />
                   </div>
                   <div>
@@ -461,7 +461,7 @@ export default function VenturesPage() {
                       value={formData.founderName}
                       onChange={(e) => setFormData({ ...formData, founderName: e.target.value })}
                       placeholder="e.g. Sarah Lin"
-                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     />
                   </div>
                 </div>
@@ -477,7 +477,7 @@ export default function VenturesPage() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="founder@company.com"
-                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     />
                   </div>
                   <div>
@@ -487,7 +487,7 @@ export default function VenturesPage() {
                     <select
                       value={formData.sector}
                       onChange={(e) => setFormData({ ...formData, sector: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     >
                       <option value="ai-agents">Autonomous AI & Agents</option>
                       <option value="cloud">Cloud Infrastructure & Compute</option>
@@ -506,7 +506,7 @@ export default function VenturesPage() {
                     <select
                       value={formData.stage}
                       onChange={(e) => setFormData({ ...formData, stage: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     >
                       <option value="preseed">Pre-Seed / Prototype</option>
                       <option value="seed">Seed (First Institutional Round)</option>
@@ -523,7 +523,7 @@ export default function VenturesPage() {
                       value={formData.arr}
                       onChange={(e) => setFormData({ ...formData, arr: e.target.value })}
                       placeholder="e.g. $1.2M ARR"
-                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     />
                   </div>
                 </div>
@@ -537,7 +537,7 @@ export default function VenturesPage() {
                     value={formData.deckUrl}
                     onChange={(e) => setFormData({ ...formData, deckUrl: e.target.value })}
                     placeholder="https://docsend.com/... or Google Drive Link"
-                    className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                    className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                   />
                 </div>
 
@@ -550,14 +550,14 @@ export default function VenturesPage() {
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     placeholder="Briefly describe what your system solves, your technical moat, and current customer traction."
-                    className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                    className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/15 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full py-3 bg-[#17191A] hover:bg-[#3D9D99] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all cursor-pointer shadow disabled:opacity-50"
+                  className="w-full py-3 bg-[#17191A] hover:bg-[#9E7B78] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all cursor-pointer shadow disabled:opacity-50"
                 >
                   {submitting ? 'Submitting For Review...' : 'Submit For Executive Committee Review →'}
                 </button>

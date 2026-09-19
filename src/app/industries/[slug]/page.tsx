@@ -76,7 +76,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
         {/* Section 01: Operational Challenges */}
         <FadeIn direction="up">
           <div className="p-8 sm:p-10 bg-white border border-[#17191A]/10 rounded-sm">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
               SECTOR FRICTION POINTS
             </span>
             <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium mb-6">
@@ -85,7 +85,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {ind.operationalChallenges.map((ch, idx) => (
                 <div key={idx} className="p-5 bg-[#F7F7F5] border border-[#17191A]/10 rounded-sm">
-                  <span className="font-mono text-xs text-[#3D9D99] font-bold block mb-1">
+                  <span className="font-mono text-xs text-[#9E7B78] font-bold block mb-1">
                     CHALLENGE // 0{idx + 1}
                   </span>
                   <p className="font-sans text-xs sm:text-sm text-[#17191A] leading-relaxed">
@@ -101,7 +101,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <FadeIn direction="up">
             <div className="p-8 sm:p-10 bg-white border border-[#17191A]/10 rounded-sm h-full">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
                 DETERMINISTIC INTERVENTION
               </span>
               <h2 className="font-display text-2xl uppercase tracking-tight text-[#17191A] font-medium mb-6">
@@ -110,7 +110,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
               <ul className="space-y-3">
                 {ind.automationOpportunities.map((op, idx) => (
                   <li key={idx} className="flex items-start gap-3 font-sans text-xs sm:text-sm text-[#57595B]">
-                    <span className="text-[#3D9D99] font-bold">✓</span>
+                    <span className="text-[#9E7B78] font-bold">✓</span>
                     <span className="leading-relaxed">{op}</span>
                   </li>
                 ))}
@@ -142,7 +142,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
         <FadeIn direction="up">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
                 SYSTEM DEPLOYMENT
               </span>
             </div>
@@ -153,7 +153,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
               {ind.exampleWorkflows.map((wf, idx) => (
                 <div key={idx} className="p-8 bg-white border border-[#17191A]/10 rounded-sm flex flex-col justify-between">
                   <div>
-                    <span className="font-mono text-xs font-bold text-[#3D9D99] block mb-2">
+                    <span className="font-mono text-xs font-bold text-[#9E7B78] block mb-2">
                       WORKFLOW PATTERN // 0{idx + 1}
                     </span>
                     <h3 className="font-display text-xl font-semibold text-[#17191A] mb-4">

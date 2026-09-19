@@ -29,7 +29,7 @@ export function ContentCta({
   return (
     <section className={`p-8 sm:p-12 bg-white border border-[#17191A]/10 rounded-sm my-16 shadow-xs ${className}`}>
       <div className="max-w-3xl">
-        <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+        <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
           {eyebrow}
         </span>
         <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium mb-4 leading-tight">

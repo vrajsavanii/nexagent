@@ -104,7 +104,7 @@ export default function CompaniesPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-16 border-b border-[#17191A]/10">
         <FadeIn>
           <div className="flex items-center gap-2 mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#3D9D99]" />
+            <span className="w-2 h-2 rounded-full bg-[#9E7B78]" />
             <span className="font-mono text-xs uppercase tracking-wider text-[#57595B]">
               NexAgent Portfolio Directory
             </span>
@@ -113,7 +113,7 @@ export default function CompaniesPage() {
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase font-light tracking-tight text-[#17191A] max-w-4xl leading-[1.08]">
             One Parent Group.
             <br />
-            <span className="font-normal italic text-[#3D9D99]">Multiple Category Leaders.</span>
+            <span className="font-normal italic text-[#9E7B78]">Multiple Category Leaders.</span>
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-[#57595B] max-w-2xl leading-relaxed font-sans">
@@ -130,7 +130,7 @@ export default function CompaniesPage() {
             <StaggerItem key={co.id}>
               <div
                 id={co.id}
-                className="h-full bg-white rounded-2xl border border-[#17191A]/10 p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group hover:border-[#3D9D99]/40"
+                className="h-full bg-white rounded-2xl border border-[#17191A]/10 p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group hover:border-[#9E7B78]/40"
               >
                 <div>
                   <div className="flex items-center justify-between pb-4 border-b border-[#17191A]/08">
@@ -191,12 +191,12 @@ export default function CompaniesPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-16 border-t border-[#17191A]/10">
         <FadeIn className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-5">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#3D9D99] font-medium">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#9E7B78] font-medium">
               The Federated Model
             </span>
             <h2 className="font-display text-3xl sm:text-4xl uppercase font-light text-[#17191A] leading-tight">
               Why A Technology Parent Company{' '}
-              <span className="font-normal italic text-[#3D9D99]">Compounds Value.</span>
+              <span className="font-normal italic text-[#9E7B78]">Compounds Value.</span>
             </h2>
             <p className="text-sm sm:text-base text-[#57595B] leading-relaxed">
               Unlike single-product startups that face structural market boundaries, NexAgent operates as an
@@ -216,7 +216,7 @@ export default function CompaniesPage() {
 
           <div className="lg:col-span-6 bg-white p-8 rounded-2xl border border-[#17191A]/10 shadow-sm space-y-6">
             <div className="flex items-start gap-4">
-              <span className="w-7 h-7 rounded-full bg-[#3D9D99]/15 text-[#3D9D99] flex items-center justify-center font-mono text-xs font-bold shrink-0">
+              <span className="w-7 h-7 rounded-full bg-[#9E7B78]/15 text-[#9E7B78] flex items-center justify-center font-mono text-xs font-bold shrink-0">
                 01
               </span>
               <div>
@@ -228,7 +228,7 @@ export default function CompaniesPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <span className="w-7 h-7 rounded-full bg-[#3D9D99]/15 text-[#3D9D99] flex items-center justify-center font-mono text-xs font-bold shrink-0">
+              <span className="w-7 h-7 rounded-full bg-[#9E7B78]/15 text-[#9E7B78] flex items-center justify-center font-mono text-xs font-bold shrink-0">
                 02
               </span>
               <div>
@@ -240,7 +240,7 @@ export default function CompaniesPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <span className="w-7 h-7 rounded-full bg-[#3D9D99]/15 text-[#3D9D99] flex items-center justify-center font-mono text-xs font-bold shrink-0">
+              <span className="w-7 h-7 rounded-full bg-[#9E7B78]/15 text-[#9E7B78] flex items-center justify-center font-mono text-xs font-bold shrink-0">
                 03
               </span>
               <div>

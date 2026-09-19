@@ -122,7 +122,7 @@ export default function FAQPage() {
 
         <FadeIn>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[rgba(205,211,219,0.7)] shadow-2xs mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#3D9D99]" />
+            <span className="w-2 h-2 rounded-full bg-[#9E7B78]" />
             <span className="font-mono text-xs uppercase tracking-wider text-[#2A2B2E] font-bold">
               FREQUENTLY ASKED QUESTIONS
             </span>
@@ -130,7 +130,7 @@ export default function FAQPage() {
 
           <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#2A2B2E] leading-[1.08]">
             FREQUENT QUESTIONS. <br />
-            <span className="font-light italic text-[#3D9D99]">DIRECT ANSWERS.</span>
+            <span className="font-light italic text-[#9E7B78]">DIRECT ANSWERS.</span>
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-[#738290] max-w-2xl leading-relaxed">
@@ -168,7 +168,7 @@ export default function FAQPage() {
                 <div
                   className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden shadow-xs ${
                     isOpen
-                      ? 'border-[#3D9D99]/40 shadow-sm'
+                      ? 'border-[#9E7B78]/40 shadow-sm'
                       : 'border-[rgba(205,211,219,0.6)] hover:border-[#2A2B2E]/30'
                   }`}
                 >
@@ -178,17 +178,17 @@ export default function FAQPage() {
                     aria-expanded={isOpen}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-[#3D9D99] font-bold">
+                      <span className="font-mono text-xs text-[#9E7B78] font-bold">
                         {faq.category}
                       </span>
-                      <span className="font-sans text-base sm:text-lg font-bold text-[#2A2B2E] group-hover:text-[#3D9D99] transition-colors">
+                      <span className="font-sans text-base sm:text-lg font-bold text-[#2A2B2E] group-hover:text-[#9E7B78] transition-colors">
                         {faq.question}
                       </span>
                     </div>
 
                     <div
                       className={`w-7 h-7 rounded-full flex items-center justify-center bg-[#FBF5F3] text-[#2A2B2E] transition-transform duration-300 flex-shrink-0 ${
-                        isOpen ? 'rotate-45 bg-[rgba(61,157,153,0.10)] text-[#3D9D99]' : ''
+                        isOpen ? 'rotate-45 bg-[rgba(158,123,120,0.10)] text-[#9E7B78]' : ''
                       }`}
                     >
                       <span className="text-sm font-bold">+</span>
@@ -217,7 +217,7 @@ export default function FAQPage() {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/book-a-strategy-call"
-              className="px-6 py-2.5 rounded-full text-xs font-bold text-white bg-[#3D9D99] hover:bg-[#2E827E] shadow-sm transition-all"
+              className="px-6 py-2.5 rounded-full text-xs font-bold text-white bg-[#9E7B78] hover:bg-[#8C6558] shadow-sm transition-all"
             >
               Book a Strategy Call
             </Link>

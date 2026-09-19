@@ -90,7 +90,7 @@ export function FeatureCard({ icon, title, body, className }: FeatureCardProps) 
     <Card padding="lg" className={cn('space-y-4', className)}>
       {icon && (
         <span
-          className="material-symbols-outlined text-[24px] text-[#3D9D99]"
+          className="material-symbols-outlined text-[24px] text-[#9E7B78]"
           aria-hidden="true"
         >
           {icon}
@@ -140,11 +140,11 @@ export function InsightCard({
       )}
     >
       {eyebrow && (
-        <span className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#3D9D99] mb-3">
+        <span className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#9E7B78] mb-3">
           {eyebrow}
         </span>
       )}
-      <h3 className="text-base font-semibold text-[#17191A] leading-snug tracking-tight group-hover:text-[#3D9D99] transition-colors duration-150 flex-1">
+      <h3 className="text-base font-semibold text-[#17191A] leading-snug tracking-tight group-hover:text-[#9E7B78] transition-colors duration-150 flex-1">
         {title}
       </h3>
       {excerpt && (
@@ -157,7 +157,7 @@ export function InsightCard({
           {date && <span>{date}</span>}
           {date && readTime && <span>·</span>}
           {readTime && <span>{readTime} read</span>}
-          <span className="ml-auto material-symbols-outlined text-[14px] text-[#3D9D99] group-hover:translate-x-0.5 transition-transform duration-150">
+          <span className="ml-auto material-symbols-outlined text-[14px] text-[#9E7B78] group-hover:translate-x-0.5 transition-transform duration-150">
             arrow_forward
           </span>
         </div>
@@ -180,7 +180,7 @@ export function TechPillarCard({ code, title, description, specs, className }: T
   return (
     <Card padding="lg" className={cn('space-y-4', className)}>
       <div className="flex items-center gap-3">
-        <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#3D9D99]">
+        <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#9E7B78]">
           {code}
         </span>
         <span className="flex-1 h-px bg-[rgba(23,25,26,0.10)]" aria-hidden="true" />
@@ -193,7 +193,7 @@ export function TechPillarCard({ code, title, description, specs, className }: T
         {specs.map((spec, i) => (
           <li key={i} className="flex items-start gap-2.5 text-sm text-[#57595B]">
             <span
-              className="material-symbols-outlined text-[14px] text-[#3D9D99] flex-shrink-0 mt-0.5"
+              className="material-symbols-outlined text-[14px] text-[#9E7B78] flex-shrink-0 mt-0.5"
               aria-hidden="true"
             >
               check_small

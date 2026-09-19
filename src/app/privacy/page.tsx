@@ -19,7 +19,7 @@ export default function PrivacyPage() {
 
         <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.6)] p-8 sm:p-14 shadow-sm space-y-8">
           <div>
-            <span className="font-mono text-xs uppercase tracking-wider text-[#3D9D99] font-bold block mb-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#9E7B78] font-bold block mb-2">
               LEGAL &amp; DATA GOVERNANCE
             </span>
             <h1 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
               <p>
                 Our architectural principle regarding artificial intelligence is unequivocal:
               </p>
-              <div className="p-4 bg-[#FBF5F3] border-l-4 border-[#3D9D99] rounded-r-xl">
+              <div className="p-4 bg-[#FBF5F3] border-l-4 border-[#9E7B78] rounded-r-xl">
                 <p className="font-semibold text-[#2A2B2E]">
                   Client proprietary business data, operational records, and intellectual property are never ingested into public foundational training sets without explicit written authorization.
                 </p>
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
             <section className="space-y-3">
               <h2 className="text-lg font-bold text-[#2A2B2E]">6. Contact &amp; Inquiries</h2>
               <p>
-                For questions regarding this policy or to request access, correction, or deletion of your contact data, please contact our team via our <Link href="/contact" className="text-[#3D9D99] underline">Contact Page</Link>.
+                For questions regarding this policy or to request access, correction, or deletion of your contact data, please contact our team via our <Link href="/contact" className="text-[#9E7B78] underline">Contact Page</Link>.
               </p>
             </section>
           </div>

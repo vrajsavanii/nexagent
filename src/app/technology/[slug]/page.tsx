@@ -79,7 +79,7 @@ export default async function TechnologyDetailPage({ params }: PageProps) {
             {/* Section 01: Why It Matters (GEO Answer-First) */}
             <FadeIn direction="up">
               <div className="bg-white p-8 sm:p-10 border border-[#17191A]/10 rounded-sm">
-                <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+                <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
                   ARCHITECTURAL SIGNIFICANCE
                 </span>
                 <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium mb-4">
@@ -94,7 +94,7 @@ export default async function TechnologyDetailPage({ params }: PageProps) {
             {/* Section 02: What It Enables */}
             <FadeIn direction="up">
               <div>
-                <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+                <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
                   SYSTEM CAPABILITIES
                 </span>
                 <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium mb-6">
@@ -104,9 +104,9 @@ export default async function TechnologyDetailPage({ params }: PageProps) {
                   {tech.whatItEnables.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-6 bg-white border border-[#17191A]/10 rounded-sm flex items-start gap-3 hover:border-[#3D9D99] transition-colors"
+                      className="p-6 bg-white border border-[#17191A]/10 rounded-sm flex items-start gap-3 hover:border-[#9E7B78] transition-colors"
                     >
-                      <span className="font-mono text-xs font-bold text-[#3D9D99] mt-0.5">
+                      <span className="font-mono text-xs font-bold text-[#9E7B78] mt-0.5">
                         0{idx + 1}
                       </span>
                       <p className="font-sans text-xs sm:text-sm text-[#17191A] leading-relaxed font-medium">
@@ -121,7 +121,7 @@ export default async function TechnologyDetailPage({ params }: PageProps) {
             {/* Section 03: System Architecture Layers */}
             <FadeIn direction="up">
               <div className="bg-[#17191A] text-white p-8 sm:p-10 rounded-sm">
-                <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+                <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
                   SYSTEM STACK DEPLOYMENT
                 </span>
                 <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight font-light mb-6">
@@ -134,7 +134,7 @@ export default async function TechnologyDetailPage({ params }: PageProps) {
                       className="flex items-center justify-between p-4 bg-white/05 border border-white/10 rounded-sm"
                     >
                       <div className="flex items-center gap-3">
-                        <span className="text-[#3D9D99] font-bold">LAYER // 0{idx + 1}</span>
+                        <span className="text-[#9E7B78] font-bold">LAYER // 0{idx + 1}</span>
                         <span className="text-white font-sans text-sm">{layer}</span>
                       </div>
                       <span className="text-[#84888A] text-[10px] uppercase tracking-wider hidden sm:block">
@@ -149,7 +149,7 @@ export default async function TechnologyDetailPage({ params }: PageProps) {
             {/* Section 04: Business Applications */}
             <FadeIn direction="up">
               <div>
-                <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+                <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
                   OPERATIONAL IMPLEMENTATION
                 </span>
                 <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium mb-6">
@@ -161,7 +161,7 @@ export default async function TechnologyDetailPage({ params }: PageProps) {
                       key={idx}
                       className="p-4 bg-white border border-[#17191A]/10 rounded-sm flex items-center gap-3 font-sans text-xs text-[#57595B]"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#3D9D99] shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#9E7B78] shrink-0" />
                       <span>{app}</span>
                     </li>
                   ))}
@@ -182,13 +182,13 @@ export default async function TechnologyDetailPage({ params }: PageProps) {
           {/* Right Rail: Architectural Specs */}
           <div className="lg:col-span-4 space-y-8">
             <div className="p-6 bg-white border border-[#17191A]/10 rounded-sm">
-              <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#3D9D99] block mb-3">
+              <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#9E7B78] block mb-3">
                 CORE CAPABILITIES
               </span>
               <ul className="space-y-2.5">
                 {tech.capabilities.map((cap, i) => (
                   <li key={i} className="flex items-center gap-2 font-mono text-xs text-[#17191A]">
-                    <span className="text-[#3D9D99] font-bold">✓</span>
+                    <span className="text-[#9E7B78] font-bold">✓</span>
                     <span>{cap}</span>
                   </li>
                 ))}

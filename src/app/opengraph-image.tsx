@@ -17,7 +17,7 @@ export default async function Image() {
           justifyContent: 'space-between',
           backgroundColor: '#F7F7F5',
           backgroundImage:
-            'radial-gradient(circle at 80% 20%, rgba(61, 157, 153, 0.12) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(191, 161, 95, 0.08) 0%, transparent 50%)',
+            'radial-gradient(circle at 80% 20%, rgba(158, 123, 120, 0.12) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(191, 161, 95, 0.08) 0%, transparent 50%)',
           padding: '60px 80px',
           fontFamily: 'sans-serif',
           border: '12px solid #E5E5E0',
@@ -92,7 +92,7 @@ export default async function Image() {
                 width: '8px',
                 height: '8px',
                 borderRadius: '50%',
-                backgroundColor: '#3D9D99',
+                backgroundColor: '#9E7B78',
               }}
             />
             <span
@@ -130,7 +130,7 @@ export default async function Image() {
             }}
           >
             The Next Era of Business Is{' '}
-            <span style={{ color: '#3D9D99', fontStyle: 'italic' }}>Intelligent.</span>
+            <span style={{ color: '#9E7B78', fontStyle: 'italic' }}>Intelligent.</span>
           </h1>
           <p
             style={{
@@ -206,7 +206,7 @@ export default async function Image() {
               fontSize: '14px',
               fontWeight: 600,
               fontFamily: 'monospace',
-              color: '#3D9D99',
+              color: '#9E7B78',
               letterSpacing: '1px',
             }}
           >

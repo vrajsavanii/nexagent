@@ -66,9 +66,9 @@ const variantStyles: Record<ButtonVariant, string> = {
   ].join(' '),
 
   ghost: [
-    'bg-transparent text-[#3D9D99]',
-    'border border-transparent hover:border-[rgba(61,157,153,0.3)]',
-    'hover:bg-[rgba(61,157,153,0.06)]',
+    'bg-transparent text-[#9E7B78]',
+    'border border-transparent hover:border-[rgba(158,123,120,0.3)]',
+    'hover:bg-[rgba(158,123,120,0.06)]',
     'active:scale-[0.98]',
     'disabled:opacity-50 disabled:cursor-not-allowed',
   ].join(' '),
@@ -122,7 +122,7 @@ export function Button({
     'transition-all duration-150',
     'rounded-sm',
     // Focus ring — deferred to :focus-visible in globals.css
-    'focus-visible:outline-2 focus-visible:outline-[#3D9D99]',
+    'focus-visible:outline-2 focus-visible:outline-[#9E7B78]',
     // Size
     isIconOnly ? iconSizeStyles[size] : sizeStyles[size],
     // Variant

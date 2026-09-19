@@ -125,14 +125,14 @@ export default function EcosystemPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-16 border-b border-[#17191A]/10">
         <FadeIn direction="up">
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#3D9D99] animate-pulse" />
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+            <span className="w-2 h-2 rounded-full bg-[#9E7B78] animate-pulse" />
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
               Ecosystem & Technology Alliances
             </span>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-[#17191A] font-medium leading-[1.05] max-w-4xl">
             THE CONNECTED GLOBAL NETWORK OF{' '}
-            <span className="italic font-light text-[#3D9D99]">ENTERPRISE INTELLIGENCE.</span>
+            <span className="italic font-light text-[#9E7B78]">ENTERPRISE INTELLIGENCE.</span>
           </h1>
           <p className="font-sans text-lg sm:text-xl text-[#57595B] max-w-3xl mt-6 leading-relaxed">
             NexAgent does not operate in isolation. Our group subsidiaries interconnect seamlessly with the world’s leading hardware architectures, enterprise systems of record, cloud environments, and developer ecosystems.
@@ -141,7 +141,7 @@ export default function EcosystemPage() {
           <div className="flex flex-wrap items-center gap-4 mt-8">
             <button
               onClick={() => setPartnerFormOpen(true)}
-              className="px-6 py-3 bg-[#17191A] hover:bg-[#3D9D99] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all cursor-pointer shadow"
+              className="px-6 py-3 bg-[#17191A] hover:bg-[#9E7B78] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all cursor-pointer shadow"
             >
               Apply For Technology Partnership →
             </button>
@@ -159,7 +159,7 @@ export default function EcosystemPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-20 border-b border-[#17191A]/10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold block mb-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold block mb-2">
               CERTIFIED ALLIANCES
             </span>
             <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium">
@@ -195,10 +195,10 @@ export default function EcosystemPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredPartners.map((p, idx) => (
             <FadeIn key={p.id} direction="up" delay={idx * 0.08}>
-              <div className="p-8 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all h-full flex flex-col justify-between">
+              <div className="p-8 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all h-full flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-[10px] uppercase text-[#3D9D99] font-bold tracking-wider">
+                    <span className="font-mono text-[10px] uppercase text-[#9E7B78] font-bold tracking-wider">
                       {p.tier}
                     </span>
                     <span className="px-2 py-0.5 bg-[#F0EFEA] border border-[#17191A]/10 text-[#57595B] font-mono text-[9px] uppercase tracking-wider rounded">
@@ -225,7 +225,7 @@ export default function EcosystemPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-20 border-b border-[#17191A]/10">
         <FadeIn direction="up">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
               DEVELOPER HUB
             </span>
           </div>
@@ -237,17 +237,17 @@ export default function EcosystemPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {developerTools.map((tool, idx) => (
             <FadeIn key={tool.title} direction="up" delay={idx * 0.1}>
-              <div className="p-6 bg-[#17191A] text-white rounded-sm border border-[#3D9D99]/30 flex flex-col justify-between h-full">
+              <div className="p-6 bg-[#17191A] text-white rounded-sm border border-[#9E7B78]/30 flex flex-col justify-between h-full">
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span className="font-display font-medium text-base text-white">
                       {tool.title}
                     </span>
-                    <span className="font-mono text-[10px] text-[#3D9D99] bg-[#3D9D99]/10 px-2 py-0.5 rounded">
+                    <span className="font-mono text-[10px] text-[#9E7B78] bg-[#9E7B78]/10 px-2 py-0.5 rounded">
                       {tool.version}
                     </span>
                   </div>
-                  <div className="p-3 bg-black/40 rounded font-mono text-xs text-[#3D9D99] select-all mb-4 border border-white/05">
+                  <div className="p-3 bg-black/40 rounded font-mono text-xs text-[#9E7B78] select-all mb-4 border border-white/05">
                     $ {tool.cmd}
                   </div>
                   <p className="font-sans text-xs text-white/70 leading-relaxed">
@@ -256,7 +256,7 @@ export default function EcosystemPage() {
                 </div>
                 <div className="pt-4 mt-6 border-t border-white/10 flex items-center justify-between font-mono text-[11px] text-white/50">
                   <span>Documentation</span>
-                  <span className="text-[#3D9D99] hover:underline cursor-pointer">API Reference →</span>
+                  <span className="text-[#9E7B78] hover:underline cursor-pointer">API Reference →</span>
                 </div>
               </div>
             </FadeIn>
@@ -280,7 +280,7 @@ export default function EcosystemPage() {
 
             {formSubmitted ? (
               <div className="text-center py-8">
-                <div className="w-12 h-12 rounded-full bg-[#3D9D99]/20 text-[#3D9D99] flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="w-12 h-12 rounded-full bg-[#9E7B78]/20 text-[#9E7B78] flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   ✓
                 </div>
                 <h3 className="font-display text-xl uppercase font-semibold text-[#17191A]">
@@ -292,7 +292,7 @@ export default function EcosystemPage() {
               </div>
             ) : (
               <div>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-[#3D9D99] font-bold block mb-1">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-[#9E7B78] font-bold block mb-1">
                   ALLIANCE REGISTRATION
                 </span>
                 <h3 className="font-display text-xl uppercase font-semibold text-[#17191A] mb-4">
@@ -402,14 +402,14 @@ export default function EcosystemPage() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-2.5 bg-[#17191A] hover:bg-[#3D9D99] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all cursor-pointer disabled:opacity-50"
+                    className="w-full py-2.5 bg-[#17191A] hover:bg-[#9E7B78] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all cursor-pointer disabled:opacity-50"
                   >
                     {submitting ? 'Submitting Application...' : 'Submit Alliance Application →'}
                   </button>
                   <div className="text-center pt-2">
                     <Link
                       href="/book-a-strategy-call?interest=partnership"
-                      className="text-[11px] font-mono text-[#3D9D99] hover:underline"
+                      className="text-[11px] font-mono text-[#9E7B78] hover:underline"
                     >
                       Prefer a direct advisory session? Book a Strategy Call →
                     </Link>

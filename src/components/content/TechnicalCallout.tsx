@@ -16,7 +16,7 @@ export function TechnicalCallout({
   const getBadge = () => {
     switch (type) {
       case 'spec':
-        return { label: 'TECHNICAL SPECIFICATION', color: 'text-[#3D9D99] bg-[#3D9D99]/10 border-[#3D9D99]/30' };
+        return { label: 'TECHNICAL SPECIFICATION', color: 'text-[#9E7B78] bg-[#9E7B78]/10 border-[#9E7B78]/30' };
       case 'architecture':
         return { label: 'SYSTEM ARCHITECTURE', color: 'text-indigo-600 bg-indigo-50 border-indigo-200' };
       case 'framework':
@@ -30,7 +30,7 @@ export function TechnicalCallout({
 
   return (
     <div
-      className={`p-6 sm:p-7 bg-[#F7F7F5] border-l-4 border-l-[#3D9D99] border border-[#17191A]/10 rounded-sm my-8 shadow-xs ${className}`}
+      className={`p-6 sm:p-7 bg-[#F7F7F5] border-l-4 border-l-[#9E7B78] border border-[#17191A]/10 rounded-sm my-8 shadow-xs ${className}`}
     >
       <div className="flex items-center gap-2 mb-2">
         <span className={`font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded border ${badge.color}`}>

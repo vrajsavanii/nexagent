@@ -7,7 +7,7 @@ export default function TelemetryTicker({ onOpenAudit }: { onOpenAudit?: () => v
     <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#17191A]/10 mb-8">
       <div className="flex items-center gap-3">
         <span className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-[#17191A]/12 rounded-full shadow-xs text-xs font-mono text-[#17191A]">
-          <span className="w-2 h-2 rounded-full bg-[#3D9D99] animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-[#9E7B78] animate-pulse" />
           <span className="uppercase font-semibold tracking-wider text-[10px]">
             Autonomous Enterprise Systems
           </span>
@@ -22,7 +22,7 @@ export default function TelemetryTicker({ onOpenAudit }: { onOpenAudit?: () => v
           Architecture: <strong className="text-[#17191A] font-medium">Sovereign &amp; Deterministic</strong>
         </span>
         <span className="hidden md:inline-block text-[#17191A]/20">/</span>
-        <span className="hidden md:inline-block text-[#3D9D99] font-medium">
+        <span className="hidden md:inline-block text-[#9E7B78] font-medium">
           2 Technical Co-Founders
         </span>
       </div>

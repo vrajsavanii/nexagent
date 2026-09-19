@@ -211,7 +211,7 @@ export default function TechnologyPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <FadeIn className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[rgba(205,211,219,0.7)] shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-[#3D9D99]" />
+              <span className="w-2 h-2 rounded-full bg-[#9E7B78]" />
               <span className="font-mono text-xs uppercase tracking-wider text-[#2A2B2E] font-bold">
                 TECHNOLOGY &amp; CAPABILITIES
               </span>
@@ -219,7 +219,7 @@ export default function TechnologyPage() {
 
             <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#2A2B2E] leading-[1.08]">
               ONE TECHNOLOGY GROUP. <br />
-              <span className="font-light italic text-[#3D9D99]">MULTIPLE CAPABILITIES.</span>
+              <span className="font-light italic text-[#9E7B78]">MULTIPLE CAPABILITIES.</span>
             </h1>
 
             <p className="text-base sm:text-lg text-[#738290] max-w-2xl leading-relaxed">
@@ -229,7 +229,7 @@ export default function TechnologyPage() {
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link
                 href="/book-a-strategy-call"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-[#3D9D99] hover:bg-[#2E827E] shadow-sm transition-all"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-[#9E7B78] hover:bg-[#8C6558] shadow-sm transition-all"
               >
                 Book a Strategy Call
               </Link>
@@ -256,7 +256,7 @@ export default function TechnologyPage() {
       {/* ── 10 Technology Categories Architecture ───────────────────────────── */}
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
         <div className="mb-12">
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#3D9D99] block mb-2">
+          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#9E7B78] block mb-2">
             FOUNDATIONAL LAYERS
           </span>
           <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
@@ -270,10 +270,10 @@ export default function TechnologyPage() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {categories.map((cat) => (
             <StaggerItem key={cat.id}>
-              <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-10 shadow-[0_10px_28px_-4px_rgba(42,43,46,0.05)] hover:border-[#3D9D99]/40 transition-all flex flex-col justify-between h-full space-y-6">
+              <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-10 shadow-[0_10px_28px_-4px_rgba(42,43,46,0.05)] hover:border-[#9E7B78]/40 transition-all flex flex-col justify-between h-full space-y-6">
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-4">
-                    <span className="font-mono text-xs font-bold text-[#3D9D99] bg-[rgba(61,157,153,0.10)] px-3 py-1 rounded-full">
+                    <span className="font-mono text-xs font-bold text-[#9E7B78] bg-[rgba(158,123,120,0.10)] px-3 py-1 rounded-full">
                       LAYER {cat.number}
                     </span>
                     <span className="text-xs font-mono text-[#738290] uppercase">
@@ -302,7 +302,7 @@ export default function TechnologyPage() {
                       <ul className="space-y-1.5 text-xs text-[#2A2B2E]">
                         {cat.whatWeBuild.map((item, i) => (
                           <li key={i} className="flex items-start gap-2">
-                            <span className="text-[#3D9D99] font-bold mt-0.5">✦</span>
+                            <span className="text-[#9E7B78] font-bold mt-0.5">✦</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -328,7 +328,7 @@ export default function TechnologyPage() {
                 <div className="pt-4 border-t border-[rgba(205,211,219,0.3)] flex items-center justify-between">
                   <Link
                     href={`/solutions?tech=${cat.id}`}
-                    className="text-xs font-bold text-[#3D9D99] hover:text-[#2E827E] uppercase tracking-wider transition-colors"
+                    className="text-xs font-bold text-[#9E7B78] hover:text-[#8C6558] uppercase tracking-wider transition-colors"
                   >
                     View Related Solutions →
                   </Link>
@@ -349,7 +349,7 @@ export default function TechnologyPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-16 border-t border-[rgba(205,211,219,0.5)]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-5">
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#3D9D99]">
+            <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#9E7B78]">
               STACK &amp; INTEGRATION MATRIX
             </span>
             <h2 className="font-sans text-3xl font-extrabold text-[#2A2B2E]">
@@ -372,7 +372,7 @@ export default function TechnologyPage() {
 
           <div className="lg:col-span-6 bg-[#2A2B2E] text-white p-6 sm:p-8 rounded-3xl shadow-lg font-mono text-xs space-y-4">
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <span className="text-[#3D9D99] font-bold">nexagent-system-architecture.ts</span>
+              <span className="text-[#9E7B78] font-bold">nexagent-system-architecture.ts</span>
               <span className="text-[#738290]">Production Blueprint</span>
             </div>
             <pre className="text-[#CDD3DB] leading-relaxed overflow-x-auto text-[11px]">
@@ -407,7 +407,7 @@ console.log('Intelligent system active:', pipeline.id);`}
       <section className="max-w-7xl mx-auto px-6 lg:px-10 pt-10">
         <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="space-y-2 max-w-xl">
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#3D9D99]">
+            <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#9E7B78]">
               ARCHITECTURAL EVALUATION
             </span>
             <h3 className="text-2xl font-extrabold text-[#2A2B2E]">
@@ -419,7 +419,7 @@ console.log('Intelligent system active:', pipeline.id);`}
           </div>
           <Link
             href="/book-a-strategy-call"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-[#3D9D99] hover:bg-[#2E827E] shadow-sm transition-all whitespace-nowrap"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-[#9E7B78] hover:bg-[#8C6558] shadow-sm transition-all whitespace-nowrap"
           >
             Book a Strategy Call
           </Link>

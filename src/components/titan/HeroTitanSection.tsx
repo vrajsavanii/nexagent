@@ -132,7 +132,7 @@ export default function HeroTitanSection() {
       className="relative w-full pt-32 pb-20 sm:pt-36 sm:pb-28 overflow-hidden bg-[#FBF5F3] flex flex-col items-center justify-center text-center px-4"
     >
       {/* Background Soft Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-to-tr from-[#3D9D99]/8 via-[#3D9D99]/4 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-to-tr from-[#9E7B78]/8 via-[#9E7B78]/4 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* Top Announcement Badge */}
       <motion.div
@@ -141,7 +141,7 @@ export default function HeroTitanSection() {
         transition={{ duration: 0.5 }}
         className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2A2B2E] text-white text-xs font-semibold shadow-sm mb-8"
       >
-        <span className="px-2 py-0.5 rounded-full bg-[#3D9D99] text-[10px] font-bold tracking-wide uppercase">
+        <span className="px-2 py-0.5 rounded-full bg-[#9E7B78] text-[10px] font-bold tracking-wide uppercase">
           New
         </span>
         <span className="text-[#FBF5F3]">Claude Automations is now live! 🚀</span>
@@ -265,11 +265,11 @@ export default function HeroTitanSection() {
           <div className="relative px-7 py-3 sm:px-9 sm:py-4 rounded-2xl bg-white border border-[rgba(205,211,219,0.5)] shadow-[0_16px_36px_-6px_rgba(42,43,46,0.14),0_4px_12px_rgba(0,0,0,0.04)] flex items-center gap-3 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
             {/* Animated dot indicator */}
             <div className="flex items-center gap-1">
-              <span className="w-2 h-2 rounded-full bg-[#3D9D99] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#9E7B78] animate-pulse" />
             </div>
             {/* Geometric Brand Icon */}
             <div className="w-7 h-7 rounded-md bg-[#2A2B2E] flex items-center justify-center shadow-xs">
-              <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#3D9D99]" fill="currentColor">
+              <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#9E7B78]" fill="currentColor">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
               </svg>
             </div>
@@ -309,7 +309,7 @@ export default function HeroTitanSection() {
       >
         <Link
           href="/book-a-strategy-call"
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#3D9D99] hover:bg-[#2E827E] text-white text-sm font-bold shadow-[0_10px_25px_-4px_rgba(61,157,153,0.45)] hover:shadow-[0_14px_32px_-4px_rgba(61,157,153,0.55)] transition-all transform hover:-translate-y-0.5"
+          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#9E7B78] hover:bg-[#8C6558] text-white text-sm font-bold shadow-[0_10px_25px_-4px_rgba(158,123,120,0.45)] hover:shadow-[0_14px_32px_-4px_rgba(158,123,120,0.55)] transition-all transform hover:-translate-y-0.5"
         >
           <span>Book A Demo</span>
           <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">

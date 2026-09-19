@@ -24,8 +24,8 @@ export default function FutureConvergence() {
         <div className="text-center max-w-3xl mx-auto space-y-6">
           <FadeIn direction="up">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/05 border border-white/10">
-              <span className="w-2 h-2 rounded-full bg-[#3D9D99] animate-pulse"></span>
-              <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+              <span className="w-2 h-2 rounded-full bg-[#9E7B78] animate-pulse"></span>
+              <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
                 THE CONVERGENCE HORIZON
               </span>
             </div>
@@ -58,7 +58,7 @@ export default function FutureConvergence() {
                   />
                 </div>
                 <div>
-                  <span className="font-mono text-[10px] text-[#3D9D99] uppercase tracking-wider block font-semibold">
+                  <span className="font-mono text-[10px] text-[#9E7B78] uppercase tracking-wider block font-semibold">
                     SYNTHESIS ARCHITECTURE
                   </span>
                   <span className="font-mono text-[9px] text-white/50 uppercase tracking-wider block">
@@ -70,8 +70,8 @@ export default function FutureConvergence() {
                 <div className="space-y-3">
                   {convergenceVectors.map((v, i) => (
                     <StaggerItem key={v.label}>
-                      <div className="p-4 bg-white/05 border border-white/10 hover:border-[#3D9D99] transition-colors flex items-start gap-3">
-                        <span className="material-symbols-outlined text-[#3D9D99] text-[20px] mt-0.5">
+                      <div className="p-4 bg-white/05 border border-white/10 hover:border-[#9E7B78] transition-colors flex items-start gap-3">
+                        <span className="material-symbols-outlined text-[#9E7B78] text-[20px] mt-0.5">
                           {v.icon}
                         </span>
                         <div>
@@ -97,7 +97,7 @@ export default function FutureConvergence() {
               <FadeIn direction="up" delay={0.2} className="w-full">
                 <div className="relative w-full h-[440px] sm:h-[500px] flex items-center justify-center">
                   {/* Ambient Deep Radial Glow */}
-                  <div className="absolute inset-0 bg-radial-gradient from-[#3D9D99]/15 via-transparent to-transparent pointer-events-none blur-3xl opacity-60"></div>
+                  <div className="absolute inset-0 bg-radial-gradient from-[#9E7B78]/15 via-transparent to-transparent pointer-events-none blur-3xl opacity-60"></div>
 
                   {/* 3D WebGL Core in Dark Vault */}
                   <NexAgentCore3D
@@ -116,7 +116,7 @@ export default function FutureConvergence() {
                   <div className="absolute bottom-3 left-4 font-mono text-[10px] text-white/50 uppercase tracking-wider bg-black/60 px-2.5 py-1 border border-white/10 backdrop-blur-sm pointer-events-none">
                     SYS.CONVERGENCE // LATENCY &lt; 8MS // SOVEREIGN
                   </div>
-                  <div className="absolute top-3 right-4 font-mono text-[10px] text-[#3D9D99] uppercase tracking-wider bg-black/60 px-2.5 py-1 border border-[#3D9D99]/30 backdrop-blur-sm pointer-events-none">
+                  <div className="absolute top-3 right-4 font-mono text-[10px] text-[#9E7B78] uppercase tracking-wider bg-black/60 px-2.5 py-1 border border-[#9E7B78]/30 backdrop-blur-sm pointer-events-none">
                     NEXAGENT // DIGITAL HEADQUARTERS
                   </div>
                 </div>

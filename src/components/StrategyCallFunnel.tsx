@@ -167,7 +167,7 @@ export default function StrategyCallFunnel({
       {/* Telemetry Header Bar */}
       <div className="flex items-center justify-between px-6 py-3.5 bg-[#F7F7F5] border-b border-[#17191A]/10 font-mono text-xs">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#3D9D99] animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-[#9E7B78] animate-pulse" />
           <span className="font-semibold text-[#17191A] uppercase tracking-wider">
             EXECUTIVE QUALIFICATION BRIEF
           </span>
@@ -197,7 +197,7 @@ export default function StrategyCallFunnel({
                         step === item.num
                           ? 'bg-[#17191A] text-white shadow-sm'
                           : step > item.num
-                          ? 'bg-[#3D9D99] text-white'
+                          ? 'bg-[#9E7B78] text-white'
                           : 'bg-[#F0EFEA] text-[#57595B]'
                       }`}
                     >
@@ -210,7 +210,7 @@ export default function StrategyCallFunnel({
                   {idx < 3 && (
                     <div
                       className={`w-10 sm:w-16 h-[1px] mx-1 transition-colors ${
-                        step > item.num ? 'bg-[#3D9D99]' : 'bg-[#17191A]/15'
+                        step > item.num ? 'bg-[#9E7B78]' : 'bg-[#17191A]/15'
                       }`}
                     />
                   )}
@@ -231,12 +231,12 @@ export default function StrategyCallFunnel({
         {/* POST-SUBMISSION STATE (Section 16) */}
         {submissionResult ? (
           <div className="py-8 text-center space-y-6 max-w-lg mx-auto">
-            <div className="w-14 h-14 rounded-full bg-[#3D9D99]/15 text-[#3D9D99] flex items-center justify-center mx-auto text-2xl font-bold">
+            <div className="w-14 h-14 rounded-full bg-[#9E7B78]/15 text-[#9E7B78] flex items-center justify-center mx-auto text-2xl font-bold">
               ✓
             </div>
 
             <div>
-              <span className="font-mono text-[11px] uppercase tracking-widest text-[#3D9D99] font-bold block mb-1">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-[#9E7B78] font-bold block mb-1">
                 TRANSMISSION VERIFIED // {submissionResult.bookingId}
               </span>
               <h2 className="font-display text-2xl sm:text-3xl uppercase font-bold text-[#17191A] tracking-tight">
@@ -260,7 +260,7 @@ export default function StrategyCallFunnel({
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#57595B]">Recommended Architecture:</span>
-                  <span className="font-semibold text-[#3D9D99]">{submissionResult.aiReadout.recommendedTier}</span>
+                  <span className="font-semibold text-[#9E7B78]">{submissionResult.aiReadout.recommendedTier}</span>
                 </div>
               </div>
             )}
@@ -273,7 +273,7 @@ export default function StrategyCallFunnel({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent('calendar_opened')}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#3D9D99] hover:bg-[#348582] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all shadow-sm"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#9E7B78] hover:bg-[#8C6558] text-white font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all shadow-sm"
                 >
                   <span>Select Live Discussion Slot</span>
                   <span className="material-symbols-outlined text-[16px]">calendar_today</span>
@@ -320,7 +320,7 @@ export default function StrategyCallFunnel({
             {step === 1 && (
               <div className="space-y-6">
                 <div>
-                  <span className="font-mono text-xs text-[#3D9D99] uppercase font-semibold block mb-1">
+                  <span className="font-mono text-xs text-[#9E7B78] uppercase font-semibold block mb-1">
                     Step 1 // Strategic Initiative
                   </span>
                   <h2 className="font-display text-2xl font-bold uppercase text-[#17191A] tracking-tight">
@@ -340,7 +340,7 @@ export default function StrategyCallFunnel({
                         onClick={() => setFormData({ ...formData, solution: opt.id })}
                         className={`p-4 rounded border cursor-pointer transition-all ${
                           isSelected
-                            ? 'border-[#3D9D99] bg-[#3D9D99]/06 ring-1 ring-[#3D9D99]'
+                            ? 'border-[#9E7B78] bg-[#9E7B78]/06 ring-1 ring-[#9E7B78]'
                             : 'border-[#17191A]/15 hover:border-[#17191A]/40 bg-white'
                         }`}
                       >
@@ -348,7 +348,7 @@ export default function StrategyCallFunnel({
                           <span className="font-display font-semibold text-sm text-[#17191A]">
                             {opt.label}
                           </span>
-                          {isSelected && <span className="text-[#3D9D99] text-xs font-bold font-mono">✓</span>}
+                          {isSelected && <span className="text-[#9E7B78] text-xs font-bold font-mono">✓</span>}
                         </div>
                         <p className="font-sans text-xs text-[#57595B] leading-relaxed">
                           {opt.desc}
@@ -368,7 +368,7 @@ export default function StrategyCallFunnel({
                       value={formData.customSolution}
                       onChange={(e) => setFormData({ ...formData, customSolution: e.target.value })}
                       placeholder="e.g. Sovereign private LLM deployment on-premise"
-                      className="w-full px-3.5 py-2 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     />
                   </div>
                 )}
@@ -390,7 +390,7 @@ export default function StrategyCallFunnel({
             {step === 2 && (
               <div className="space-y-6">
                 <div>
-                  <span className="font-mono text-xs text-[#3D9D99] uppercase font-semibold block mb-1">
+                  <span className="font-mono text-xs text-[#9E7B78] uppercase font-semibold block mb-1">
                     Step 2 // Stakeholder & Scale
                   </span>
                   <h2 className="font-display text-2xl font-bold uppercase text-[#17191A] tracking-tight">
@@ -412,7 +412,7 @@ export default function StrategyCallFunnel({
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Marcus Vance"
-                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     />
                   </div>
 
@@ -426,7 +426,7 @@ export default function StrategyCallFunnel({
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="marcus@enterprise.com"
-                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     />
                   </div>
 
@@ -440,7 +440,7 @@ export default function StrategyCallFunnel({
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="e.g. Vanguard Logistics"
-                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     />
                   </div>
 
@@ -453,7 +453,7 @@ export default function StrategyCallFunnel({
                       value={formData.website}
                       onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                       placeholder="https://company.com"
-                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     />
                   </div>
 
@@ -466,7 +466,7 @@ export default function StrategyCallFunnel({
                       value={formData.country}
                       onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                       placeholder="e.g. United States, United Kingdom, UAE"
-                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     />
                   </div>
 
@@ -477,7 +477,7 @@ export default function StrategyCallFunnel({
                     <select
                       value={formData.companySize}
                       onChange={(e) => setFormData({ ...formData, companySize: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99]"
+                      className="w-full px-3.5 py-2.5 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78]"
                     >
                       {companySizes.map((size) => (
                         <option key={size} value={size}>
@@ -512,7 +512,7 @@ export default function StrategyCallFunnel({
             {step === 3 && (
               <div className="space-y-6">
                 <div>
-                  <span className="font-mono text-xs text-[#3D9D99] uppercase font-semibold block mb-1">
+                  <span className="font-mono text-xs text-[#9E7B78] uppercase font-semibold block mb-1">
                     Step 3 // Technical Objectives
                   </span>
                   <h2 className="font-display text-2xl font-bold uppercase text-[#17191A] tracking-tight">
@@ -533,7 +533,7 @@ export default function StrategyCallFunnel({
                     value={formData.objective}
                     onChange={(e) => setFormData({ ...formData, objective: e.target.value })}
                     placeholder="e.g. We are looking to automate customer intake across 14 global branch offices, eliminate manual spreadsheet data entry, and integrate conversational AI triage into our legacy CRM."
-                    className="w-full p-4 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#3D9D99] leading-relaxed"
+                    className="w-full p-4 bg-[#F7F7F5] border border-[#17191A]/20 rounded text-xs font-sans text-[#17191A] focus:outline-none focus:border-[#9E7B78] leading-relaxed"
                   />
                   <div className="flex justify-between text-[11px] font-mono text-[#57595B] mt-1">
                     <span>Protected under mutual confidentiality</span>
@@ -565,7 +565,7 @@ export default function StrategyCallFunnel({
             {step === 4 && (
               <form onSubmit={handleFinalSubmit} className="space-y-6">
                 <div>
-                  <span className="font-mono text-xs text-[#3D9D99] uppercase font-semibold block mb-1">
+                  <span className="font-mono text-xs text-[#9E7B78] uppercase font-semibold block mb-1">
                     Step 4 // Preferred Engagement
                   </span>
                   <h2 className="font-display text-2xl font-bold uppercase text-[#17191A] tracking-tight">
@@ -585,7 +585,7 @@ export default function StrategyCallFunnel({
                         onClick={() => setFormData({ ...formData, preferredNextStep: opt.id })}
                         className={`p-3.5 rounded border cursor-pointer transition-all flex items-center justify-between ${
                           isSelected
-                            ? 'border-[#3D9D99] bg-[#3D9D99]/06 ring-1 ring-[#3D9D99]'
+                            ? 'border-[#9E7B78] bg-[#9E7B78]/06 ring-1 ring-[#9E7B78]'
                             : 'border-[#17191A]/15 hover:border-[#17191A]/40 bg-white'
                         }`}
                       >
@@ -597,14 +597,14 @@ export default function StrategyCallFunnel({
                             {opt.desc}
                           </span>
                         </div>
-                        {isSelected && <span className="text-[#3D9D99] text-xs font-bold font-mono">✓</span>}
+                        {isSelected && <span className="text-[#9E7B78] text-xs font-bold font-mono">✓</span>}
                       </div>
                     );
                   })}
                 </div>
 
                 <div className="p-4 bg-[#F7F7F5] border border-[#17191A]/10 rounded flex items-start gap-3">
-                  <span className="text-[#3D9D99] font-bold text-sm">🔒</span>
+                  <span className="text-[#9E7B78] font-bold text-sm">🔒</span>
                   <div className="space-y-1">
                     <span className="font-mono text-[11px] font-semibold text-[#17191A] block">
                       Enterprise Non-Disclosure Guarantee

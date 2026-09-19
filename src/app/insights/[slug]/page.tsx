@@ -106,7 +106,7 @@ export default async function InsightDetailPage({ params }: PageProps) {
 
         <FadeIn direction="up">
           <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold">
               {insight.category} // {insight.format}
             </span>
             <span className="text-[#17191A]/30">|</span>
@@ -191,7 +191,7 @@ export default async function InsightDetailPage({ params }: PageProps) {
             <TableOfContents items={insight.tableOfContents} />
 
             <div className="p-6 bg-white border border-[#17191A]/10 rounded-sm">
-              <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#3D9D99] block mb-2">
+              <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#9E7B78] block mb-2">
                 TOPICAL CLUSTER
               </span>
               <div className="flex flex-wrap gap-1.5 mt-2">

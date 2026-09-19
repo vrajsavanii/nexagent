@@ -521,10 +521,10 @@ export default function NexAgentCore3D({
       {webglFailed ? (
         <div className="relative w-full h-full min-h-[300px] flex items-center justify-center p-8">
           <div className="relative flex flex-col items-center justify-center text-center space-y-4">
-            <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl bg-gradient-to-br from-[#17191A] to-[#2A2E32] flex items-center justify-center shadow-lg border border-[#3D9D99]/30">
+            <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl bg-gradient-to-br from-[#17191A] to-[#2A2E32] flex items-center justify-center shadow-lg border border-[#9E7B78]/30">
               <svg viewBox="0 0 64 64" className="w-20 h-20" fill="none">
                 <path d="M16 46V18H21.5L31.5 35.5V18H37V46H31.5L21.5 28.5V46H16Z" fill="#F7F7F5" />
-                <path d="M37 46L43.5 18H49.5L56 46H50.5L49 39H44L42.5 46H37ZM44.8 34.5H48.2L46.5 26.5L44.8 34.5Z" fill="#3D9D99" />
+                <path d="M37 46L43.5 18H49.5L56 46H50.5L49 39H44L42.5 46H37ZM44.8 34.5H48.2L46.5 26.5L44.8 34.5Z" fill="#9E7B78" />
                 <circle cx="53" cy="18" r="2.5" fill="#BFA15F" />
               </svg>
             </div>

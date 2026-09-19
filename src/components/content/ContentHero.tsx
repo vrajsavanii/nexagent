@@ -29,7 +29,7 @@ export function ContentHero({
   const getBadgeStyle = (status: string) => {
     switch (status) {
       case 'ACTIVE':
-        return 'bg-[#3D9D99]/15 text-[#3D9D99] border-[#3D9D99]/30';
+        return 'bg-[#9E7B78]/15 text-[#9E7B78] border-[#9E7B78]/30';
       case 'IN_DEVELOPMENT':
       case 'IN DEVELOPMENT':
         return 'bg-amber-500/10 text-amber-700 border-amber-500/30';
@@ -51,7 +51,7 @@ export function ContentHero({
 
       <FadeIn direction="up">
         <div className="flex flex-wrap items-center gap-3 mb-4">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold">
             {eyebrow}
           </span>
           {readiness && (
@@ -67,7 +67,7 @@ export function ContentHero({
 
         <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#17191A] font-medium leading-[1.08] max-w-4xl">
           {title}{' '}
-          {titleAccent && <span className="italic font-light text-[#3D9D99]">{titleAccent}</span>}
+          {titleAccent && <span className="italic font-light text-[#9E7B78]">{titleAccent}</span>}
         </h1>
 
         {subtitle && (

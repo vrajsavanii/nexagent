@@ -77,7 +77,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
           <FadeIn direction="up">
             <div className="p-8 sm:p-10 bg-white border border-[#17191A]/10 rounded-sm h-full flex flex-col justify-between">
               <div>
-                <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+                <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
                   ORGANIZATION PROFILE
                 </span>
                 <h2 className="font-display text-2xl uppercase tracking-tight text-[#17191A] font-medium mb-4">
@@ -112,7 +112,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <FadeIn direction="up">
             <div className="p-8 sm:p-10 bg-white border border-[#17191A]/10 rounded-sm h-full">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
                 THE SYSTEM ARCHITECTURE
               </span>
               <h2 className="font-display text-2xl uppercase tracking-tight text-[#17191A] font-medium mb-4">
@@ -142,7 +142,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
         {/* Section 03: Verified Technical Architecture Benchmarks */}
         <FadeIn direction="up">
           <div className="p-8 sm:p-10 bg-[#17191A] text-white rounded-sm">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
               VERIFIED ARCHITECTURE ATTRIBUTES
             </span>
             <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight font-light mb-8">
@@ -152,7 +152,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
               {cs.verifiedArchitecture.latency && (
                 <div className="p-5 bg-white/05 border border-white/10 rounded-sm">
                   <span className="text-[#84888A] block uppercase text-[10px] mb-1">Latency SLA</span>
-                  <span className="text-[#3D9D99] font-bold text-sm block">{cs.verifiedArchitecture.latency}</span>
+                  <span className="text-[#9E7B78] font-bold text-sm block">{cs.verifiedArchitecture.latency}</span>
                 </div>
               )}
               {cs.verifiedArchitecture.throughput && (
@@ -170,7 +170,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
               {cs.verifiedArchitecture.compliance && (
                 <div className="p-5 bg-white/05 border border-white/10 rounded-sm">
                   <span className="text-[#84888A] block uppercase text-[10px] mb-1">Compliance Framework</span>
-                  <span className="text-[#3D9D99] font-medium text-xs block">{cs.verifiedArchitecture.compliance}</span>
+                  <span className="text-[#9E7B78] font-medium text-xs block">{cs.verifiedArchitecture.compliance}</span>
                 </div>
               )}
             </div>
@@ -180,7 +180,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
         {/* Section 04: Key Lessons Learned */}
         <FadeIn direction="up">
           <div className="p-8 sm:p-10 bg-white border border-[#17191A]/10 rounded-sm">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-bold block mb-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold block mb-2">
               ENGINEERING PERSPECTIVE
             </span>
             <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium mb-6">
@@ -189,7 +189,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
             <ul className="space-y-3">
               {cs.keyLessons.map((lesson, idx) => (
                 <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm font-sans text-[#17191A]">
-                  <span className="font-mono text-xs font-bold text-[#3D9D99] mt-0.5">0{idx + 1}</span>
+                  <span className="font-mono text-xs font-bold text-[#9E7B78] mt-0.5">0{idx + 1}</span>
                   <span className="leading-relaxed font-medium">{lesson}</span>
                 </li>
               ))}

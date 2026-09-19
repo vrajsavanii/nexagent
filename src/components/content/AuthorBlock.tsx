@@ -17,7 +17,7 @@ export function AuthorBlock({ author, className = '' }: AuthorBlockProps) {
           <h4 className="font-display text-sm font-semibold text-[#17191A]">
             {author.name}
           </h4>
-          <span className="font-mono text-[10px] uppercase text-[#3D9D99] bg-[#3D9D99]/10 px-2 py-0.5 rounded font-semibold">
+          <span className="font-mono text-[10px] uppercase text-[#9E7B78] bg-[#9E7B78]/10 px-2 py-0.5 rounded font-semibold">
             Verified Group
           </span>
         </div>

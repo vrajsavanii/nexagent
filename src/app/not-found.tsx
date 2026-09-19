@@ -14,8 +14,8 @@ export default function NotFound() {
     <div className="w-full min-h-[80vh] flex items-center justify-center bg-[#F7F7F5] text-[#17191A] px-6 py-24">
       <div className="max-w-2xl text-center space-y-8">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-white border border-[#17191A]/10 rounded-full shadow-2xs">
-          <span className="w-1.5 h-1.5 bg-[#3D9D99] rounded-full animate-ping"></span>
-          <span className="font-mono text-xs uppercase tracking-wider text-[#3D9D99] font-semibold">
+          <span className="w-1.5 h-1.5 bg-[#9E7B78] rounded-full animate-ping"></span>
+          <span className="font-mono text-xs uppercase tracking-wider text-[#9E7B78] font-semibold">
             STATUS 404 // UNRESOLVED ROUTE
           </span>
         </div>
@@ -34,9 +34,9 @@ export default function NotFound() {
             <Link
               key={item.label}
               href={item.href}
-              className="p-4 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all group shadow-2xs"
+              className="p-4 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all group shadow-2xs"
             >
-              <div className="font-display text-sm font-semibold text-[#17191A] group-hover:text-[#3D9D99] transition-colors mb-1">
+              <div className="font-display text-sm font-semibold text-[#17191A] group-hover:text-[#9E7B78] transition-colors mb-1">
                 {item.label} →
               </div>
               <div className="font-sans text-xs text-[#57595B] line-clamp-2">

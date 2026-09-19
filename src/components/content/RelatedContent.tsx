@@ -25,7 +25,7 @@ export function RelatedContent({
   return (
     <section className={`py-16 border-t border-[#17191A]/10 ${className}`}>
       <div className="flex items-center gap-2 mb-2">
-        <span className="font-mono text-xs uppercase tracking-widest text-[#3D9D99] font-semibold">
+        <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-semibold">
           SYSTEM INTERCONNECT
         </span>
       </div>
@@ -39,25 +39,25 @@ export function RelatedContent({
           <Link
             key={tech.id}
             href={`/technology/${tech.slug}`}
-            className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all flex flex-col justify-between group shadow-2xs"
+            className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all flex flex-col justify-between group shadow-2xs"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-[#3D9D99]">
+                <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-[#9E7B78]">
                   TECHNOLOGY // {tech.category}
                 </span>
-                <span className="material-symbols-outlined text-[16px] text-[#84888A] group-hover:translate-x-1 group-hover:text-[#3D9D99] transition-all">
+                <span className="material-symbols-outlined text-[16px] text-[#84888A] group-hover:translate-x-1 group-hover:text-[#9E7B78] transition-all">
                   arrow_forward
                 </span>
               </div>
-              <h4 className="font-display text-lg font-semibold text-[#17191A] mb-2 group-hover:text-[#3D9D99] transition-colors">
+              <h4 className="font-display text-lg font-semibold text-[#17191A] mb-2 group-hover:text-[#9E7B78] transition-colors">
                 {tech.name}
               </h4>
               <p className="font-sans text-xs text-[#57595B] line-clamp-2">
                 {tech.shortDescription}
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#17191A]/05 font-mono text-[11px] text-[#3D9D99] font-medium">
+            <div className="pt-4 mt-4 border-t border-[#17191A]/05 font-mono text-[11px] text-[#9E7B78] font-medium">
               Inspect Architecture →
             </div>
           </Link>
@@ -68,25 +68,25 @@ export function RelatedContent({
           <Link
             key={sol.id}
             href={`/solutions/${sol.slug}`}
-            className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all flex flex-col justify-between group shadow-2xs"
+            className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all flex flex-col justify-between group shadow-2xs"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-indigo-600">
                   SOLUTION // {sol.category}
                 </span>
-                <span className="material-symbols-outlined text-[16px] text-[#84888A] group-hover:translate-x-1 group-hover:text-[#3D9D99] transition-all">
+                <span className="material-symbols-outlined text-[16px] text-[#84888A] group-hover:translate-x-1 group-hover:text-[#9E7B78] transition-all">
                   arrow_forward
                 </span>
               </div>
-              <h4 className="font-display text-lg font-semibold text-[#17191A] mb-2 group-hover:text-[#3D9D99] transition-colors">
+              <h4 className="font-display text-lg font-semibold text-[#17191A] mb-2 group-hover:text-[#9E7B78] transition-colors">
                 {sol.name}
               </h4>
               <p className="font-sans text-xs text-[#57595B] line-clamp-2">
                 {sol.summary}
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#17191A]/05 font-mono text-[11px] text-[#3D9D99] font-medium">
+            <div className="pt-4 mt-4 border-t border-[#17191A]/05 font-mono text-[11px] text-[#9E7B78] font-medium">
               Explore Blueprint →
             </div>
           </Link>
@@ -97,25 +97,25 @@ export function RelatedContent({
           <Link
             key={prod.id}
             href={`/products/${prod.slug}`}
-            className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all flex flex-col justify-between group shadow-2xs"
+            className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all flex flex-col justify-between group shadow-2xs"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-amber-700">
                   PRODUCT // {prod.category}
                 </span>
-                <span className="material-symbols-outlined text-[16px] text-[#84888A] group-hover:translate-x-1 group-hover:text-[#3D9D99] transition-all">
+                <span className="material-symbols-outlined text-[16px] text-[#84888A] group-hover:translate-x-1 group-hover:text-[#9E7B78] transition-all">
                   arrow_forward
                 </span>
               </div>
-              <h4 className="font-display text-lg font-semibold text-[#17191A] mb-2 group-hover:text-[#3D9D99] transition-colors">
+              <h4 className="font-display text-lg font-semibold text-[#17191A] mb-2 group-hover:text-[#9E7B78] transition-colors">
                 {prod.name}
               </h4>
               <p className="font-sans text-xs text-[#57595B] line-clamp-2">
                 {prod.summary}
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#17191A]/05 font-mono text-[11px] text-[#3D9D99] font-medium">
+            <div className="pt-4 mt-4 border-t border-[#17191A]/05 font-mono text-[11px] text-[#9E7B78] font-medium">
               Inspect Product Stack →
             </div>
           </Link>
@@ -126,25 +126,25 @@ export function RelatedContent({
           <Link
             key={cs.id}
             href={`/case-studies/${cs.slug}`}
-            className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all flex flex-col justify-between group shadow-2xs"
+            className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all flex flex-col justify-between group shadow-2xs"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-[#57595B]">
                   CASE STUDY // {cs.industry}
                 </span>
-                <span className="material-symbols-outlined text-[16px] text-[#84888A] group-hover:translate-x-1 group-hover:text-[#3D9D99] transition-all">
+                <span className="material-symbols-outlined text-[16px] text-[#84888A] group-hover:translate-x-1 group-hover:text-[#9E7B78] transition-all">
                   arrow_forward
                 </span>
               </div>
-              <h4 className="font-display text-lg font-semibold text-[#17191A] mb-2 group-hover:text-[#3D9D99] transition-colors">
+              <h4 className="font-display text-lg font-semibold text-[#17191A] mb-2 group-hover:text-[#9E7B78] transition-colors">
                 {cs.title}
               </h4>
               <p className="font-sans text-xs text-[#57595B] line-clamp-2">
                 {cs.outcome}
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#17191A]/05 font-mono text-[11px] text-[#3D9D99] font-medium">
+            <div className="pt-4 mt-4 border-t border-[#17191A]/05 font-mono text-[11px] text-[#9E7B78] font-medium">
               Read Case Study →
             </div>
           </Link>
@@ -155,25 +155,25 @@ export function RelatedContent({
           <Link
             key={ins.id}
             href={`/insights/${ins.slug}`}
-            className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#3D9D99] transition-all flex flex-col justify-between group shadow-2xs"
+            className="p-6 bg-white border border-[#17191A]/10 rounded-sm hover:border-[#9E7B78] transition-all flex flex-col justify-between group shadow-2xs"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-[#3D9D99]">
+                <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-[#9E7B78]">
                   INSIGHT // {ins.format}
                 </span>
-                <span className="material-symbols-outlined text-[16px] text-[#84888A] group-hover:translate-x-1 group-hover:text-[#3D9D99] transition-all">
+                <span className="material-symbols-outlined text-[16px] text-[#84888A] group-hover:translate-x-1 group-hover:text-[#9E7B78] transition-all">
                   arrow_forward
                 </span>
               </div>
-              <h4 className="font-display text-lg font-semibold text-[#17191A] mb-2 group-hover:text-[#3D9D99] transition-colors">
+              <h4 className="font-display text-lg font-semibold text-[#17191A] mb-2 group-hover:text-[#9E7B78] transition-colors">
                 {ins.title}
               </h4>
               <p className="font-sans text-xs text-[#57595B] line-clamp-2">
                 {ins.excerpt}
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#17191A]/05 font-mono text-[11px] text-[#3D9D99] font-medium">
+            <div className="pt-4 mt-4 border-t border-[#17191A]/05 font-mono text-[11px] text-[#9E7B78] font-medium">
               Read Research Paper →
             </div>
           </Link>

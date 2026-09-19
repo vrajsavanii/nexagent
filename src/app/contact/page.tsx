@@ -103,7 +103,7 @@ export default function ContactPage() {
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                   <div className="mb-2">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#3D9D99] font-semibold block mb-1">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#9E7B78] font-semibold block mb-1">
                       Confidential Brief
                     </span>
                     <h2 className="text-xl font-semibold text-[#17191A] tracking-tight">
@@ -200,7 +200,7 @@ export default function ContactPage() {
                     </p>
                     <Link
                       href="/book-a-strategy-call"
-                      className="text-xs font-mono text-[#3D9D99] hover:underline flex items-center gap-1"
+                      className="text-xs font-mono text-[#9E7B78] hover:underline flex items-center gap-1"
                     >
                       Looking for a structured 4-step evaluation? Book a Strategy Call →
                     </Link>
@@ -221,7 +221,7 @@ export default function ContactPage() {
                   <button
                     type="button"
                     onClick={() => setSubmitted(false)}
-                    className="text-xs font-mono text-[#3D9D99] hover:underline"
+                    className="text-xs font-mono text-[#9E7B78] hover:underline"
                   >
                     Submit another consultation brief
                   </button>
@@ -248,7 +248,7 @@ export default function ContactPage() {
                       </span>
                       <a
                         href={`mailto:${email}`}
-                        className="text-sm font-medium text-[#17191A] hover:text-[#3D9D99] transition-colors duration-150"
+                        className="text-sm font-medium text-[#17191A] hover:text-[#9E7B78] transition-colors duration-150"
                       >
                         {email}
                       </a>
@@ -259,7 +259,7 @@ export default function ContactPage() {
 
               {/* Office Hubs */}
               <div className="p-7 bg-[#17191A] text-white rounded shadow-md space-y-4">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#3D9D99] block">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-[#9E7B78] block">
                   Executive Offices
                 </span>
                 <h3 className="text-lg font-light text-white">Global Presence</h3>

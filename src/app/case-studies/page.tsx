@@ -33,14 +33,14 @@ export default function CaseStudiesIndexPage() {
 
         <FadeIn>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[rgba(205,211,219,0.7)] shadow-2xs mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#3D9D99]" />
+            <span className="w-2 h-2 rounded-full bg-[#9E7B78]" />
             <span className="font-mono text-xs uppercase tracking-wider text-[#2A2B2E] font-bold">
               ENGINEERING PROOF &amp; ARCHITECTURES
             </span>
           </div>
 
           <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#2A2B2E] max-w-4xl leading-[1.08]">
-            ENGINEERED FOR <span className="font-light italic text-[#3D9D99]">REAL-WORLD DEPLOYMENT.</span>
+            ENGINEERED FOR <span className="font-light italic text-[#9E7B78]">REAL-WORLD DEPLOYMENT.</span>
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-[#738290] max-w-3xl leading-relaxed">
@@ -74,10 +74,10 @@ export default function CaseStudiesIndexPage() {
         <StaggerContainer className="space-y-10">
           {caseStudyList.map((cs) => (
             <StaggerItem key={cs.id}>
-              <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-[0_12px_32px_-6px_rgba(42,43,46,0.06)] hover:border-[#3D9D99]/40 transition-all">
+              <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-[0_12px_32px_-6px_rgba(42,43,46,0.06)] hover:border-[#9E7B78]/40 transition-all">
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
                   <div className="flex items-center gap-3">
-                    <span className="px-3 py-1 rounded-full bg-[rgba(61,157,153,0.10)] text-[#3D9D99] font-mono text-xs font-bold uppercase tracking-wider">
+                    <span className="px-3 py-1 rounded-full bg-[rgba(158,123,120,0.10)] text-[#9E7B78] font-mono text-xs font-bold uppercase tracking-wider">
                       {cs.industry}
                     </span>
                     <span className="text-xs font-mono text-[#738290]">
@@ -133,7 +133,7 @@ export default function CaseStudiesIndexPage() {
                   <ul className="space-y-2 text-xs text-[#5E6572]">
                     {cs.keyLessons?.map((lesson, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <span className="text-[#3D9D99] font-bold mt-0.5">✦</span>
+                        <span className="text-[#9E7B78] font-bold mt-0.5">✦</span>
                         <span>{lesson}</span>
                       </li>
                     ))}
@@ -144,7 +144,7 @@ export default function CaseStudiesIndexPage() {
                 <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[rgba(205,211,219,0.4)]">
                   <Link
                     href={`/case-studies/${cs.slug}`}
-                    className="inline-flex items-center gap-2 text-xs font-bold text-[#3D9D99] hover:text-[#2E827E] uppercase tracking-wider transition-colors"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-[#9E7B78] hover:text-[#8C6558] uppercase tracking-wider transition-colors"
                   >
                     <span>Full Case Study Architecture</span>
                     <span>→</span>
@@ -164,7 +164,7 @@ export default function CaseStudiesIndexPage() {
 
         {/* Future Proof Callout */}
         <FadeIn className="mt-16 text-center max-w-3xl mx-auto p-10 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] shadow-xs">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#3D9D99] block mb-2">
+          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#9E7B78] block mb-2">
             CLIENT BENCHMARKS IN DEVELOPMENT
           </span>
           <h3 className="font-sans text-xl sm:text-2xl font-bold text-[#2A2B2E] mb-3">
@@ -175,7 +175,7 @@ export default function CaseStudiesIndexPage() {
           </p>
           <Link
             href="/book-a-strategy-call"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-[#3D9D99] hover:bg-[#2E827E] shadow-sm transition-all"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-[#9E7B78] hover:bg-[#8C6558] shadow-sm transition-all"
           >
             Book an Architectural Discovery Call
           </Link>
