@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { SectionHeader } from "../ui/SectionHeader";
+import { FadeIn } from "../ui/FadeIn";
 import {
   Play,
   RotateCcw,
@@ -124,48 +125,53 @@ export function NexAgentSystemSimulator() {
   return (
     <section className="relative w-full py-20 lg:py-32 bg-surface-ground border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badgeText="05 / SIGNATURE SIMULATOR"
-          badgeVariant="teal"
-          title="THE NEXAGENT SYSTEM IN ACTION."
-          subtitle="Explore how unstructured real-world business events transform through our multi-stage pipeline: Input → AI → Automation → Integration → Action → Result."
-        />
+        <FadeIn>
+          <SectionHeader
+            badgeText="SYSTEM SIMULATOR"
+            badgeVariant="teal"
+            title="THE NEXAGENT SYSTEM IN ACTION."
+            subtitle="Explore how unstructured real-world business events transform through our multi-stage pipeline: Input → AI → Automation → Integration → Action → Result."
+          />
+        </FadeIn>
 
         {/* Workflow Domain Selector Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {FLOWS.map((flow) => {
-            const Icon = flow.icon;
-            const isSelected = activeFlow.id === flow.id;
+        <FadeIn direction="up" delay={100}>
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+            {FLOWS.map((flow) => {
+              const Icon = flow.icon;
+              const isSelected = activeFlow.id === flow.id;
 
-            return (
-              <button
-                key={flow.id}
-                type="button"
-                onClick={() => handleFlowSelect(flow)}
-                className={cn(
-                  "flex items-center gap-2 px-4 py-2.5 rounded-xl font-display text-xs sm:text-sm font-semibold transition-all duration-200 border",
-                  isSelected
-                    ? "bg-brand-900 text-white border-brand-950 shadow-sm"
-                    : "bg-white text-slate-700 border-slate-200/90 hover:bg-slate-50 hover:border-slate-300"
-                )}
-              >
-                <Icon className={cn("w-4 h-4", isSelected ? "text-brand-300" : "text-slate-500")} />
-                <span>{flow.name}</span>
-                <span
+              return (
+                <button
+                  key={flow.id}
+                  type="button"
+                  onClick={() => handleFlowSelect(flow)}
                   className={cn(
-                    "text-[10px] font-mono uppercase px-1.5 py-0.5 rounded-sm",
-                    isSelected ? "bg-brand-800 text-brand-200" : "bg-slate-100 text-slate-500"
+                    "flex items-center gap-2 px-4 py-2.5 rounded-xl font-display text-xs sm:text-sm font-semibold transition-all duration-200 border",
+                    isSelected
+                      ? "bg-brand-900 text-white border-brand-950 shadow-sm"
+                      : "bg-white text-slate-700 border-slate-200/90 hover:bg-slate-50 hover:border-slate-300"
                   )}
                 >
-                  {flow.category}
-                </span>
-              </button>
-            );
-          })}
-        </div>
+                  <Icon className={cn("w-4 h-4", isSelected ? "text-brand-300" : "text-slate-500")} />
+                  <span>{flow.name}</span>
+                  <span
+                    className={cn(
+                      "text-[10px] font-mono uppercase px-1.5 py-0.5 rounded-sm",
+                      isSelected ? "bg-brand-800 text-brand-200" : "bg-slate-100 text-slate-500"
+                    )}
+                  >
+                    {flow.category}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </FadeIn>
 
         {/* Interactive Pipeline Board */}
-        <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-10 shadow-premium">
+        <FadeIn direction="up" delay={200}>
+          <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-10 shadow-premium">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-100">
             <div>
               <div className="flex items-center gap-2 mb-1">
@@ -274,6 +280,7 @@ export function NexAgentSystemSimulator() {
             </div>
           </div>
         </div>
+        </FadeIn>
       </div>
     </section>
   );

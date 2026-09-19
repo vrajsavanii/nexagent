@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import { SectionHeader } from "../ui/SectionHeader";
+import { FadeIn } from "../ui/FadeIn";
 import {
   Compass,
   Search,
@@ -74,47 +77,53 @@ export function HowWeWorkSection() {
   return (
     <section className="relative w-full py-20 lg:py-32 bg-surface-ground border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badgeText="09 / METHODOLOGY"
-          badgeVariant="teal"
-          title="HOW NEXAGENT WORKS."
-          subtitle="A disciplined, seven-phase engineering process turning operational ambiguity into reliable digital infrastructure."
-        />
+        <FadeIn>
+          <SectionHeader
+            badgeText="METHODOLOGY & PROCESS"
+            badgeVariant="teal"
+            title="HOW NEXAGENT WORKS."
+            subtitle="A disciplined, seven-phase engineering process turning operational ambiguity into reliable digital infrastructure."
+          />
+        </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {PROCESS_STEPS.map((step, idx) => {
             const Icon = step.icon;
 
             return (
-              <div
+              <FadeIn
                 key={step.number}
-                className={`p-6 rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:border-brand-400 hover:shadow-premium transition-all duration-300 flex flex-col justify-between ${
-                  idx === 6 ? "md:col-span-2 lg:col-span-2" : ""
-                }`}
+                direction="up"
+                delay={idx * 80}
+                className={idx === 6 ? "md:col-span-2 lg:col-span-2" : ""}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-2.5 rounded-xl bg-brand-50 text-brand-700">
-                      <Icon className="w-5 h-5" />
+                <div
+                  className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:border-brand-400 hover:shadow-premium transition-all duration-300 flex flex-col justify-between h-full group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-2.5 rounded-xl bg-brand-50 text-brand-700 transition-transform duration-300 group-hover:scale-110">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className="font-mono text-xs font-bold text-slate-400 group-hover:text-brand-700 transition-colors">
+                        PHASE {step.number}
+                      </span>
                     </div>
-                    <span className="font-mono text-xs font-bold text-slate-400">
-                      PHASE {step.number}
-                    </span>
+
+                    <h3 className="font-display font-extrabold text-base sm:text-lg text-slate-900 mb-1">
+                      {step.title}
+                    </h3>
+
+                    <p className="font-mono text-xs text-brand-700 font-semibold mb-3">
+                      {step.tagline}
+                    </p>
+
+                    <p className="font-sans text-xs text-slate-600 leading-relaxed">
+                      {step.description}
+                    </p>
                   </div>
-
-                  <h3 className="font-display font-extrabold text-base sm:text-lg text-slate-900 mb-1">
-                    {step.title}
-                  </h3>
-
-                  <p className="font-mono text-xs text-brand-700 font-semibold mb-3">
-                    {step.tagline}
-                  </p>
-
-                  <p className="font-sans text-xs text-slate-600 leading-relaxed">
-                    {step.description}
-                  </p>
                 </div>
-              </div>
+              </FadeIn>
             );
           })}
         </div>

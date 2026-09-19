@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { SectionHeader } from "../ui/SectionHeader";
+import { FadeIn } from "../ui/FadeIn";
 import { CAPABILITY_LAYERS, CapabilityLayer } from "@/data/capabilities";
 import { CheckCircle2, ChevronRight, Cpu, Layers, Workflow, Server, Database } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -20,16 +21,18 @@ export function TechStackArchitecture() {
   return (
     <section className="relative w-full py-20 lg:py-32 bg-white border-y border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badgeText="04 / ARCHITECTURE"
-          badgeVariant="titanium"
-          title="THE NEXAGENT TECHNOLOGY STACK."
-          subtitle="An engineered, multi-tier architecture connecting machine cognition with deterministic enterprise execution."
-        />
+        <FadeIn>
+          <SectionHeader
+            badgeText="ARCHITECTURE"
+            badgeVariant="titanium"
+            title="THE NEXAGENT TECHNOLOGY STACK."
+            subtitle="An engineered, multi-tier architecture connecting machine cognition with deterministic enterprise execution."
+          />
+        </FadeIn>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Stack Layers Navigator */}
-          <div className="lg:col-span-5 flex flex-col gap-3">
+          <FadeIn direction="left" className="lg:col-span-5 flex flex-col gap-3">
             <span className="font-mono text-xs uppercase tracking-wider text-slate-400 font-bold mb-1">
               Select Architectural Tier
             </span>
@@ -82,10 +85,10 @@ export function TechStackArchitecture() {
                 </button>
               );
             })}
-          </div>
+          </FadeIn>
 
           {/* Right Column: Layer Detailed Engineering Deep-Dive */}
-          <div className="lg:col-span-7 bg-surface-ground rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-2xs">
+          <FadeIn direction="right" delay={100} className="lg:col-span-7 bg-surface-ground rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-2xs">
             <div className="flex flex-col gap-2 pb-6 mb-6 border-b border-slate-200">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs font-bold text-brand-700 uppercase tracking-wider">
@@ -136,7 +139,7 @@ export function TechStackArchitecture() {
                 </div>
               ))}
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

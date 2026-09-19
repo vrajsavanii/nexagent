@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
 import { Button } from "../ui/Button";
+import { MagneticButton } from "../ui/MagneticButton";
 import {
   Menu,
   X,
@@ -294,15 +295,16 @@ export function Navbar() {
 
         {/* CTA & Mobile Toggle */}
         <div className="flex items-center gap-3">
-          <Button
-            href="/strategy-call"
-            variant="primary"
-            size="sm"
-            className="hidden sm:inline-flex"
-            icon={<ArrowRight className="w-3.5 h-3.5" />}
-          >
-            Book a Strategy Call
-          </Button>
+          <MagneticButton strength={4} className="hidden sm:inline-block">
+            <Button
+              href="/strategy-call"
+              variant="primary"
+              size="sm"
+              icon={<ArrowRight className="w-3.5 h-3.5" />}
+            >
+              Book a Strategy Call
+            </Button>
+          </MagneticButton>
 
           {/* Mobile hamburger */}
           <button

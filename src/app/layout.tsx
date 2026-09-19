@@ -89,6 +89,8 @@ export const metadata: Metadata = {
   }
 };
 
+import { PageTransition } from "@/components/ui/PageTransition";
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -111,7 +113,11 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col font-sans bg-surface-ground text-slate-900 selection:bg-brand-100 selection:text-brand-900">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <PageTransition>
+            {children}
+          </PageTransition>
+        </main>
         <Footer />
       </body>
     </html>
