@@ -1,77 +1,62 @@
-import React from 'react';
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { Breadcrumbs } from '@/components/content';
+import React from "react";
+import { Metadata } from "next";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export const metadata: Metadata = {
-  title: 'Terms of Use | NexAgent Technology Group',
-  description: 'Terms of Use governing the access and usage of the NexAgent website and services.',
-  alternates: {
-    canonical: 'https://nexagent.group/terms',
-  },
+  title: "Terms of Use | NexAgent",
+  description: "Standard terms and conditions governing the use of NexAgent's website and software platforms."
 };
 
 export default function TermsPage() {
   return (
-    <div className="w-full min-h-screen bg-[#FBF5F3] text-[#2A2B2E] pt-28 pb-24">
-      <div className="max-w-4xl mx-auto px-6 pt-10">
-        <Breadcrumbs items={[{ label: 'Terms of Use' }]} className="mb-6" />
+    <div className="w-full py-12 sm:py-20 bg-surface-ground">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          badgeText="LEGAL & TERMS"
+          badgeVariant="slate"
+          title="TERMS OF USE."
+          subtitle="Terms governing the access to and use of NexAgent's digital properties, materials, and preliminary technical specifications."
+        />
 
-        <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.6)] p-8 sm:p-14 shadow-sm space-y-8">
-          <div>
-            <span className="font-mono text-xs uppercase tracking-wider text-[#9E7B78] font-bold block mb-2">
-              LEGAL TERMS
-            </span>
-            <h1 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
-              Terms of Use
-            </h1>
-            <p className="text-xs text-[#738290] mt-2">
-              Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-premium space-y-8 font-sans text-sm text-slate-700 leading-relaxed">
+          <section>
+            <h2 className="font-display font-bold text-lg text-slate-900 mb-2">
+              1. Acceptance of Terms
+            </h2>
+            <p>
+              By accessing and using this website (nexagent.ai), you agree to comply with and be bound by these Terms of Use. If you do not agree, please discontinue using this website.
             </p>
-          </div>
+          </section>
 
-          <div className="prose prose-sm max-w-none text-[#5E6572] space-y-6 leading-relaxed">
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold text-[#2A2B2E]">1. Acceptance of Terms</h2>
-              <p>
-                By accessing or using the NexAgent website and digital materials, you agree to comply with and be bound by these Terms of Use. If you do not agree with these terms, please do not use this website.
-              </p>
-            </section>
+          <section>
+            <h2 className="font-display font-bold text-lg text-slate-900 mb-2">
+              2. Intellectual Property & Brand Rights
+            </h2>
+            <p>
+              All software architectures, code demonstrations, diagrams, visual marks, brand assets (including the NexAgent monogram and logo), technical texts, and system simulators presented on this website are the proprietary property of NexAgent. Unauthorized scraping, duplication, or redistribution without prior written consent is strictly prohibited.
+            </p>
+          </section>
 
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold text-[#2A2B2E]">2. Informational Purpose &amp; No Warranty</h2>
-              <p>
-                The materials and information on this website are provided for general informational purposes regarding NexAgent&rsquo;s capabilities, technology architectures, and product roadmap. While we strive for accuracy, content may describe future strategic directions or products under development. All materials are provided &ldquo;as is&rdquo; without warranties of any kind.
-              </p>
-            </section>
+          <section>
+            <h2 className="font-display font-bold text-lg text-slate-900 mb-2">
+              3. Nature of Information & Forward-Looking Perspectives
+            </h2>
+            <p>
+              The content provided on this website is for informational and exploratory purposes. References to technology under development or long-term technological vision represent engineering objectives rather than guaranteed commercial warranty. Actual client deliverables and system service level agreements (SLAs) are governed exclusively by executed Master Services Agreements (MSAs).
+            </p>
+          </section>
 
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold text-[#2A2B2E]">3. Intellectual Property</h2>
-              <p>
-                All trademarks, logos, system diagrams, technical descriptions, software runtimes, and content presented on this website are the intellectual property of NexAgent or its licensors. Unauthorized copying, reverse engineering, or reproduction is strictly prohibited without prior written consent.
-              </p>
-            </section>
+          <section>
+            <h2 className="font-display font-bold text-lg text-slate-900 mb-2">
+              4. Disclaimer of Warranties
+            </h2>
+            <p>
+              Website content is provided &ldquo;as is&rdquo; without warranties of any kind. NexAgent does not guarantee that website functions or interactive 3D elements will be uninterrupted or error-free on every legacy device.
+            </p>
+          </section>
 
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold text-[#2A2B2E]">4. Client Engagements</h2>
-              <p>
-                Any formal commercial engagement, development scope, technical SLA, or product license between NexAgent and an organization is governed exclusively by a separate, bilateral Master Services Agreement (MSA) or statement of work executed between the parties.
-              </p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold text-[#2A2B2E]">5. Limitation of Liability</h2>
-              <p>
-                To the maximum extent permitted by applicable law, NexAgent and its founders shall not be liable for any direct, indirect, incidental, or consequential damages resulting from the use of or inability to use this website.
-              </p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold text-[#2A2B2E]">6. Governing Law &amp; Contact</h2>
-              <p>
-                These terms are governed by standard commercial law principles. For inquiries regarding these terms, please contact us via our <Link href="/contact" className="text-[#9E7B78] underline">Contact Page</Link>.
-              </p>
-            </section>
+          <div className="pt-6 border-t border-slate-100 font-mono text-xs text-slate-400">
+            Last Updated: March 2026 • NexAgent Technology Governance
           </div>
         </div>
       </div>

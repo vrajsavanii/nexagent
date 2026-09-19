@@ -1,95 +1,71 @@
-import React from 'react';
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { Breadcrumbs } from '@/components/content';
+import React from "react";
+import { Metadata } from "next";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | NexAgent Technology Group',
-  description: 'Privacy Policy and data governance practices of NexAgent.',
-  alternates: {
-    canonical: 'https://nexagent.group/privacy',
-  },
+  title: "Privacy Policy | NexAgent",
+  description: "NexAgent's commercial privacy practices and data protection commitments."
 };
 
 export default function PrivacyPage() {
   return (
-    <div className="w-full min-h-screen bg-[#FBF5F3] text-[#2A2B2E] pt-28 pb-24">
-      <div className="max-w-4xl mx-auto px-6 pt-10">
-        <Breadcrumbs items={[{ label: 'Privacy Policy' }]} className="mb-6" />
+    <div className="w-full py-12 sm:py-20 bg-surface-ground">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          badgeText="LEGAL & PRIVACY"
+          badgeVariant="slate"
+          title="PRIVACY POLICY."
+          subtitle="How NexAgent collects, protects, and handles commercial data across our website and client engagements."
+        />
 
-        <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.6)] p-8 sm:p-14 shadow-sm space-y-8">
-          <div>
-            <span className="font-mono text-xs uppercase tracking-wider text-[#9E7B78] font-bold block mb-2">
-              LEGAL &amp; DATA GOVERNANCE
-            </span>
-            <h1 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
-              Privacy Policy
-            </h1>
-            <p className="text-xs text-[#738290] mt-2">
-              Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-premium space-y-8 font-sans text-sm text-slate-700 leading-relaxed">
+          <section>
+            <h2 className="font-display font-bold text-lg text-slate-900 mb-2">
+              1. Commitment to Data Integrity
+            </h2>
+            <p>
+              NexAgent respects the privacy of prospective clients, partners, and visitors. We do not sell, monetize, or broker corporate or personal data. Information provided through our strategy call intake, contact forms, or communication channels is utilized exclusively for evaluating and delivering technology engagements.
             </p>
-          </div>
+          </section>
 
-          <div className="prose prose-sm max-w-none text-[#5E6572] space-y-6 leading-relaxed">
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold text-[#2A2B2E]">1. Overview &amp; Scope</h2>
-              <p>
-                NexAgent (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is a technology group committed to protecting personal data and corporate confidentiality. This Privacy Policy outlines how we collect, process, and safeguard information gathered through our website, communications, and client engagements.
-              </p>
-            </section>
+          <section>
+            <h2 className="font-display font-bold text-lg text-slate-900 mb-2">
+              2. Information Collected
+            </h2>
+            <p>
+              We collect information that you voluntarily submit to us, including your name, corporate email address, organization name, website, operating region, and notes regarding business workflows and operational challenges. When browsing our website, standard non-identifying telemetry (such as browser type and device resolution) may be logged to ensure visual and 3D performance optimization.
+            </p>
+          </section>
 
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold text-[#2A2B2E]">2. Information We Collect</h2>
-              <p>
-                We collect information you directly provide when inquiring about our systems, requesting an architectural strategy call, or communicating with our team. This may include:
-              </p>
-              <ul className="list-disc pl-5 space-y-1">
-                <li>Contact details (name, business email address, phone number).</li>
-                <li>Professional details (company name, role, website, company size, industry).</li>
-                <li>Technical project parameters (current software tools, operational friction points, automation goals).</li>
-                <li>Standard website usage telemetry (anonymized IP addresses, browser types, and page interaction metrics).</li>
-              </ul>
-            </section>
+          <section>
+            <h2 className="font-display font-bold text-lg text-slate-900 mb-2">
+              3. Client Workflow & System Confidentiality
+            </h2>
+            <p>
+              During technical consultations and client solutions engineering, all proprietary business architecture, database schemas, and operational details shared with NexAgent are protected under strict commercial confidentiality obligations. We do not utilize client-specific proprietary data to train publicly accessible foundation models.
+            </p>
+          </section>
 
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold text-[#2A2B2E]">3. Client Data &amp; AI Privacy Principle</h2>
-              <p>
-                Our architectural principle regarding artificial intelligence is unequivocal:
-              </p>
-              <div className="p-4 bg-[#FBF5F3] border-l-4 border-[#9E7B78] rounded-r-xl">
-                <p className="font-semibold text-[#2A2B2E]">
-                  Client proprietary business data, operational records, and intellectual property are never ingested into public foundational training sets without explicit written authorization.
-                </p>
-              </div>
-              <p>
-                When building custom AI systems or automation pipelines, customer data is processed solely within designated enterprise compute boundaries, sovereign cloud clusters, or on-premise infrastructure as agreed in client contracts.
-              </p>
-            </section>
+          <section>
+            <h2 className="font-display font-bold text-lg text-slate-900 mb-2">
+              4. Security Measures
+            </h2>
+            <p>
+              We enforce modern transport encryption (TLS 1.3), rigorous access restrictions, and least-privilege administrative access across all digital environments utilized by our engineering team.
+            </p>
+          </section>
 
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold text-[#2A2B2E]">4. How We Use Information</h2>
-              <p>We use collected information strictly to:</p>
-              <ul className="list-disc pl-5 space-y-1">
-                <li>Review and respond to strategy inquiries and technical requests.</li>
-                <li>Deliver, maintain, and support contracted technology systems and products.</li>
-                <li>Comply with legitimate legal and regulatory disclosure obligations.</li>
-                <li>Enhance website performance, security, and user experience.</li>
-              </ul>
-            </section>
+          <section>
+            <h2 className="font-display font-bold text-lg text-slate-900 mb-2">
+              5. Contact Regarding Privacy
+            </h2>
+            <p>
+              For any inquiries regarding data protection practices or to request removal of submitted intake information, please contact our team at privacy@nexagent.ai.
+            </p>
+          </section>
 
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold text-[#2A2B2E]">5. Data Security</h2>
-              <p>
-                We employ industry-standard technical and organizational security controls, including TLS/HTTPS encryption in transit, strict access control, and least-privilege administrative protocols to protect your information against unauthorized access, loss, or disclosure.
-              </p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold text-[#2A2B2E]">6. Contact &amp; Inquiries</h2>
-              <p>
-                For questions regarding this policy or to request access, correction, or deletion of your contact data, please contact our team via our <Link href="/contact" className="text-[#9E7B78] underline">Contact Page</Link>.
-              </p>
-            </section>
+          <div className="pt-6 border-t border-slate-100 font-mono text-xs text-slate-400">
+            Last Updated: March 2026 • NexAgent Technology Governance
           </div>
         </div>
       </div>

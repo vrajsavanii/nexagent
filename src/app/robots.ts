@@ -1,15 +1,12 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/admin', '/api/'],
-      },
-    ],
-    sitemap: 'https://nexagent.group/sitemap.xml',
-    host: 'https://nexagent.group',
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/api/"]
+    },
+    sitemap: "https://nexagent.ai/sitemap.xml"
   };
 }

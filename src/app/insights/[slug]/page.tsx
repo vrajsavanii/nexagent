@@ -1,219 +1,180 @@
-import React from 'react';
-import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
-import {
-  getInsightBySlug,
-  getPublishedInsights,
-  getRelatedContent,
-} from '@/content';
-import {
-  Breadcrumbs,
-  TableOfContents,
-  TechnicalCallout,
-  AuthorBlock,
-  SourceList,
-  RelatedContent,
-  ContentCta,
-} from '@/components/content';
-import { FadeIn } from '@/components/MotionWrapper';
+import React from "react";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { INSIGHTS_DATA } from "@/data/insights";
+import { Button } from "@/components/ui/Button";
+import { getBreadcrumbSchema } from "@/lib/schema";
+import { ArrowLeft, ArrowRight, Clock, Calendar, User, Tag } from "lucide-react";
 
-interface PageProps {
-  params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  const insights = getPublishedInsights();
-  return insights.map((i) => ({ slug: i.slug }));
-}
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const insight = getInsightBySlug(slug);
-  if (!insight) return { title: 'Insights | NexAgent' };
-
-  return {
-    title: insight.seo.title,
-    description: insight.seo.description,
-    alternates: {
-      canonical: insight.seo.canonicalUrl || `https://nexagent.group/insights/${insight.slug}`,
-    },
-    openGraph: {
-      title: insight.seo.ogTitle || insight.seo.title,
-      description: insight.seo.ogDescription || insight.seo.description,
-      url: insight.seo.canonicalUrl || `https://nexagent.group/insights/${insight.slug}`,
-      siteName: 'NexAgent',
-      type: 'article',
-      publishedTime: insight.publishedAt,
-      authors: [insight.author.name],
-    },
+interface Props {
+  params: {
+    slug: string;
   };
 }
 
-export default async function InsightDetailPage({ params }: PageProps) {
-  const { slug } = await params;
-  const insight = getInsightBySlug(slug);
+export function generateStaticParams() {
+  return INSIGHTS_DATA.map((article) => ({
+    slug: article.slug
+  }));
+}
 
-  if (!insight || insight.status !== 'PUBLISHED') {
+export function generateMetadata({ params }: Props): Metadata {
+  const article = INSIGHTS_DATA.find((a) => a.slug === params.slug);
+  if (!article) return {};
+
+  return {
+    title: `${article.title} | NexAgent Insights`,
+    description: article.excerpt,
+    alternates: {
+      canonical: `https://nexagent.ai/insights/${article.slug}`
+    }
+  };
+}
+
+export default function InsightArticlePage({ params }: Props) {
+  const article = INSIGHTS_DATA.find((a) => a.slug === params.slug);
+
+  if (!article) {
     notFound();
   }
 
-  const related = getRelatedContent({
-    techSlugs: insight.relatedTechnology,
-    solutionSlugs: insight.relatedSolutions,
-    industrySlugs: insight.relatedIndustries,
-    productSlugs: insight.relatedProducts,
-  });
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "https://nexagent.ai" },
+    { name: "Insights", url: "https://nexagent.ai/insights" },
+    { name: article.title, url: `https://nexagent.ai/insights/${article.slug}` }
+  ]);
 
-  const schemaJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'TechArticle',
-    headline: insight.title,
-    description: insight.excerpt,
-    datePublished: insight.publishedAt,
-    dateModified: insight.updatedAt || insight.publishedAt,
-    author: {
-      '@type': 'Organization',
-      name: insight.author.name,
-      url: 'https://nexagent.group',
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.title,
+    "description": article.excerpt,
+    "datePublished": article.publishedAt,
+    "dateModified": article.updatedAt,
+    "author": {
+      "@type": "Organization",
+      "name": article.author.name
     },
-    publisher: {
-      '@type': 'Organization',
-      name: 'NexAgent',
-      url: 'https://nexagent.group',
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://nexagent.group/insights/${insight.slug}`,
-    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "NexAgent",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://nexagent.ai/logo.jpeg"
+      }
+    }
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#F7F7F5] text-[#17191A] pt-24 pb-20">
+    <article className="w-full py-12 sm:py-20 bg-surface-ground">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      {/* Hero Header */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-10 pt-10 pb-16 border-b border-[#17191A]/10">
-        <Breadcrumbs
-          items={[
-            { label: 'Insights', href: '/insights' },
-            { label: insight.title },
-          ]}
-          className="mb-8"
-        />
-
-        <FadeIn direction="up">
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#9E7B78] font-bold">
-              {insight.category} // {insight.format}
-            </span>
-            <span className="text-[#17191A]/30">|</span>
-            <span className="font-mono text-xs text-[#57595B]">
-              {insight.readTimeMinutes} MINUTE READ
-            </span>
-          </div>
-
-          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[#17191A] font-medium leading-[1.08] max-w-4xl">
-            {insight.title}
-          </h1>
-
-          <p className="font-sans text-base sm:text-xl text-[#57595B] max-w-3xl mt-6 leading-relaxed">
-            {insight.subtitle}
-          </p>
-
-          <div className="flex flex-wrap items-center gap-6 mt-8 pt-6 border-t border-[#17191A]/10 font-mono text-xs text-[#57595B]">
-            <div className="flex items-center gap-2">
-              <span className="text-[#84888A] uppercase text-[10px]">Published by:</span>
-              <span className="text-[#17191A] font-medium">{insight.author.name}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-[#84888A] uppercase text-[10px]">Date:</span>
-              <span className="text-[#17191A]">
-                {new Date(insight.publishedAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric',
-                })}
-              </span>
-            </div>
-          </div>
-        </FadeIn>
-      </section>
-
-      {/* Main Article Container with Sticky TOC */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left / Main Essay Body */}
-          <article className="lg:col-span-8 space-y-12">
-            {insight.sections.map((sec) => (
-              <section key={sec.id} id={sec.id} className="scroll-mt-28 space-y-4">
-                <h2 className="font-display text-2xl sm:text-3xl uppercase tracking-tight text-[#17191A] font-medium pt-4">
-                  {sec.title}
-                </h2>
-                {sec.paragraphs.map((p, pIdx) => (
-                  <p
-                    key={pIdx}
-                    className="font-sans text-base text-[#57595B] leading-relaxed"
-                  >
-                    {p}
-                  </p>
-                ))}
-                {sec.callout && (
-                  <TechnicalCallout
-                    type={sec.callout.type}
-                    title={sec.callout.title}
-                    text={sec.callout.text}
-                  />
-                )}
-              </section>
-            ))}
-
-            {/* Sources & Citations */}
-            <SourceList sources={insight.sources} />
-
-            {/* Author Attribution */}
-            <AuthorBlock author={insight.author} />
-
-            {/* Contextual Conversion CTA */}
-            <ContentCta
-              title={`Discuss ${insight.title} With NexAgent`}
-              description="Explore how this technical architecture applies to your enterprise infrastructure with our principal systems architects."
-              primaryLabel="Discuss Topic With NexAgent"
-              primaryHref={`/book-a-strategy-call?interest=insight_${insight.slug}`}
-              context={`insight_${insight.slug}`}
-            />
-          </article>
-
-          {/* Right Rail: Sticky Table of Contents */}
-          <aside className="lg:col-span-4 sticky top-28 space-y-8 hidden lg:block">
-            <TableOfContents items={insight.tableOfContents} />
-
-            <div className="p-6 bg-white border border-[#17191A]/10 rounded-sm">
-              <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#9E7B78] block mb-2">
-                TOPICAL CLUSTER
-              </span>
-              <div className="flex flex-wrap gap-1.5 mt-2">
-                {insight.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="font-mono text-[10px] text-[#57595B] bg-[#F7F7F5] border border-[#17191A]/10 px-2 py-1 rounded"
-                  >
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </aside>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Back Link */}
+        <div className="mb-8">
+          <Link
+            href="/insights"
+            className="inline-flex items-center gap-1.5 text-xs font-mono uppercase text-slate-500 hover:text-slate-900 transition-colors"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            Back to All Insights
+          </Link>
         </div>
 
-        {/* Semantic Cross-Linking */}
-        <RelatedContent
-          related={related}
-          title="Related Technologies, Solutions &amp; Products"
-        />
+        {/* Article Container */}
+        <div className="p-8 sm:p-14 rounded-3xl bg-white border border-slate-200/90 shadow-premium">
+          {/* Metadata Badges */}
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <span className="font-mono text-xs uppercase tracking-wider text-brand-700 font-bold px-2.5 py-0.5 rounded-sm bg-brand-50 border border-brand-200">
+              {article.category}
+            </span>
+            <span className="font-mono text-xs text-slate-400 flex items-center gap-1">
+              <Clock className="w-3.5 h-3.5" />
+              {article.readingTime}
+            </span>
+            <span className="font-mono text-xs text-slate-400 flex items-center gap-1">
+              <Calendar className="w-3.5 h-3.5" />
+              Published {article.publishedAt}
+            </span>
+          </div>
+
+          {/* Title */}
+          <h1 className="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 mb-6 leading-tight">
+            {article.title}
+          </h1>
+
+          {/* Excerpt */}
+          <p className="font-sans text-base sm:text-lg text-slate-600 leading-relaxed pb-8 mb-8 border-b border-slate-100 font-medium">
+            {article.excerpt}
+          </p>
+
+          {/* Author Byline */}
+          <div className="flex items-center gap-3 mb-10 p-4 rounded-xl bg-surface-ground border border-slate-200/80">
+            <div className="w-10 h-10 rounded-full bg-brand-900 text-white flex items-center justify-center font-display font-bold text-sm">
+              NA
+            </div>
+            <div>
+              <span className="font-display font-bold text-sm text-slate-900 block">
+                {article.author.name}
+              </span>
+              <span className="font-mono text-xs text-slate-500">
+                {article.author.role}
+              </span>
+            </div>
+          </div>
+
+          {/* Body Paragraphs */}
+          <div className="flex flex-col gap-6 font-sans text-base text-slate-700 leading-relaxed mb-12">
+            {article.content.map((para, idx) => (
+              <p key={idx}>{para}</p>
+            ))}
+          </div>
+
+          {/* Tags */}
+          <div className="pt-6 border-t border-slate-100 flex flex-wrap items-center gap-2 mb-10">
+            <span className="font-mono text-xs text-slate-400 font-semibold mr-1">
+              TAGS:
+            </span>
+            {article.tags.map((tag, idx) => (
+              <span
+                key={idx}
+                className="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-slate-600"
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="p-8 rounded-2xl bg-brand-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+              <h2 className="font-display font-bold text-lg mb-1">
+                Explore Autonomous Systems For Your Business
+              </h2>
+              <p className="font-sans text-xs text-slate-300">
+                Discuss implementation architecture with our engineering founders.
+              </p>
+            </div>
+            <Button
+              href="/strategy-call"
+              variant="primary"
+              size="md"
+              className="bg-white hover:bg-slate-100 text-brand-950 border-none shadow-md shrink-0"
+              icon={<ArrowRight className="w-4 h-4 text-brand-900" />}
+            >
+              Book a Strategy Call
+            </Button>
+          </div>
+        </div>
       </div>
-    </div>
+    </article>
   );
 }

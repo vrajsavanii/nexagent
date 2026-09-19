@@ -1,331 +1,178 @@
-'use client';
+import React from "react";
+import { Metadata } from "next";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Button } from "@/components/ui/Button";
+import { COMPANY_DATA } from "@/data/company";
+import { ArrowRight, ShieldCheck, Cpu, Globe2, Compass, CheckCircle2 } from "lucide-react";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { FadeIn, StaggerContainer, StaggerItem } from '@/components/MotionWrapper';
-import { Breadcrumbs } from '@/components/content';
+export const metadata: Metadata = {
+  title: "About NexAgent | Founder-Led Technology Company",
+  description:
+    "Learn about NexAgent's mission, equal co-founder ownership, hybrid operating model, and global ambition to build intelligent business systems."
+};
 
 export default function AboutPage() {
   const principles = [
     {
-      num: '01',
-      title: 'Precision Engineering Over Speculative Hype',
-      desc: 'We do not build fragile prototypes or surface-level wrapper bots. Every automation, data pipeline, and software architecture we deploy is engineered for deterministic, reliable execution in live business environments.',
+      title: "Grounded Systems Over Fluffy Claims",
+      detail: "We do not sell magic or revolution. We build disciplined, typed, observable software that eliminates real manual friction."
     },
     {
-      num: '02',
-      title: 'Systems Thinking & Compounding Leverage',
-      desc: 'Fragmented tools create compounding friction. We view businesses as interconnected operating systems, transforming manual, repetitive handoffs into cohesive digital workflows that compound operational efficiency over time.',
+      title: "Deterministic Execution For Probabilistic Models",
+      detail: "AI models generate hypotheses; our software enforces validation, retry queues, schema checks, and human sign-off."
     },
     {
-      num: '03',
-      title: 'Data Privacy & Strict Boundaries',
-      desc: 'Enterprise technology must respect confidential boundaries. Client proprietary data, internal documents, and business processes are protected with strict security controls and never used to train public models without consent.',
+      title: "Respect Existing Software Investments",
+      detail: "We connect the applications businesses already rely on through event-driven middleware instead of forcing painful migrations."
     },
     {
-      num: '04',
-      title: 'Founder-Led Direct Engagement',
-      desc: 'Zero agency bloat or multi-layered account management handoffs. Our two co-founders personally oversee technical architecture and client engagements with total technical conviction and transparent ownership.',
-    },
-  ];
-
-  const processPhases = [
-    { num: '01', name: 'Discover', desc: 'Understand the business, workflows, software ecosystem, and core operational constraints.' },
-    { num: '02', name: 'Design', desc: 'Map optimal data flows, system architecture, security guardrails, and automation logic.' },
-    { num: '03', name: 'Build', desc: 'Develop custom software, AI agents, automated pipelines, and bi-directional connectors.' },
-    { num: '04', name: 'Integrate', desc: 'Connect the solution directly into your existing CRMs, ERPs, databases, and communication channels.' },
-    { num: '05', name: 'Deploy', desc: 'Launch into live operation with comprehensive verification, edge-case testing, and zero workflow interruption.' },
-    { num: '06', name: 'Optimize', desc: 'Continuously measure throughput, tune response accuracy, and scale system capacity as business demands expand.' },
-  ];
-
-  const founders = [
-    {
-      name: 'Vraj Savani',
-      role: 'Co-Founder (Equal Ownership)',
-      desc: 'Directs systems architecture, workflow orchestration, and technology strategy across NexAgent’s client engagements and internal product development.',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
-    },
-    {
-      name: 'Manthan Kachhadiya',
-      role: 'Co-Founder (Equal Ownership)',
-      desc: 'Leads distributed backend engineering, cloud integration architectures, and deterministic data pipelines connecting client operations with modern AI capabilities.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
-    },
+      title: "Built For The Long Term",
+      detail: "We are an equal-ownership, founder-led company building resilient technology foundations meant to compound over decades."
+    }
   ];
 
   return (
-    <div className="w-full min-h-screen bg-[#FBF5F3] text-[#2A2B2E] pt-28 pb-24">
-      {/* ── Hero Section ─────────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 pt-10 pb-16 border-b border-[rgba(205,211,219,0.5)]">
-        <Breadcrumbs items={[{ label: 'About' }]} className="mb-6" />
+    <div className="w-full py-12 sm:py-20 bg-surface-ground">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          badgeText="COMPANY PROFILE"
+          badgeVariant="teal"
+          title="ABOUT NEXAGENT."
+          subtitle="A founder-led technology company building AI-powered software, automation systems, intelligent business applications, and digital infrastructure."
+        />
 
-        <FadeIn>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[rgba(205,211,219,0.7)] shadow-2xs mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#9E7B78]" />
-            <span className="font-mono text-xs uppercase tracking-wider text-[#2A2B2E] font-bold">
-              FOUNDER-LED TECHNOLOGY COMPANY
-            </span>
-          </div>
+        {/* Who We Are & Why We Exist */}
+        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-premium mb-12">
+          <span className="font-mono text-xs uppercase tracking-wider text-brand-700 font-bold block mb-3">
+            WHO WE ARE & WHY WE EXIST
+          </span>
 
-          <h1 className="font-sans text-4xl sm:text-6xl uppercase font-black tracking-tight text-[#2A2B2E] max-w-4xl leading-[1.05]">
-            AI-POWERED TECHNOLOGY FOR BUSINESSES THAT WANT TO{' '}
-            <span className="font-light italic text-[#9E7B78]">OPERATE BETTER.</span>
-          </h1>
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mb-6 leading-snug">
+            Bridging the gap between fragmented business software and intelligent, autonomous operations.
+          </h2>
 
-          <p className="mt-6 text-base sm:text-lg text-[#738290] max-w-3xl leading-relaxed font-normal">
-            NexAgent builds intelligent software, automation, and digital systems that help businesses reduce manual work, connect fragmented workflows, and scale their operations. Founded and owned equally by two co-founders, we combine tailored client solutions with reusable internal technology.
-          </p>
-        </FadeIn>
-      </section>
-
-      {/* ── Who NexAgent Is & What We Build ───────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <FadeIn className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-[0_12px_32px_-4px_rgba(42,43,46,0.06)] grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7 space-y-6">
-            <span className="inline-block px-3 py-1 rounded-full bg-[rgba(158,123,120,0.10)] text-[#9E7B78] text-xs uppercase tracking-wider font-bold">
-              Company Definition &amp; Positioning
-            </span>
-            <h2 className="font-sans text-3xl sm:text-4xl text-[#2A2B2E] font-extrabold leading-snug">
-              Intelligent Technology. <br />
-              <span className="italic font-normal text-[#9E7B78]">Real Business Systems. Automation That Works.</span>
-            </h2>
-            <p className="text-sm sm:text-base text-[#738290] leading-relaxed">
-              NexAgent is not merely an automation agency, a software shop, or an AI consultancy. We operate at the intersection of AI, software engineering, workflow automation, and digital infrastructure — applying technical capabilities directly to real-world business problems.
+          <div className="flex flex-col gap-4 font-sans text-sm sm:text-base text-slate-600 leading-relaxed">
+            <p>
+              Modern businesses operate on an increasingly fractured landscape of cloud software, spreadsheets, communication tools, and databases. While each tool serves an isolated function, teams lose hundreds of hours each month acting as manual connective tissue—re-typing data, chasing approvals, and copying statuses between apps.
             </p>
-            <p className="text-sm sm:text-base text-[#738290] leading-relaxed">
-              We work with organizations of all sizes: from solo operators and small businesses to MSMEs, startups, B2B companies, and growing enterprises. We are intentionally industry-flexible, with experience spanning Healthcare, Hospitality, B2B Services, Retail, and Financial Technology.
+            <p>
+              NexAgent was founded to solve this fundamental operational bottleneck. We combine modern artificial intelligence, custom software engineering, event-driven automation, and systems integration to transform disconnected tools into unified, intelligent operating environments.
+            </p>
+            <p>
+              We are not a bloated marketing agency or a generic reseller. We are engineers and product builders who partner with organizations to diagnose friction and build enduring solutions.
             </p>
           </div>
+        </div>
 
-          <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="relative w-full max-w-md rounded-2xl overflow-hidden border border-[rgba(205,211,219,0.5)] bg-[#2A2B2E] p-8 text-white space-y-4 shadow-md">
-              <div className="flex items-center gap-2">
-                <span className="text-2xl text-[#9E7B78] font-black">✦</span>
-                <span className="font-sans font-black text-lg tracking-tight uppercase">
-                  NEXAGENT
+        {/* How We Think: Engineering Principles */}
+        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-premium mb-12">
+          <span className="font-mono text-xs uppercase tracking-wider text-brand-700 font-bold block mb-3">
+            OUR ENGINEERING PHILOSOPHY
+          </span>
+
+          <h2 className="font-display font-extrabold text-2xl text-slate-900 mb-8">
+            How We Think About Systems
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {principles.map((pr, idx) => (
+              <div key={idx} className="p-6 rounded-2xl bg-surface-ground border border-slate-200/80">
+                <span className="font-mono text-xs font-bold text-brand-700 block mb-2">
+                  0{idx + 1} // PRINCIPLE
                 </span>
+                <h3 className="font-display font-bold text-base text-slate-900 mb-2">
+                  {pr.title}
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {pr.detail}
+                </p>
               </div>
-              <p className="text-xs text-[#BDC9C7] leading-relaxed font-mono">
-                AI + Software + Automation + Digital Systems
-              </p>
-              <div className="pt-2 border-t border-white/10 space-y-2.5 text-xs text-[#CDD3DB]">
-                <div className="flex items-center justify-between">
-                  <span className="text-[#84888A]">Ownership:</span>
-                  <span className="font-semibold text-white">Two Equal Co-Founders</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-[#84888A]">Operating Model:</span>
-                  <span className="font-semibold text-[#9E7B78]">Hybrid (Client + Internal)</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-[#84888A]">Orientation:</span>
-                  <span className="font-semibold text-white">Global From Day One</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-[#84888A]">Commercial Focus:</span>
-                  <span className="font-semibold text-white">US · UK · UAE · India</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </FadeIn>
-      </section>
-
-      {/* ── The Hybrid Model ────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-t border-[rgba(205,211,219,0.5)]">
-        <FadeIn className="mb-10 max-w-3xl">
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#9E7B78] block mb-2">
-            OPERATING ARCHITECTURE
-          </span>
-          <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
-            Building Our Own Technology. Building For Clients.
-          </h2>
-          <p className="text-sm sm:text-base text-[#738290] mt-3 leading-relaxed">
-            NexAgent operates through a hybrid technology model that balances bespoke client work with the long-term engineering of reusable software platforms.
-          </p>
-        </FadeIn>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-8 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] shadow-xs space-y-3">
-            <span className="font-mono text-xs font-bold text-[#9E7B78] uppercase">Category 01</span>
-            <h3 className="font-sans text-xl font-bold text-[#2A2B2E]">Client Solutions</h3>
-            <p className="text-xs sm:text-sm text-[#738290] leading-relaxed">
-              Bespoke workflow automation, AI agents, voice systems, and custom software integrations built directly to customer operational requirements.
-            </p>
-            <span className="inline-block px-2.5 py-1 rounded-md bg-[#F4F5F7] text-[11px] font-mono text-[#5E6572] mt-2">
-              Current Service
-            </span>
-          </div>
-
-          <div className="p-8 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] shadow-xs space-y-3">
-            <span className="font-mono text-xs font-bold text-[#9E7B78] uppercase">Category 02</span>
-            <h3 className="font-sans text-xl font-bold text-[#2A2B2E]">Custom Technology</h3>
-            <p className="text-xs sm:text-sm text-[#738290] leading-relaxed">
-              Tailored business management systems, unified CRMs, intelligence dashboards, and API middleware designed around existing company infrastructure.
-            </p>
-            <span className="inline-block px-2.5 py-1 rounded-md bg-[#F4F5F7] text-[11px] font-mono text-[#5E6572] mt-2">
-              Current Capability
-            </span>
-          </div>
-
-          <div className="p-8 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] shadow-xs space-y-3">
-            <span className="font-mono text-xs font-bold text-[#9E7B78] uppercase">Category 03</span>
-            <h3 className="font-sans text-xl font-bold text-[#2A2B2E]">Internal Products</h3>
-            <p className="text-xs sm:text-sm text-[#738290] leading-relaxed">
-              Reusable automation frameworks, low-latency conversational voice engines, and intelligent document parsing platforms developed for long-term scale.
-            </p>
-            <span className="inline-block px-2.5 py-1 rounded-md bg-[rgba(158,123,120,0.10)] text-[11px] font-mono text-[#9E7B78] font-semibold mt-2">
-              In Development &amp; Beta
-            </span>
+            ))}
           </div>
         </div>
-      </section>
 
-      {/* ── How We Work: 6-Phase Execution ───────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-t border-[rgba(205,211,219,0.5)]">
-        <FadeIn className="mb-10 max-w-3xl">
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#9E7B78] block mb-2">
-            METHODOLOGY
+        {/* Founders & Ownership Integrity */}
+        <div id="founders" className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-premium mb-12 scroll-mt-24">
+          <span className="font-mono text-xs uppercase tracking-wider text-brand-700 font-bold block mb-3">
+            LEADERSHIP & GOVERNANCE
           </span>
-          <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
-            From Idea to Deployed System
+
+          <h2 className="font-display font-extrabold text-2xl text-slate-900 mb-4">
+            Built by Two Founders. Built for the Long Term.
           </h2>
-          <p className="text-sm sm:text-base text-[#738290] mt-3 leading-relaxed">
-            Every project follows a structured six-stage lifecycle engineered to minimize operational disruption and ensure deterministic reliability.
+
+          <p className="font-sans text-sm text-slate-600 leading-relaxed mb-8">
+            {COMPANY_DATA.foundingModel} We do not invent imaginary executives, artificial advisory panels, or fabricated global offices. Our governance structure is built on accountability, technical rigor, and equal partnership.
           </p>
-        </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {processPhases.map((phase) => (
-            <div
-              key={phase.num}
-              className="p-6 bg-white rounded-2xl border border-[rgba(205,211,219,0.5)] shadow-xs space-y-2"
-            >
-              <span className="font-mono text-xs font-bold text-[#9E7B78]">{phase.num}</span>
-              <h3 className="font-sans text-lg font-bold text-[#2A2B2E]">{phase.name}</h3>
-              <p className="text-xs text-[#5E6572] leading-relaxed">{phase.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Operating Principles ─────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-t border-[rgba(205,211,219,0.5)]">
-        <FadeIn className="mb-10 max-w-2xl">
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#9E7B78] block mb-2">
-            PHILOSOPHY
-          </span>
-          <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
-            Our Engineering Philosophy
-          </h2>
-        </FadeIn>
-
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {principles.map((pr) => (
-            <StaggerItem key={pr.num}>
-              <div className="p-8 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] shadow-[0_10px_28px_-4px_rgba(42,43,46,0.05)] h-full flex flex-col justify-between space-y-4 hover:border-[#9E7B78]/40 transition-all">
-                <span className="font-mono text-2xl font-black text-[#9E7B78]">{pr.num}</span>
-                <div>
-                  <h3 className="font-sans text-xl font-bold text-[#2A2B2E]">{pr.title}</h3>
-                  <p className="text-xs sm:text-sm text-[#738290] mt-2 leading-relaxed">{pr.desc}</p>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {COMPANY_DATA.founders.map((f, idx) => (
+              <div key={idx} className="p-6 rounded-2xl bg-surface-ground border border-slate-200/80">
+                <span className="font-mono text-xs font-bold text-brand-700 uppercase block mb-1">
+                  CO-FOUNDER 0{idx + 1}
+                </span>
+                <h3 className="font-display font-bold text-lg text-slate-900 mb-1">
+                  {f.title}
+                </h3>
+                <span className="font-mono text-xs text-titanium-700 font-semibold block mb-3">
+                  {f.ownership}
+                </span>
+                <p className="font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {f.description}
+                </p>
               </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </section>
-
-      {/* ── Founders & Ownership ─────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-t border-[rgba(205,211,219,0.5)]">
-        <FadeIn className="mb-10 max-w-3xl">
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#9E7B78] block mb-2">
-            FOUNDERS &amp; OWNERSHIP
-          </span>
-          <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
-            The People Building NexAgent
-          </h2>
-          <p className="text-sm sm:text-base text-[#738290] mt-3 leading-relaxed">
-            Founded by two co-founders with equal ownership, NexAgent is being built around a simple principle: use technology to remove unnecessary complexity from the way businesses operate.
-          </p>
-        </FadeIn>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {founders.map((f, idx) => (
-            <div
-              key={idx}
-              className="p-8 rounded-3xl bg-white border border-[rgba(205,211,219,0.5)] shadow-[0_10px_28px_-4px_rgba(42,43,46,0.05)] flex flex-col sm:flex-row items-center gap-6"
-            >
-              <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden bg-[#2A2B2E]/10 flex-shrink-0">
-                <Image
-                  src={f.image}
-                  alt={f.name}
-                  fill
-                  className="object-cover grayscale contrast-125"
-                />
-              </div>
-              <div className="space-y-1.5 text-center sm:text-left">
-                <h3 className="font-sans font-extrabold text-xl text-[#2A2B2E]">{f.name}</h3>
-                <p className="text-xs font-bold text-[#9E7B78]">{f.role}</p>
-                <p className="text-xs text-[#738290] leading-relaxed pt-1">{f.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Built For The Long Term ────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-t border-[rgba(205,211,219,0.5)]">
-        <FadeIn className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-xs space-y-6">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#9E7B78] font-bold">
-            LONG-TERM DIRECTION &amp; AMBITION
-          </span>
-          <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[#2A2B2E]">
-            Built For The Long Term
-          </h2>
-          <p className="text-sm sm:text-base text-[#738290] leading-relaxed">
-            We are building NexAgent for the long term. We intend to develop NexAgent into a globally significant technology company, creating the foundation for products, platforms, and future technology businesses.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-            <div className="p-6 rounded-2xl bg-[#F7F7F5] border border-[rgba(205,211,219,0.4)] space-y-2">
-              <span className="font-mono text-xs font-bold text-[#2A2B2E] uppercase">Current Reality</span>
-              <p className="text-xs sm:text-sm text-[#5E6572] leading-relaxed">
-                A founder-led technology company owned equally by two co-founders, actively delivering AI-powered software, automation systems, and custom engineering for businesses across multiple industries.
-              </p>
-            </div>
-            <div className="p-6 rounded-2xl bg-[#F7F7F5] border border-[rgba(205,211,219,0.4)] space-y-2">
-              <span className="font-mono text-xs font-bold text-[#9E7B78] uppercase">Future Direction</span>
-              <p className="text-xs sm:text-sm text-[#5E6572] leading-relaxed">
-                Expanding our reusable software platforms, developing specialized operating platforms, and growing an international ecosystem of intelligent business technologies.
-              </p>
-            </div>
+            ))}
           </div>
-        </FadeIn>
-      </section>
+        </div>
 
-      {/* ── Global Ambition & Final CTA ──────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <FadeIn className="bg-[#2A2B2E] text-white rounded-3xl p-8 sm:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
-          <div className="space-y-3 max-w-xl text-center md:text-left">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#9E7B78] font-bold">
-              GLOBAL AMBITION
-            </span>
-            <h2 className="font-sans text-2xl sm:text-4xl uppercase font-extrabold leading-tight">
-              Ready To Build A Better System?
-            </h2>
-            <p className="text-xs sm:text-sm text-[#BDC9C7] leading-relaxed">
-              Tell us where your business is losing time, dealing with unnecessary manual friction, or leaving technology underutilized. We’ll explore what can be automated, built, or connected.
-            </p>
+        {/* Global Ambition & Current Focus */}
+        <div id="global" className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-premium mb-12 scroll-mt-24">
+          <span className="font-mono text-xs uppercase tracking-wider text-brand-700 font-bold block mb-3">
+            MARKET ORIENTATION
+          </span>
+
+          <h2 className="font-display font-extrabold text-2xl text-slate-900 mb-4">
+            Global Ambition. Pragmatic Focus.
+          </h2>
+
+          <p className="font-sans text-sm text-slate-600 leading-relaxed mb-8">
+            NexAgent is globally oriented from day one. Rather than fabricating worldwide physical campuses, we operate with a distributed engineering structure serving clients across four initial commercial focus regions:
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {COMPANY_DATA.globalFocus.map((g, idx) => (
+              <div key={idx} className="p-5 rounded-2xl bg-surface-ground border border-slate-200/80">
+                <Globe2 className="w-5 h-5 text-brand-600 mb-2" />
+                <h3 className="font-display font-bold text-sm text-slate-900 mb-1">
+                  {g.country}
+                </h3>
+                <p className="font-sans text-xs text-slate-500">
+                  {g.focus}
+                </p>
+              </div>
+            ))}
           </div>
+        </div>
 
-          <Link
-            href="/book-a-strategy-call"
-            className="px-8 py-3.5 bg-[#9E7B78] hover:bg-[#8C6558] text-white rounded-full text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap shadow-md"
+        {/* Closing CTA */}
+        <div className="p-8 sm:p-10 rounded-2xl bg-brand-900 text-white text-center flex flex-col items-center shadow-elevated">
+          <h2 className="font-display font-bold text-2xl mb-2">
+            Work Directly With Our Technical Leadership
+          </h2>
+          <p className="font-sans text-sm text-slate-300 max-w-md mb-6 leading-relaxed">
+            Schedule a confidential discovery conversation to explore how NexAgent can engineer intelligent workflows for your business.
+          </p>
+          <Button
+            href="/strategy-call"
+            variant="primary"
+            size="lg"
+            className="bg-white hover:bg-slate-100 text-brand-950 border-none shadow-md"
+            icon={<ArrowRight className="w-4 h-4 text-brand-900" />}
           >
             Book a Strategy Call
-          </Link>
-        </FadeIn>
-      </section>
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }

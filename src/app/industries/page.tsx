@@ -1,148 +1,164 @@
-import React from 'react';
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { getPublishedIndustries } from '@/content';
-import { FadeIn, StaggerContainer, StaggerItem } from '@/components/MotionWrapper';
-import { Breadcrumbs } from '@/components/content';
+import React from "react";
+import { Metadata } from "next";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Button } from "@/components/ui/Button";
+import { INDUSTRIES_DATA } from "@/data/industries";
+import { ArrowRight, AlertCircle, CheckCircle2, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: 'Industries | Technology Systems Adapted to Industry Workflows | NexAgent',
+  title: "Industry Workflow Applications",
   description:
-    'NexAgent adapts intelligent systems, workflow automation, and AI software to industry-specific operational constraints across Healthcare, Hospitality, B2B, and Financial Services.',
-  alternates: {
-    canonical: 'https://nexagent.group/industries',
-  },
-  openGraph: {
-    title: 'Industries | Technology Systems Adapted to Industry Workflows | NexAgent',
-    description:
-      'Intelligent technology systems adapted to industry-specific workflows and operational complexity.',
-    url: 'https://nexagent.group/industries',
-    siteName: 'NexAgent',
-    type: 'website',
-  },
+    "Explore examples of how NexAgent applies systems engineering and automation across Healthcare, Hospitality, B2B, Retail, Professional Services, and FinTech."
 };
 
-export default function IndustriesIndexPage() {
-  const industriesList = getPublishedIndustries();
-
+export default function IndustriesPage() {
   return (
-    <div className="w-full min-h-screen bg-[#FBF5F3] text-[#2A2B2E] pt-28 pb-24">
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-10 pt-10 pb-16 border-b border-[rgba(205,211,219,0.5)]">
-        <Breadcrumbs items={[{ label: 'Industries' }]} className="mb-6" />
+    <div className="w-full py-12 sm:py-20 bg-surface-ground">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          badgeText="CROSS-INDUSTRY ENGINEERING"
+          badgeVariant="teal"
+          title="DIFFERENT INDUSTRIES. DIFFERENT WORKFLOWS. ONE ENGINEERING MINDSET."
+          subtitle="Examples of where NexAgent technology can be applied. Rather than claiming exclusive vertical monopolies, we bring disciplined systems engineering, reliable automation pipelines, and modern software design to high-friction operational environments."
+        />
 
-        <FadeIn>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[rgba(205,211,219,0.7)] shadow-2xs mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#9E7B78]" />
-            <span className="font-mono text-xs uppercase tracking-wider text-[#2A2B2E] font-bold">
-              INDUSTRY-ADAPTED SYSTEMS
-            </span>
-          </div>
-
-          <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#2A2B2E] max-w-4xl leading-[1.08]">
-            ENGINEERED ACROSS <span className="font-light italic text-[#9E7B78]">INDUSTRIES.</span>
-          </h1>
-
-          <p className="mt-6 text-base sm:text-lg text-[#738290] max-w-3xl leading-relaxed">
-            NexAgent does not claim exclusive specialization in a single sector. Instead, we architect practical technology systems, automation pipelines, and intelligent software adapted around the operational nuances, regulatory standards, and existing software of diverse industries.
-          </p>
-        </FadeIn>
-      </section>
-
-      {/* Industries Grid */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {industriesList.map((ind) => (
-            <StaggerItem key={ind.id}>
-              <div className="bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-10 shadow-[0_12px_32px_-6px_rgba(42,43,46,0.06)] hover:border-[#9E7B78]/40 transition-all flex flex-col justify-between h-full group">
+        <div className="flex flex-col gap-16">
+          {INDUSTRIES_DATA.map((ind, index) => (
+            <section
+              key={ind.id}
+              id={ind.id}
+              className="scroll-mt-24 p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-premium"
+            >
+              {/* Header */}
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 mb-8 border-b border-slate-100">
                 <div>
-                  <div className="flex items-center justify-between gap-4 mb-4">
-                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#9E7B78] bg-[rgba(158,123,120,0.10)] px-3 py-1 rounded-full">
-                      {ind.slug.replace('-', ' ')}
-                    </span>
-                    <span className="text-xs font-mono text-[#738290]">
-                      {ind.exampleWorkflows.length} Workflows
-                    </span>
-                  </div>
-
-                  <h2 className="font-sans text-2xl sm:text-3xl font-extrabold text-[#2A2B2E] group-hover:text-[#9E7B78] transition-colors mb-4">
+                  <span className="font-mono text-xs uppercase tracking-wider text-brand-700 font-bold px-2.5 py-0.5 rounded-sm bg-brand-50 border border-brand-200 inline-block mb-2">
+                    SECTOR APPLICATION 0{index + 1}
+                  </span>
+                  <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900">
                     {ind.name}
                   </h2>
-
-                  <p className="text-sm text-[#738290] leading-relaxed mb-6">
-                    {ind.overview}
-                  </p>
-
-                  {/* Key Challenges */}
-                  <div className="space-y-2 mb-6">
-                    <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-[#2A2B2E]">
-                      Key Friction Points Solved:
-                    </h4>
-                    <ul className="space-y-1.5 text-xs text-[#5E6572]">
-                      {ind.operationalChallenges.slice(0, 3).map((ch, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="text-[#9E7B78] font-bold mt-0.5">↳</span>
-                          <span>{ch}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Automation Focus */}
-                  <div className="space-y-2 mb-8">
-                    <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-[#2A2B2E]">
-                      Automation Vectors:
-                    </h4>
-                    <ul className="space-y-1.5 text-xs text-[#5E6572]">
-                      {ind.automationOpportunities.slice(0, 3).map((opp, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="text-[#15803D] font-bold mt-0.5">✓</span>
-                          <span>{opp}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </div>
 
-                <div className="pt-6 border-t border-[rgba(205,211,219,0.4)] flex items-center justify-between">
-                  <Link
-                    href={`/industries/${ind.slug}`}
-                    className="inline-flex items-center gap-2 text-xs font-bold text-[#9E7B78] hover:text-[#8C6558] uppercase tracking-wider transition-colors"
-                  >
-                    <span>View Architecture Blueprint</span>
-                    <span>→</span>
-                  </Link>
-                  <Link
-                    href={`/book-a-strategy-call?industry=${ind.slug}`}
-                    className="text-xs font-semibold text-[#738290] hover:text-[#2A2B2E] transition-colors"
-                  >
-                    Discuss System ↗
-                  </Link>
+                <p className="font-sans text-sm sm:text-base text-slate-600 max-w-md font-medium leading-relaxed">
+                  {ind.tagline}
+                </p>
+              </div>
+
+              {/* Potential Customers & Key Problems */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <div className="p-6 rounded-2xl bg-surface-ground border border-slate-200/80">
+                  <span className="font-mono text-xs uppercase tracking-wider text-slate-400 font-bold block mb-3">
+                    Potential Client Profiles
+                  </span>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {ind.potentialCustomers.map((customer, cIdx) => (
+                      <span
+                        key={cIdx}
+                        className="font-mono text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-2xs"
+                      >
+                        {customer}
+                      </span>
+                    ))}
+                  </div>
+
+                  <span className="font-mono text-xs uppercase tracking-wider text-slate-400 font-bold block mb-3">
+                    Representative Technology Applications
+                  </span>
+                  <ul className="flex flex-col gap-2">
+                    {ind.potentialApplications.map((app, aIdx) => (
+                      <li key={aIdx} className="font-sans text-xs text-slate-700 flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-brand-600 shrink-0 mt-0.5" />
+                        <span>{app}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="p-6 rounded-2xl bg-surface-ground border border-slate-200/80 flex flex-col justify-between">
+                  <div>
+                    <span className="font-mono text-xs uppercase tracking-wider text-slate-400 font-bold block mb-3">
+                      Operational Friction Addressed
+                    </span>
+                    <ul className="flex flex-col gap-3">
+                      {ind.keyProblems.map((prob, pIdx) => (
+                        <li key={pIdx} className="font-sans text-xs sm:text-sm text-slate-700 flex items-start gap-2.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0 mt-2" />
+                          <span>{prob}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {ind.complianceDisclaimer && (
+                    <div className="mt-6 p-4 rounded-xl bg-amber-50/80 border border-amber-200 flex items-start gap-2.5 text-amber-900 text-xs leading-relaxed">
+                      <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                      <p>{ind.complianceDisclaimer}</p>
+                    </div>
+                  )}
                 </div>
               </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
 
-        {/* Global Applicability Banner */}
-        <FadeIn className="mt-16 bg-white rounded-3xl border border-[rgba(205,211,219,0.5)] p-8 sm:p-12 shadow-sm text-center max-w-4xl mx-auto">
-          <span className="inline-block px-3 py-1 rounded-full bg-[rgba(158,123,120,0.10)] text-[#9E7B78] font-mono text-xs font-bold uppercase tracking-wider mb-4">
-            Custom Vertical Systems
-          </span>
-          <h3 className="font-sans text-2xl sm:text-3xl font-extrabold text-[#2A2B2E] mb-3">
-            Operate in another industry?
-          </h3>
-          <p className="text-sm text-[#738290] max-w-2xl mx-auto leading-relaxed mb-6">
-            NexAgent builds around your actual business workflows, proprietary software, and data structures. Whether you manage supply chains, logistics, retail, or legal workflows, our systems adapt to your constraints.
-          </p>
-          <Link
-            href="/book-a-strategy-call"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold text-white bg-[#9E7B78] hover:bg-[#8C6558] shadow-sm transition-all"
-          >
-            Book a Strategy Call
-          </Link>
-        </FadeIn>
-      </section>
+              {/* End-to-End Workflow Architecture Diagram */}
+              <div className="p-6 sm:p-8 rounded-2xl bg-surface-ground border border-slate-200/80 mb-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                  <div>
+                    <span className="font-mono text-xs uppercase tracking-wider text-slate-400 font-bold block">
+                      End-to-End Execution Sequence
+                    </span>
+                    <h3 className="font-display font-bold text-base text-slate-900">
+                      {ind.workflowExample.title}
+                    </h3>
+                  </div>
+                  <span className="font-mono text-[10px] text-brand-700 bg-brand-50 border border-brand-200 px-2 py-0.5 rounded-sm">
+                    Deterministic Workflow
+                  </span>
+                </div>
+
+                <p className="font-sans text-xs text-slate-600 mb-6">
+                  {ind.workflowExample.description}
+                </p>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                  {ind.workflowExample.steps.map((step, sIdx) => (
+                    <div
+                      key={sIdx}
+                      className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between"
+                    >
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="font-mono text-[9px] uppercase font-bold text-brand-700">
+                          STEP 0{sIdx + 1}
+                        </span>
+                        {sIdx < ind.workflowExample.steps.length - 1 && (
+                          <ArrowRight className="w-3 h-3 text-slate-300 hidden lg:block" />
+                        )}
+                      </div>
+                      <h4 className="font-display font-bold text-xs text-slate-900 mb-1">
+                        {step.label}
+                      </h4>
+                      <p className="font-sans text-[11px] text-slate-500 leading-snug">
+                        {step.subtext}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="flex justify-end">
+                <Button
+                  href={`/strategy-call?industry=${ind.id}`}
+                  variant="outline"
+                  size="sm"
+                  icon={<ArrowRight className="w-3.5 h-3.5" />}
+                >
+                  Consult on {ind.name} Workflows
+                </Button>
+              </div>
+            </section>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

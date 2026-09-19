@@ -1,138 +1,100 @@
-/**
- * NexAgent Accordion
- *
- * Accessible FAQ and expandable content accordion. Built on native
- * HTML <details>/<summary> for maximum accessibility with zero JS
- * dependencies for the expand/collapse interaction itself.
- *
- * Features:
- * - Keyboard accessible out-of-the-box (native <details>)
- * - Animated open/close with CSS transitions
- * - Schema-ready: add itemScope/itemType="https://schema.org/FAQPage"
- *   to the container for FAQ structured data
- * - Respects prefers-reduced-motion
- *
- * Usage:
- *   <AccordionGroup>
- *     <AccordionItem question="What is NexAgent?">
- *       NexAgent is an intelligent technology group...
- *     </AccordionItem>
- *   </AccordionGroup>
- */
+"use client";
 
-'use client';
+import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-import React, { useRef, useState } from 'react';
-import { cn } from '@/lib/utils';
-
-// ─── AccordionItem ────────────────────────────────────────────────────────────
-
-export interface AccordionItemProps {
-  question: string;
+interface AccordionItemProps {
+  id: string;
+  title: string;
+  category?: string;
   children: React.ReactNode;
-  defaultOpen?: boolean;
-  className?: string;
+  isOpen: boolean;
+  onToggle: () => void;
 }
 
 export function AccordionItem({
-  question,
+  id,
+  title,
+  category,
   children,
-  defaultOpen = false,
-  className,
+  isOpen,
+  onToggle
 }: AccordionItemProps) {
-  const [open, setOpen] = useState(defaultOpen);
-  const contentRef = useRef<HTMLDivElement>(null);
-
   return (
-    <div
-      className={cn(
-        'border-b border-[rgba(23,25,26,0.10)] last:border-b-0',
-        className
-      )}
-      itemScope
-      itemProp="mainEntity"
-      itemType="https://schema.org/Question"
-    >
+    <div className="border border-slate-200/80 rounded-xl bg-white overflow-hidden transition-colors hover:border-slate-300">
       <button
         type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        className={cn(
-          'group flex w-full items-center justify-between',
-          'py-5 text-left',
-          'transition-colors duration-fast',
-          open ? 'text-[#17191A]' : 'text-[#57595B] hover:text-[#17191A]'
-        )}
-        aria-expanded={open}
-        aria-controls={`accordion-content-${question.replace(/\s/g, '-')}`}
-        id={`accordion-trigger-${question.replace(/\s/g, '-')}`}
+        id={`accordion-btn-${id}`}
+        aria-expanded={isOpen}
+        aria-controls={`accordion-panel-${id}`}
+        onClick={onToggle}
+        className="w-full flex items-center justify-between p-5 sm:p-6 text-left transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-brand-500"
       >
-        <span
-          className="text-sm sm:text-base font-semibold tracking-tight leading-snug flex-1 pr-4"
-          itemProp="name"
-        >
-          {question}
-        </span>
-        <span
-          className={cn(
-            'material-symbols-outlined text-[20px] flex-shrink-0',
-            'transition-transform duration-standard',
-            open ? 'rotate-45 text-[#9E7B78]' : 'text-[#84888A] group-hover:text-[#57595B]'
+        <div className="flex flex-col gap-1 pr-4">
+          {category && (
+            <span className="font-mono text-[10px] uppercase tracking-wider text-brand-600 font-semibold">
+              {category}
+            </span>
           )}
-          aria-hidden="true"
+          <span className="font-display font-semibold text-base sm:text-lg text-slate-900 leading-snug">
+            {title}
+          </span>
+        </div>
+        <div
+          className={cn(
+            "shrink-0 w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 transition-transform duration-300",
+            isOpen && "rotate-180 bg-brand-50 border-brand-200 text-brand-700"
+          )}
         >
-          add
-        </span>
+          <ChevronDown className="w-4 h-4" />
+        </div>
       </button>
 
-      <div
-        ref={contentRef}
-        id={`accordion-content-${question.replace(/\s/g, '-')}`}
-        role="region"
-        aria-labelledby={`accordion-trigger-${question.replace(/\s/g, '-')}`}
-        className={cn(
-          'overflow-hidden transition-all',
-          open ? 'max-h-[800px] opacity-100 pb-5' : 'max-h-0 opacity-0'
-        )}
-        style={{ transitionDuration: 'var(--motion-standard)', transitionTimingFunction: 'var(--easing-standard)' }}
-        itemScope
-        itemProp="acceptedAnswer"
-        itemType="https://schema.org/Answer"
-      >
+      {isOpen && (
         <div
-          className="text-sm text-[#57595B] leading-relaxed space-y-3"
-          itemProp="text"
+          id={`accordion-panel-${id}`}
+          role="region"
+          aria-labelledby={`accordion-btn-${id}`}
+          className="px-5 sm:px-6 pb-6 pt-1 text-slate-600 font-sans text-sm sm:text-base leading-relaxed border-t border-slate-100 animate-fade-in"
         >
           {children}
         </div>
-      </div>
+      )}
     </div>
   );
 }
 
-// ─── AccordionGroup ───────────────────────────────────────────────────────────
-
-export interface AccordionGroupProps {
-  children: React.ReactNode;
-  className?: string;
-  withFAQSchema?: boolean; // wrap with FAQPage schema markup
+interface AccordionProps {
+  items: {
+    id: string;
+    question: string;
+    answer: string;
+    category?: string;
+  }[];
 }
 
-export function AccordionGroup({
-  children,
-  className,
-  withFAQSchema = false,
-}: AccordionGroupProps) {
+export function Accordion({ items }: AccordionProps) {
+  const [openId, setOpenId] = useState<string | null>(items[0]?.id || null);
+
+  const handleToggle = (id: string) => {
+    setOpenId((prev) => (prev === id ? null : id));
+  };
+
   return (
-    <div
-      className={cn('divide-y-0', className)}
-      {...(withFAQSchema
-        ? {
-            itemScope: true,
-            itemType: 'https://schema.org/FAQPage',
-          }
-        : {})}
-    >
-      {children}
+    <div className="flex flex-col gap-3.5">
+      {items.map((item) => (
+        <AccordionItem
+          key={item.id}
+          id={item.id}
+          title={item.question}
+          category={item.category}
+          isOpen={openId === item.id}
+          onToggle={() => handleToggle(item.id)}
+        >
+          {item.answer}
+        </AccordionItem>
+      ))}
     </div>
   );
 }

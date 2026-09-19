@@ -1,0 +1,68 @@
+import React from "react";
+import { SectionHeader } from "../ui/SectionHeader";
+import { COMPANY_DATA } from "@/data/company";
+import { Globe2, Shield, ArrowUpRight } from "lucide-react";
+
+export function LongTermVisionSection() {
+  return (
+    <section className="relative w-full py-20 lg:py-32 bg-surface-ground border-b border-slate-200/80">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          badgeText="13 / VISION & GLOBAL ORIENTATION"
+          badgeVariant="teal"
+          title={COMPANY_DATA.vision.heading}
+          subtitle={COMPANY_DATA.vision.subheading}
+        />
+
+        {/* Vision Narrative Box */}
+        <div className="max-w-4xl mx-auto p-8 sm:p-12 rounded-2xl bg-white border border-slate-200/90 shadow-premium mb-12 text-center">
+          <p className="font-display font-semibold text-lg sm:text-xl lg:text-2xl text-slate-900 leading-relaxed mb-6">
+            &ldquo;{COMPANY_DATA.vision.statement}&rdquo;
+          </p>
+
+          <p className="font-sans text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            Our long-term trajectory encompasses specialized technology platforms, industry-specific automation kernels, and resilient digital infrastructure. We present future ambitions not as manufactured current claims, but as our unwavering engineering roadmap.
+          </p>
+        </div>
+
+        {/* Global Commercial Focus Cards */}
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <span className="font-mono text-xs uppercase tracking-wider text-slate-400 font-bold block mb-1">
+              Global Ambition & Commercial Focus
+            </span>
+            <p className="font-sans text-xs text-slate-500">
+              Distributed collaboration with commercial orientation across four key technology corridors.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {COMPANY_DATA.globalFocus.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <Globe2 className="w-4 h-4 text-brand-600" />
+                    <span className="font-mono text-[10px] text-slate-400">CORRIDOR 0{idx + 1}</span>
+                  </div>
+                  <h4 className="font-display font-bold text-base text-slate-900 mb-1">
+                    {item.country}
+                  </h4>
+                  <p className="font-sans text-xs text-slate-600 leading-relaxed">
+                    {item.focus}
+                  </p>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-slate-100 font-mono text-[10px] text-brand-700 font-semibold">
+                  COMMERCIAL FOCUS
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
