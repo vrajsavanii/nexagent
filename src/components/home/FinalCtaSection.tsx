@@ -6,8 +6,8 @@ import { ArrowRight, ShieldCheck, Clock, CheckCircle2 } from "lucide-react";
 export function FinalCtaSection() {
   return (
     <section className="relative w-full py-20 lg:py-32 bg-white overflow-hidden">
-      {/* Background Subtle Gradient Grid */}
-      <div className="absolute inset-0 bg-grid-subtle opacity-50 pointer-events-none" />
+      {/* Background Soft Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-radial from-brand-100/30 via-surface-ground/20 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="p-8 sm:p-14 lg:p-16 rounded-3xl bg-gradient-to-br from-brand-900 via-brand-950 to-slate-950 text-white shadow-elevated relative overflow-hidden text-center">
