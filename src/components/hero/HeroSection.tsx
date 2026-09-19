@@ -4,7 +4,7 @@ import React, { useState, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { Button } from "../ui/Button";
 import { Badge } from "../ui/Badge";
-import { ArrowRight, Activity, Radio, Cpu } from "lucide-react";
+import { ArrowRight, Activity } from "lucide-react";
 import { HERO_NODES_DATA, NodeData } from "./HeroNetwork3D";
 import { HeroFallback2D } from "./HeroFallback2D";
 
@@ -111,18 +111,6 @@ export function HeroSection() {
               <div className="w-full relative rounded-[23px] bg-gradient-to-b from-white/95 via-surface-ground/75 to-white/95 backdrop-blur-xl overflow-hidden p-2 sm:p-3">
                 {/* Radial spotlight behind the 3D core */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(79,156,176,0.12)_0%,_transparent_70%)] pointer-events-none" />
-
-                {/* Top Ambient Bar */}
-                <div className="relative flex items-center justify-between px-3 pt-2 pb-1 text-slate-400 text-[10px] font-mono border-b border-slate-100/80">
-                  <span className="flex items-center gap-1.5 text-brand-700 font-medium">
-                    <Cpu className="w-3 h-3 text-brand-600" />
-                    NEXUS GRAPH ENGINE v2.4
-                  </span>
-                  <span className="flex items-center gap-1 text-slate-500">
-                    <Radio className="w-2.5 h-2.5 text-emerald-500 animate-pulse" />
-                    LIVE TELEMETRY
-                  </span>
-                </div>
 
                 <HeroNetwork3D onNodeHover={handleNodeHover} />
 

@@ -114,11 +114,6 @@ export function HowWeWorkSection() {
                     {step.description}
                   </p>
                 </div>
-
-                <div className="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono text-slate-400">
-                  <span>DISCIPLINED QA</span>
-                  <span>PRODUCTION GRADE</span>
-                </div>
               </div>
             );
           })}

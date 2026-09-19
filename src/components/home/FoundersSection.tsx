@@ -42,11 +42,6 @@ export function FoundersSection() {
                   {founder.description}
                 </p>
               </div>
-
-              <div className="mt-8 pt-4 border-t border-slate-200/70 flex items-center justify-between text-xs font-mono text-slate-500">
-                <span>FOUNDER-LED</span>
-                <span>EQUAL OWNERSHIP</span>
-              </div>
             </div>
           ))}
         </div>

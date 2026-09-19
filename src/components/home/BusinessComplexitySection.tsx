@@ -147,11 +147,10 @@ export function BusinessComplexitySection() {
                     {isConnected ? tool.connectedState : tool.isolatedState}
                   </p>
 
-                  <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono">
+                  <div className="mt-3 pt-2 border-t border-slate-100 flex items-center text-[10px] font-mono">
                     <span className={isConnected ? "text-brand-600 font-semibold" : "text-slate-400"}>
                       {isConnected ? "CONNECTED" : "ISOLATED"}
                     </span>
-                    <span className="text-slate-400">STATUS 200</span>
                   </div>
                 </div>
               );

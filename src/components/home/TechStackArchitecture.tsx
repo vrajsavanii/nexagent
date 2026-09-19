@@ -91,9 +91,6 @@ export function TechStackArchitecture() {
                 <span className="font-mono text-xs font-bold text-brand-700 uppercase tracking-wider">
                   TIER DEEP DIVE // {activeLayer.name}
                 </span>
-                <span className="font-mono text-[10px] px-2 py-0.5 rounded-sm bg-brand-50 text-brand-800 border border-brand-200">
-                  {activeLayer.items.length} Production Systems
-                </span>
               </div>
               <h3 className="font-display font-bold text-xl sm:text-2xl text-slate-900">
                 {activeLayer.tagline}

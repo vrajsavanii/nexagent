@@ -6,6 +6,7 @@ import * as THREE from "three";
 export interface NodeData {
   id: string;
   name: string;
+  shortLabel: string;
   category: string;
   description: string;
   color: string;
@@ -15,6 +16,7 @@ export const HERO_NODES_DATA: NodeData[] = [
   {
     id: "ai",
     name: "AI & REASONING",
+    shortLabel: "AI",
     category: "Cognitive Tier",
     description: "Reasoning, classification, generation and intelligent decision support.",
     color: "#317F94"
@@ -22,6 +24,7 @@ export const HERO_NODES_DATA: NodeData[] = [
   {
     id: "automation",
     name: "AUTOMATION",
+    shortLabel: "AUTO",
     category: "Execution Tier",
     description: "Turn repetitive workflows into automated, fault-tolerant systems.",
     color: "#4F9CB0"
@@ -29,6 +32,7 @@ export const HERO_NODES_DATA: NodeData[] = [
   {
     id: "software",
     name: "SOFTWARE",
+    shortLabel: "SWR",
     category: "Application Tier",
     description: "Build the bespoke applications and unified portals businesses actually need.",
     color: "#1A3B46"
@@ -36,6 +40,7 @@ export const HERO_NODES_DATA: NodeData[] = [
   {
     id: "data",
     name: "DATA & BI",
+    shortLabel: "DATA",
     category: "Intelligence Tier",
     description: "Turn fragmented information into usable, real-time business intelligence.",
     color: "#A7866F"
@@ -43,6 +48,7 @@ export const HERO_NODES_DATA: NodeData[] = [
   {
     id: "voice",
     name: "VOICE AI",
+    shortLabel: "VOICE",
     category: "Telephony Tier",
     description: "Deploy conversational voice experiences for real-time customer calls.",
     color: "#BDA28B"
@@ -50,6 +56,7 @@ export const HERO_NODES_DATA: NodeData[] = [
   {
     id: "workflows",
     name: "WORKFLOWS",
+    shortLabel: "FLOW",
     category: "Coordination Tier",
     description: "Orchestrate multi-step execution graphs and approvals across teams.",
     color: "#26677A"
@@ -57,11 +64,61 @@ export const HERO_NODES_DATA: NodeData[] = [
   {
     id: "systems",
     name: "BUSINESS SYSTEMS",
+    shortLabel: "BIZ",
     category: "Integration Tier",
     description: "Connect CRM, ERP, and databases into a single cohesive interface.",
     color: "#334155"
   }
 ];
+
+// Creates a billboarding text Sprite from a Canvas texture
+function makeNodeLabelSprite(text: string, color: string): THREE.Sprite {
+  const canvas = document.createElement("canvas");
+  canvas.width = 192;
+  canvas.height = 64;
+  const ctx = canvas.getContext("2d")!;
+
+  // Clear
+  ctx.clearRect(0, 0, 192, 64);
+
+  // Pill background
+  const r = 28;
+  ctx.beginPath();
+  ctx.moveTo(r, 4);
+  ctx.lineTo(192 - r, 4);
+  ctx.arcTo(192 - 4, 4, 192 - 4, 32, r);
+  ctx.lineTo(192 - 4, 32);
+  ctx.arcTo(192 - 4, 60, 192 - r, 60, r);
+  ctx.lineTo(r, 60);
+  ctx.arcTo(4, 60, 4, 32, r);
+  ctx.lineTo(4, 32);
+  ctx.arcTo(4, 4, r, 4, r);
+  ctx.closePath();
+
+  // Semi-transparent fill derived from node color
+  ctx.fillStyle = color + "CC";
+  ctx.fill();
+
+  // White border
+  ctx.strokeStyle = "rgba(255,255,255,0.5)";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Text
+  ctx.font = "bold 26px 'Inter', 'Helvetica Neue', Arial, sans-serif";
+  ctx.fillStyle = "#ffffff";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.letterSpacing = "2px";
+  ctx.fillText(text, 96, 32);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  const mat = new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false });
+  const sprite = new THREE.Sprite(mat);
+  // Scale: world-unit size of the sprite billboard
+  sprite.scale.set(1.3, 0.44, 1);
+  return sprite;
+}
 
 interface HeroNetwork3DProps {
   onNodeHover?: (node: NodeData | null) => void;
@@ -198,6 +255,7 @@ export function HeroNetwork3D({ onNodeHover, activeNodeId }: HeroNetwork3DProps)
       group: THREE.Group;
       mesh: THREE.Mesh;
       ringMesh: THREE.Mesh;
+      labelSprite: THREE.Sprite;
       data: NodeData;
       initialAngle: number;
     }[] = [];
@@ -248,7 +306,13 @@ export function HeroNetwork3D({ onNodeHover, activeNodeId }: HeroNetwork3DProps)
       ringMesh.lookAt(camera.position);
       nodeGroup.add(ringMesh);
 
-      nodeMeshes.push({ group: nodeGroup, mesh, ringMesh, data: node, initialAngle: angle });
+      // Shortform billboard label below the sphere
+      const labelSprite = makeNodeLabelSprite(node.shortLabel, node.color);
+      // Position: slightly below the sphere center (sphere radius 0.44, offset 0.72 below)
+      labelSprite.position.set(0, -0.82, 0);
+      nodeGroup.add(labelSprite);
+
+      nodeMeshes.push({ group: nodeGroup, mesh, ringMesh, labelSprite, data: node, initialAngle: angle });
 
       // Connecting neural line to core
       const linePoints = [new THREE.Vector3(0, 0, 0), new THREE.Vector3(x, y, z)];
@@ -451,6 +515,8 @@ export function HeroNetwork3D({ onNodeHover, activeNodeId }: HeroNetwork3DProps)
         (n.mesh.material as THREE.Material).dispose();
         n.ringMesh.geometry.dispose();
         (n.ringMesh.material as THREE.Material).dispose();
+        (n.labelSprite.material as THREE.SpriteMaterial).map?.dispose();
+        (n.labelSprite.material as THREE.SpriteMaterial).dispose();
       });
 
       lineGeometries.forEach((g) => g.dispose());

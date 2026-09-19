@@ -40,23 +40,16 @@ export function LongTermVisionSection() {
             {COMPANY_DATA.globalFocus.map((item, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex flex-col justify-between"
+                className="p-5 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex flex-col"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <Globe2 className="w-4 h-4 text-brand-600" />
-                    <span className="font-mono text-[10px] text-slate-400">CORRIDOR 0{idx + 1}</span>
-                  </div>
+                  <Globe2 className="w-4 h-4 text-brand-600 mb-2" />
                   <h4 className="font-display font-bold text-base text-slate-900 mb-1">
                     {item.country}
                   </h4>
                   <p className="font-sans text-xs text-slate-600 leading-relaxed">
                     {item.focus}
                   </p>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-slate-100 font-mono text-[10px] text-brand-700 font-semibold">
-                  COMMERCIAL FOCUS
                 </div>
               </div>
             ))}
