@@ -12,74 +12,89 @@ import {
 const pillars = [
   {
     num: '01',
+    category: 'INGESTION',
     title: 'Zero Data Loss Ingestion',
-    desc: 'Normalizes unstructured patient notes, HL7/FHIR feeds, and enterprise webhooks into typed JSON schemas.',
+    desc: 'Normalizes HL7/FHIR feeds, clinical notes, and enterprise webhooks into strictly typed JSON schemas with in-memory PHI redaction.',
   },
   {
     num: '02',
-    title: 'Deterministic Policy Gates',
-    desc: 'Hardcoded WebAssembly rules evaluate financial thresholds and clinical guidelines before any action executes.',
+    category: 'REASONING',
+    title: 'Contextual Intelligence Core',
+    desc: 'Evaluates standard operating procedures and hospital records in real time with schema-locked validation—eliminating hallucinations.',
   },
   {
     num: '03',
-    title: 'Human-in-the-Loop Sign-Off',
-    desc: 'High-stakes clinical orders and wire approvals pause automatically for one-click supervisory cryptographic sign-off.',
+    category: 'GOVERNANCE',
+    title: 'Policy & Human-in-the-Loop Gates',
+    desc: 'Deterministic WebAssembly rules enforce hard boundaries. Clinical orders and wire authorizations require 1-click cryptographic sign-off.',
   },
   {
     num: '04',
-    title: 'Append-Only Audit Ledger',
-    desc: 'Every token, policy validation, and state commit is permanently recorded for forensic regulatory compliance.',
+    category: 'AUDIT',
+    title: 'Transactional Ledger',
+    desc: 'Two-phase commit writes into hospital EMRs and ERPs with an immutable append-only ledger for complete regulatory auditability.',
   },
 ];
 
 export default function WhatWeDo() {
   return (
-    <section id="thesis" className="py-24 bg-white relative overflow-hidden border-t border-black/[0.06]">
+    <section id="thesis" className="py-20 lg:py-28 bg-white relative overflow-hidden border-t border-black/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           variants={staggerContainerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
+          className="space-y-12"
         >
-          {/* Left: Large Editorial Statement */}
-          <motion.div variants={fadeUpVariants} className="lg:col-span-5 space-y-6">
-            <Eyebrow>The Architectural Thesis</Eyebrow>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#09090b] tracking-tight leading-[1.12]">
-              Automated operations engineered for high-stakes environments where error is not an option.
-            </h2>
-            <p className="text-sm sm:text-base text-[#71717a] leading-relaxed">
-              Superficial AI chatbots fail in real businesses because they lack determinism, auditability, and system integration. NexAgent was built from the ground up to operate as active infrastructure—not a conversational toy.
-            </p>
-          </motion.div>
+          {/* Editorial Headline Statement */}
+          <div className="max-w-3xl space-y-4">
+            <motion.div variants={fadeUpVariants}>
+              <Eyebrow>The Architectural Thesis</Eyebrow>
+            </motion.div>
+            <motion.h2
+              variants={fadeUpVariants}
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#09090b] tracking-tight leading-[1.12]"
+            >
+              Engineered for high-stakes environments where error is not an option.
+            </motion.h2>
+            <motion.p
+              variants={fadeUpVariants}
+              className="text-base sm:text-lg text-[#71717a] leading-relaxed max-w-2xl"
+            >
+              Superficial AI chatbots fail in real operations because they lack determinism, auditability, and deep systems integration. NexAgent operates as active, mission-critical infrastructure.
+            </motion.p>
+          </div>
 
-          {/* Right: Architecture & Pillars Narrative */}
-          <motion.div variants={fadeUpVariants} className="lg:col-span-7 space-y-8">
-            <div className="p-8 rounded-3xl bg-[#fafafa] border border-black/[0.08] space-y-4">
-              <h3 className="text-xl font-bold text-[#09090b] tracking-tight">
-                From passive databases to active operational execution.
-              </h3>
-              <p className="text-sm text-[#71717a] leading-relaxed">
-                Hospitals and enterprises lose thousands of hours to administrative friction: copying records between EMRs, chasing doctor sign-offs, and reconciling invoices across disconnected software. NexAgent connects your existing software tools into a single coordinated pipeline, completing manual hand-offs in seconds while keeping leadership in complete cryptographic control.
-              </p>
-            </div>
-
-            {/* 4 Pillars Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {pillars.map((p) => (
-                <div
-                  key={p.num}
-                  className="p-6 rounded-2xl bg-white border border-black/[0.08] hover:border-black/25 transition-colors space-y-2 group shadow-xs"
-                >
-                  <div className="text-xs font-mono font-bold text-[#09090b] group-hover:text-black transition-colors">
-                    {p.num} // ARCHITECTURE
+          {/* 4 Pillars Bento Grid */}
+          <motion.div
+            variants={staggerContainerVariants}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+          >
+            {pillars.map((p) => (
+              <motion.div
+                key={p.num}
+                variants={fadeUpVariants}
+                className="p-6 sm:p-7 rounded-2xl bg-[#fafafa] border border-black/[0.08] hover:border-black/30 hover:bg-white hover:shadow-lg transition-all duration-200 flex flex-col justify-between space-y-4 group"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-bold text-[#09090b] group-hover:text-black">
+                      {p.num}
+                    </span>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 font-semibold">
+                      {p.category}
+                    </span>
                   </div>
-                  <h4 className="text-base font-bold text-[#09090b]">{p.title}</h4>
-                  <p className="text-xs text-[#71717a] leading-relaxed">{p.desc}</p>
+                  <h3 className="text-base sm:text-lg font-bold text-[#09090b] tracking-tight leading-snug">
+                    {p.title}
+                  </h3>
                 </div>
-              ))}
-            </div>
+                <p className="text-xs sm:text-sm text-[#71717a] leading-relaxed">
+                  {p.desc}
+                </p>
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
       </div>

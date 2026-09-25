@@ -42,33 +42,6 @@ export default function HomePage() {
 
         {/* 7. Executive Operational FAQ */}
         <FaqAccordion />
-
-        {/* 8. Final High-Contrast Monochrome Strategy Call Strip */}
-        <section className="py-24 bg-[#09090b] text-white relative overflow-hidden border-t border-white/10">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.08] border border-white/15 text-xs font-mono font-bold uppercase tracking-wider mx-auto text-zinc-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse inline-block" />
-              <span>Enterprise Operational Readiness</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              Eliminate operational friction with deterministic AI.
-            </h2>
-
-            <p className="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-              Request a live product demonstration and sandbox access with founders Manthan Kachhadiya and Vraj Savani to test NexAgent in your operational environment.
-            </p>
-
-            <div className="pt-4 flex flex-wrap justify-center gap-4">
-              <button
-                onClick={() => setModalOpen(true)}
-                className="w-full sm:w-auto px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#09090b] bg-white hover:bg-zinc-200 active:scale-[0.98] rounded-full shadow-xl transition-all"
-              >
-                Request Live Demo &amp; Sandbox Access
-              </button>
-            </div>
-          </div>
-        </section>
       </main>
 
       {/* Footer */}

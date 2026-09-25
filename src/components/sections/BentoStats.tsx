@@ -17,12 +17,6 @@ interface MetricItem {
 
 const metrics: MetricItem[] = [
   {
-    id: 'modules',
-    value: '15+',
-    label: 'INTEGRATED MODULES',
-    explanation: 'EMR, LIS, RIS, Pharmacy, Billing & CRM',
-  },
-  {
     id: 'triage',
     value: '42%',
     label: 'WAIT TIME REDUCTION',
@@ -38,26 +32,26 @@ const metrics: MetricItem[] = [
     id: 'enforcement',
     value: '100%',
     label: 'POLICY ENFORCEMENT',
-    explanation: 'Hardcoded WebAssembly safety filters',
+    explanation: 'Deterministic WebAssembly safety boundaries',
   },
   {
     id: 'uptime',
     value: '99.9%',
-    label: 'UPTIME SLA',
-    explanation: 'High-availability cloud architecture',
+    label: 'CLOUD UPTIME SLA',
+    explanation: 'High-availability enterprise infrastructure',
   },
 ];
 
 export default function BentoStats() {
   return (
-    <section id="metrics" className="py-14 bg-black border-y border-zinc-800 relative content-visibility-auto">
+    <section id="metrics" className="py-12 lg:py-16 bg-black border-y border-zinc-800 relative content-visibility-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={staggerContainerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-0 divide-y md:divide-y-0 lg:divide-x divide-zinc-800"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-0 lg:divide-x divide-zinc-800"
         >
           {metrics.map((item, idx) => (
             <motion.div
@@ -65,7 +59,7 @@ export default function BentoStats() {
               variants={fadeUpVariants}
               className={`flex flex-col justify-center space-y-1.5 ${
                 idx === 0 ? 'lg:pr-8' : idx === metrics.length - 1 ? 'lg:pl-8' : 'lg:px-8'
-              } pt-4 lg:pt-0`}
+              }`}
             >
               <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
                 {item.value}

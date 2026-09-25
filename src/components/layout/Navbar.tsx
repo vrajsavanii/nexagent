@@ -358,7 +358,7 @@ export default function Navbar({ onOpenStrategyCall, activePath = '/' }: NavbarP
         <div className="flex items-center gap-3">
           <button
             onClick={onOpenStrategyCall}
-            className="btn hidden sm:inline-flex"
+            className="btn hidden md:inline-flex"
             aria-label="Request Live Demo"
           >
             <span className="relative z-10">Request Live Demo</span>

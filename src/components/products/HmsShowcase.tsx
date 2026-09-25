@@ -51,36 +51,25 @@ const products: ProductItem[] = [
     status: 'AVAILABLE',
     statusColor: 'text-zinc-900 bg-zinc-100 border-zinc-300',
     description:
-      'Complete hospital operating system far beyond basic clinic EMRs. Orchestrates outpatient intake queues, automated bed turnover dispatch, EMR/EHR, digital pharmacy formulary, and TPA insurance billing with 100% doctor-in-the-loop safety.',
-    outcome: '35 min average bed turnaround & ABDM/NABH compliance ready',
+      'Complete hospital operating system. Orchestrates outpatient intake queues, automated bed turnover, digital pharmacy, and TPA insurance claims with 100% physician-in-the-loop governance.',
+    outcome: '35 min average bed turnaround & ABDM M1-M3 compliance',
     icon: Stethoscope,
     href: '/products/hms',
     features: [
-      'Automated ESI triage queue load-balancing & zero-wait routing',
-      'Instant housekeeping dispatch on doctor discharge order',
+      'Automated ESI triage queue balancing & zero-wait routing',
+      'Instant housekeeping dispatch upon doctor discharge order',
       'Pre-compiled discharge summaries for 1-click MD sign-off',
-      'Full ABDM (M1, M2, M3) & NABH digital audit compliance',
     ],
     subModules: [
       {
         title: 'Emergency Severity Index (ESI) Triage Router',
-        detail: 'Scores incoming patient vital telemetry and routes emergency cases directly to resuscitation bays.',
+        detail: 'Scores incoming patient vitals and automatically balances emergency care queues.',
         governance: 'Triage Nursing Officer validation on high-acuity assignments',
       },
       {
         title: 'Autonomous Bed Turnover & Environmental Dispatch',
-        detail: 'Detects electronic discharge orders and dispatches cleaning tasks to housekeeping terminals with photo verification.',
+        detail: 'Detects discharge orders and triggers immediate housekeeping with photo verification.',
         governance: 'Sanitation Supervisor inspection approval before bed release',
-      },
-      {
-        title: 'ABDM Health Information Gateway (M1, M2, M3)',
-        detail: 'Directly creates ABHA IDs, links health records, and facilitates consent-driven electronic record exchange.',
-        governance: 'Patient consent verification via secure OTP gateway',
-      },
-      {
-        title: 'TPA Cashless Pre-Authorization Claims Engine',
-        detail: 'Compiles itemized bills, lab diagnostics, and operative notes into insurance claims packages.',
-        governance: 'Medical Billing Superintendent final authorization before claim upload',
       },
     ],
   },
@@ -91,36 +80,25 @@ const products: ProductItem[] = [
     status: 'AVAILABLE',
     statusColor: 'text-zinc-900 bg-zinc-100 border-zinc-300',
     description:
-      'Entirely AI-powered cloud property management system (PMS). Features algorithmic dynamic room pricing, 24/7 autonomous guest concierge (WhatsApp/web/voice), mobile self check-in/out, automated room turnover dispatch, and 2-way OTA synchronization.',
-    outcome: '28% RevPAR increase & 0 min reception queue wait times',
+      'AI-powered cloud property management system. Features algorithmic dynamic room pricing, 24/7 guest concierge over WhatsApp and voice, mobile self check-in, and 2-way OTA sync.',
+    outcome: '28% RevPAR increase & 0 min reception wait times',
     icon: Hotel,
     href: '/products/hospitality',
     features: [
       'Algorithmic dynamic rate optimization maximizing RevPAR',
       '24/7 autonomous guest concierge over WhatsApp & voice',
-      'Real-time room turnover automation triggered upon guest checkout',
-      'Instant 2-way OTA synchronization (Booking, Expedia, Airbnb)',
+      'Instant 2-way OTA synchronization across Booking, Expedia & Airbnb',
     ],
     subModules: [
       {
         title: 'Algorithmic RevPAR Dynamic Rate Optimizer',
-        detail: 'Calculates dynamic room tariffs by analyzing competitor ADR, booking velocity, and city event calendars.',
+        detail: 'Calculates dynamic room tariffs by analyzing competitor ADR and booking velocity.',
         governance: 'Revenue Manager override authorization for special discount limits',
       },
       {
-        title: '24/7 WhatsApp Guest Concierge & Digital Room Key',
-        detail: 'Sends encrypted digital door keys, handles room service orders, and coordinates luggage transfers automatically.',
-        governance: 'Duty Manager verification for complimentary upgrades and billing adjustments',
-      },
-      {
-        title: 'Housekeeping Turnover Roster & Minibar Dispatch',
-        detail: 'Prioritizes cleaning schedules based on incoming VIP check-in times and logs minibar consumption to guest folios.',
-        governance: 'Executive Housekeeper inspection sign-off before room status toggles clean',
-      },
-      {
-        title: 'Bidirectional OTA Channel Manager',
-        detail: 'Synchronizes rates, availability, and inventory across 15+ travel portals with zero double-booking latency.',
-        governance: 'System locks channel sync during inventory reconciliation audits',
+        title: '24/7 WhatsApp Guest Concierge & Digital Key',
+        detail: 'Dispatches digital room keys and coordinates room service requests automatically.',
+        governance: 'Duty Manager verification for complimentary upgrades',
       },
     ],
   },
@@ -131,26 +109,20 @@ const products: ProductItem[] = [
     status: 'AVAILABLE',
     statusColor: 'text-zinc-900 bg-zinc-100 border-zinc-300',
     description:
-      'One unified, comprehensive solution that includes everything out-of-the-box, customized directly to your organization’s exact operational workflows and compliance boundaries.',
+      'One unified platform customized directly to your organization’s operational workflows, synchronizing cross-department data with strict cryptographic approvals.',
     outcome: '82% reduction in cross-tool administrative handoff lag',
     icon: Zap,
     href: '/solutions/workflow-automation',
     features: [
-      'Single battle-tested core platform customized to client workflows',
-      'Bi-directional transactional sync for ERP, CRM & databases',
+      'Two-phase transactional sync for ERP, CRM & databases',
       'In-memory PII/PHI tokenization before reasoning occurs',
-      'Cryptographic human-in-the-loop approval gates',
+      'Deterministic WebAssembly policy rules preventing unauthorized execution',
     ],
     subModules: [
       {
         title: 'Two-Phase Commit Transactional Write Engine',
-        detail: 'Executes synchronized state writes across CRM, ERP, and SQL databases with atomic rollback support.',
+        detail: 'Synchronizes state writes across CRM, ERP, and SQL databases with atomic rollback support.',
         governance: 'Database Administrator approval on schema migration triggers',
-      },
-      {
-        title: 'In-Memory PII/PHI Tokenization Proxy',
-        detail: 'Redacts sensitive identity and financial fields in memory before payloads enter reasoning pipelines.',
-        governance: 'Chief Information Security Officer access policy compliance',
       },
       {
         title: 'Deterministic WebAssembly Policy Gatekeeper',
@@ -166,24 +138,24 @@ const products: ProductItem[] = [
     status: 'ENTERPRISE READY',
     statusColor: 'text-white bg-zinc-900 border-zinc-900',
     description:
-      'Forecasts hospital ward capacity bottlenecks, nurse-to-patient ratios, and hotel occupancy surges 24 to 48 hours in advance, enabling leadership to open surge resources proactively.',
+      'Forecasts hospital ward capacity bottlenecks, nurse-to-patient ratios, and hotel occupancy surges 24 to 48 hours in advance to optimize resource allocation.',
     outcome: 'Proactive capacity planning & shift balancing',
     icon: Clock,
     href: '/technology',
     features: [
       'Localized admission & occupancy surge forecasting',
       'Automated shift-swap and staffing recommendation engine',
-      'Decentralized cross-facility resource ledger and telemetry',
+      'Cross-facility resource ledger and real-time telemetry',
     ],
     subModules: [
       {
         title: 'Admission Surge & Occupancy Predictor',
-        detail: 'Predicts high-occupancy surges 48 hours in advance using historical trends and localized weather/event models.',
+        detail: 'Predicts high-occupancy surges 48 hours in advance using historical trends and localized models.',
         governance: 'Chief Medical Officer / General Manager surge protocol declaration',
       },
       {
         title: 'Automated Shift-Swap & Staff Balancer',
-        detail: 'Recommends optimal nurse-to-patient and front-desk staffing allocations to eliminate overtime overhead.',
+        detail: 'Recommends optimal nurse-to-patient and front-desk staffing allocations.',
         governance: 'Department Nursing Head approval on shift assignments',
       },
     ],
@@ -237,7 +209,7 @@ export default function HmsShowcase({ onOpenStrategyCall }: HmsShowcaseProps) {
               <motion.div
                 key={prod.id}
                 variants={fadeUpVariants}
-                className={`rounded-3xl bg-zinc-50 border border-zinc-200 hover:border-black hover:shadow-xl hover:shadow-black/5 p-8 sm:p-10 transition-all flex flex-col justify-between group ${
+                className={`rounded-3xl bg-zinc-50 border border-zinc-200 hover:border-black hover:shadow-xl hover:shadow-black/5 p-6 sm:p-8 lg:p-10 transition-all flex flex-col justify-between group ${
                   isFeatured ? 'lg:col-span-12 xl:col-span-7' : idx === 1 ? 'lg:col-span-12 xl:col-span-5' : 'lg:col-span-6'
                 }`}
               >

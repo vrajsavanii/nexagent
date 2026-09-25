@@ -192,25 +192,25 @@ export default function FoundersSection() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="lg:hidden space-y-4"
+          className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
           {/* Card 1: Manthan */}
           <motion.div
             variants={fadeUpVariants}
-            className="relative rounded-2xl overflow-hidden shadow-xl min-h-[360px] sm:min-h-[440px]"
+            className="relative rounded-2xl overflow-hidden shadow-xl min-h-[320px] sm:min-h-[380px]"
           >
             <Image
               src="/assets/founder_manthan.webp"
               alt="Manthan Kachhadiya - Founder & CEO"
               fill
-              className="object-cover object-[center_15%] brightness-[0.6] grayscale"
-              sizes="100vw"
+              className="object-cover object-[center_15%] brightness-[0.7] grayscale-0"
+              sizes="(max-width: 640px) 100vw, 50vw"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent pointer-events-none" />
 
             <div className="absolute top-5 left-6 z-10">
-              <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-white/40">01 / ARCHITECTURE</span>
+              <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-[#22d3ee]">01 / ARCHITECTURE</span>
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 z-20 px-6 pb-6 pt-16">
@@ -234,20 +234,20 @@ export default function FoundersSection() {
           {/* Card 2: Vraj */}
           <motion.div
             variants={fadeUpVariants}
-            className="relative rounded-2xl overflow-hidden shadow-xl min-h-[360px] sm:min-h-[440px]"
+            className="relative rounded-2xl overflow-hidden shadow-xl min-h-[320px] sm:min-h-[380px]"
           >
             <Image
               src="/assets/founder_vraj.webp"
               alt="Vraj Savani - Founder & COO"
               fill
-              className="object-cover object-[center_15%] brightness-[0.6] grayscale"
-              sizes="100vw"
+              className="object-cover object-[center_15%] brightness-[0.7] grayscale-0"
+              sizes="(max-width: 640px) 100vw, 50vw"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent pointer-events-none" />
 
             <div className="absolute top-5 left-6 z-10">
-              <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-white/40">02 / OPERATIONS</span>
+              <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-[#22d3ee]">02 / OPERATIONS</span>
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 z-20 px-6 pb-6 pt-16">

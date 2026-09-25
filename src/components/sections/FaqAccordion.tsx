@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
+import Eyebrow from '@/components/ui/Eyebrow';
 import {
   fadeUpVariants,
   staggerContainerVariants,
@@ -66,17 +67,16 @@ export default function FaqAccordion() {
           viewport={viewportConfig}
           className="text-center max-w-2xl mx-auto mb-14 space-y-4"
         >
-          <motion.div variants={fadeUpVariants} className="status-badge-pill mx-auto">
-            <span className="pulse-dot" />
-            <span>Frequently Asked Questions</span>
+          <motion.div variants={fadeUpVariants} className="flex justify-center">
+            <Eyebrow>Frequently Asked Questions</Eyebrow>
           </motion.div>
           <motion.h2
             variants={fadeUpVariants}
-            className="text-3xl sm:text-4xl font-extrabold text-[#0f1117] tracking-tight"
+            className="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight"
           >
             Clear answers for operational leaders.
           </motion.h2>
-          <motion.p variants={fadeUpVariants} className="text-base text-[#4a5568]">
+          <motion.p variants={fadeUpVariants} className="text-base text-zinc-600">
             Everything you need to know about our deterministic architecture, safety protocols, and deployment.
           </motion.p>
         </motion.div>

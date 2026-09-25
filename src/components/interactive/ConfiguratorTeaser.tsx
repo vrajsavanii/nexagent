@@ -47,28 +47,28 @@ export default function ConfiguratorTeaser({ onOpenStrategyCall }: ConfiguratorT
             </motion.h2>
 
             <motion.p variants={fadeUpVariants} className="text-base text-zinc-400 max-w-xl leading-relaxed">
-              Every hospital, resort, and enterprise has unique departmental hand-offs. Use our interactive architect to customize deterministic ingestion feeds, policy boundaries, and mandatory human sign-off gates for your facility.
+              Every facility has distinct departmental hand-offs. Use our interactive architect to configure custom ingestion feeds, policy boundaries, and mandatory human sign-off gates.
             </motion.p>
 
-            <motion.div variants={fadeUpVariants} className="space-y-3 pt-2">
+            <motion.div variants={fadeUpVariants} className="space-y-2.5 pt-1">
               <div className="flex items-center gap-3 text-xs sm:text-sm text-zinc-300">
                 <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
-                <span>6 Industry Workflows (Healthcare, Hospitality, B2B, Retail, Legal, Fintech)</span>
+                <span>6 Industry Blueprints (Healthcare, Hospitality, B2B, Retail, Legal, Fintech)</span>
               </div>
               <div className="flex items-center gap-3 text-xs sm:text-sm text-zinc-300">
                 <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
-                <span>Dynamic 4-Tier Deterministic Execution Blueprint generated live</span>
+                <span>Deterministic 4-Tier Blueprint generated in real-time</span>
               </div>
               <div className="flex items-center gap-3 text-xs sm:text-sm text-zinc-300">
                 <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
-                <span>Direct pilot onboarding with founders Manthan Kachhadiya &amp; Vraj Savani</span>
+                <span>Pilot onboarding directly with founders Manthan Kachhadiya &amp; Vraj Savani</span>
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUpVariants} className="pt-4 flex flex-wrap items-center gap-4">
+            <motion.div variants={fadeUpVariants} className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
               <Link
                 href="/setup"
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#09090b] font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-zinc-200 transition-all shadow-lg group"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-white text-[#09090b] font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-zinc-200 transition-all shadow-lg group"
               >
                 <span>Launch Interactive Architect</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

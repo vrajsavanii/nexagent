@@ -36,19 +36,19 @@ export default function Footer({ onOpenStrategyCall }: FooterProps) {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full sm:w-auto">
             {onOpenStrategyCall && (
               <button
                 onClick={onOpenStrategyCall}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[#09090b] font-bold text-sm hover:bg-zinc-200 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-[#09090b] font-bold text-sm hover:bg-zinc-200 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
               >
-                Request Live Demo
+                <span>Request Live Demo</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             )}
             <Link
               href="/setup"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/[0.06] text-white font-semibold text-sm border border-white/[0.12] hover:bg-white/[0.10] transition-all"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/[0.06] text-white font-semibold text-sm border border-white/[0.12] hover:bg-white/[0.10] transition-all"
             >
               Solution Architect
             </Link>

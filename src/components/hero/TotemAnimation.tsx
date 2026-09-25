@@ -51,7 +51,7 @@ export default function TotemAnimation({ activeLayer, onSelectLayer }: TotemAnim
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full max-w-[500px] h-[520px] sm:h-[620px] md:h-[680px] flex items-center justify-center select-none transition-transform duration-300 ease-out will-change-transform"
+      className="relative w-full max-w-[420px] h-[300px] sm:h-[400px] lg:h-[460px] flex items-center justify-center select-none transition-transform duration-300 ease-out will-change-transform"
       style={{
         transform: 'perspective(1200px) rotateY(0deg) rotateX(0deg)',
       }}
